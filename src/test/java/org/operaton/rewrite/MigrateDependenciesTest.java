@@ -48,4 +48,45 @@ public class MigrateDependenciesTest implements RewriteTest {
             </project>
             """)));
     }
+
+    @Test
+    void migrateCamundaEngineWithVersionInProperty() {
+        rewriteRun(
+          mavenProject("project", pomXml(
+            """
+            <project>
+               <groupId>org.operaton.test</groupId>
+               <artifactId>test-app</artifactId>
+               <version>1</version>
+               <properties>
+                 <camunda.version>7.22.0</camunda.version>
+               </properties>
+               <dependencies>
+                 <dependency>
+                   <groupId>org.camunda.bpm</groupId>
+                   <artifactId>camunda-engine</artifactId>
+                   <version>${camunda.version}</version>
+                 </dependency>
+               </dependencies>
+           </project>
+           """,
+
+            """
+             <project>
+                <groupId>org.operaton.test</groupId>
+                <artifactId>test-app</artifactId>
+                <version>1</version>
+               <properties>
+                 <camunda.version>1.0.0-beta-1</camunda.version>
+               </properties>
+                <dependencies>
+                  <dependency>
+                    <groupId>org.operaton.bpm</groupId>
+                    <artifactId>operaton-engine</artifactId>
+                    <version>${camunda.version}</version>
+                  </dependency>
+                </dependencies>
+            </project>
+            """)));
+    }
 }
