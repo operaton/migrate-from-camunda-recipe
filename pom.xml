@@ -192,7 +192,7 @@
                                 <artifactItem>
                                     <groupId>junit</groupId>
                                     <artifactId>junit</artifactId>
-                                    <version>3.8.1</version>
+                                    <version>4.13.2</version>
                                 </artifactItem>
                             </artifactItems>
                             <outputDirectory>${project.basedir}/src/main/resources/META-INF/rewrite/classpath</outputDirectory>
