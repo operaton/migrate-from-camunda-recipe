@@ -26,4 +26,13 @@ recipeList:
       newVersion: 1.0.0-beta-1
       oldArtifactId: camunda-engine
       newArtifactId: operaton-engine
+      versionPattern: '^7\..*$'
+  - org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId:
+        oldGroupId: org.camunda.bpm
+        newGroupId: org.operaton.bpm
+        newVersion: 1.0.0-beta-1
+        changeManagedDependency: true
+        oldArtifactId: camunda-bom
+        newArtifactId: operaton-bom
+        versionPattern: '^7\..*$'
 
