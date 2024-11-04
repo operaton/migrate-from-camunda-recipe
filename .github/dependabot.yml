@@ -1,9 +1,7 @@
 ---
 version: 2
 updates:
-  - package-ecosystem: github-actions
-    directory: /
+  - package-ecosystem: "maven" # See documentation for possible values
+    directory: "/" # Location of package manifests
     schedule:
-      interval: weekly
-    commit-message:
-      prefix: "chore(ci)"
+      interval: "weekly"
