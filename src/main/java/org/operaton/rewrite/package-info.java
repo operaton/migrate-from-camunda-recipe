@@ -15,6 +15,6 @@
  */
 @NullMarked
 @NonNullFields
-package com.yourorg;
+package org.operaton.rewrite;
 import org.jspecify.annotations.NullMarked;
 import org.openrewrite.internal.lang.NonNullFields;
