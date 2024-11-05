@@ -28,3 +28,16 @@ jobs:
           java-version: 17
       - name: verify
         run: mvn --show-version --no-transfer-progress --update-snapshots --fail-at-end --batch-mode -Dstyle.color=always verify
+      - name: Publish Test Report
+        if: always()
+        uses: mikepenz/action-junit-report@v4 #https://github.com/marketplace/actions/junit-report-action
+        with:
+          report_paths: ${{ github.workspace }}/**/target/surefire-reports/*.xml
+          require_passed_tests: true
+      - name: Upload Surefire Reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: surefire-reports
+          path: ${{ github.workspace }}/**/target/surefire-reports/**
+          retention-days: 30
