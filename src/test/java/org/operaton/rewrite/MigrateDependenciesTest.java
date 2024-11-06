@@ -1,7 +1,6 @@
 package org.operaton.rewrite;
 
 import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openrewrite.test.RecipeSpec;
 import org.openrewrite.test.RewriteTest;
@@ -52,7 +51,7 @@ public class MigrateDependenciesTest implements RewriteTest {
     }
 
     @Test
-    @Disabled
+    @Disabled("Solve in a separate issue #13")
     void migrateCamundaEngineWithVersionInProperty() {
         rewriteRun(
           mavenProject("project", pomXml(
