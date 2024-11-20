@@ -1,10 +1,10 @@
 package org.operaton.rewrite;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.openrewrite.test.RecipeSpec;
 import org.openrewrite.test.RewriteTest;
 
+import static org.openrewrite.gradle.Assertions.buildGradle;
 import static org.openrewrite.java.Assertions.mavenProject;
 import static org.openrewrite.maven.Assertions.pomXml;
 
@@ -16,7 +16,7 @@ public class MigrateDependenciesTest implements RewriteTest {
     }
 
     @Test
-    void migrateCamundaEngine() {
+    void migrateCamundaEngineMaven() {
         rewriteRun(
           mavenProject("project", pomXml(
             """
@@ -50,4 +50,82 @@ public class MigrateDependenciesTest implements RewriteTest {
             """)));
     }
 
+    @Test
+    void migrateCamundaEngineWithManagedVersionMaven() {
+        rewriteRun(
+          mavenProject("project", pomXml(
+            //language=xml
+            """
+            <project>
+               <groupId>org.operaton.test</groupId>
+               <artifactId>test-app</artifactId>
+               <version>1</version>
+               <dependencyManagement>
+                 <dependencies>
+                   <dependency>
+                     <groupId>org.camunda.bpm</groupId>
+                     <artifactId>camunda-bom</artifactId>
+                     <version>7.22.0</version>
+                     <scope>import</scope>
+                     <type>pom</type>
+                   </dependency>
+                 </dependencies>
+               </dependencyManagement>
+               <dependencies>
+                 <dependency>
+                   <groupId>org.camunda.bpm</groupId>
+                   <artifactId>camunda-engine</artifactId>
+                 </dependency>
+               </dependencies>
+           </project>
+           """,
+
+            //language=xml
+            """
+            <project>
+               <groupId>org.operaton.test</groupId>
+               <artifactId>test-app</artifactId>
+               <version>1</version>
+               <dependencyManagement>
+                 <dependencies>
+                   <dependency>
+                     <groupId>org.operaton.bpm</groupId>
+                     <artifactId>operaton-bom</artifactId>
+                     <version>1.0.0-beta-1</version>
+                     <scope>import</scope>
+                     <type>pom</type>
+                   </dependency>
+                 </dependencies>
+               </dependencyManagement>
+               <dependencies>
+                 <dependency>
+                   <groupId>org.operaton.bpm</groupId>
+                   <artifactId>operaton-engine</artifactId>
+                 </dependency>
+               </dependencies>
+           </project>
+           """)));
+    }
+
+    @Test
+    void migrateCamundaEngineGradle() {
+        rewriteRun(
+          //language=groovy
+          buildGradle("""
+              dependencies {
+                  implementation 'org.camunda.bpm:camunda-engine:7.22.0'
+              }
+              """,
+            """
+              plugins {
+                  id "java-library"
+              }
+              repositories {
+                  mavenCentral()
+              }
+              dependencies {
+                  implementation 'org.operaton.bpm:operaton-engine:1.0.0-beta-1'
+              }
+              """));
+    }
 }
