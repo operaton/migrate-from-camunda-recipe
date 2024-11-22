@@ -22,6 +22,7 @@ on:
 jobs:
   precheck:
     name: Precheck
+    description: 'Evaluate the release version, set it in the project and commit the change'
     runs-on: ubuntu-latest
     outputs:
       is_prerelease: fromJSON(${{steps.version.outputs.is_prerelease}})
@@ -73,7 +74,11 @@ jobs:
           cache: maven
 
       - name: Maven Build
-        run: ./mvnw clean verify
+        env:
+          JRELEASER_PRERELEASE_ENABLED: ${{needs.precheck.outputs.is_prerelease}}
+        run: |
+          echo "JRELEASER_PRERELEASE_ENABLE: $JRELEASER_PRERELEASE_ENABLED"
+          ./mvnw clean verify
 
       - name: Release with JReleaser
         uses: jreleaser/release-action@v2
