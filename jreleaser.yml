@@ -3,9 +3,11 @@ project:
   description: An Open Rewrite Recipe to migrate a Camunda 7 Instance to Operaton
   links:
     homepage: https://operaton.org
-    forum: https://forum.operaton.org/
-    issues: https://{{repoHost}}/{{repoOwner}}/{{repoName}}/issues
+    help: https://forum.operaton.org/
+    bugTracker: https://{{repoHost}}/{{repoOwner}}/{{repoName}}/issues
     license: https://github.com/operaton/operaton/blob/main/LICENSE
+    contact: mail (at) operaton.org
+    contribute: https://{{repoHost}}/{{repoOwner}}/{{repoName}}/blob/main/CONTRIBUTING.md
   inceptionYear: 2024
   vendor: Operaton
   java:
