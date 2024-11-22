@@ -33,7 +33,7 @@ jobs:
           distribution: zulu
           java-version: 17
       - name: verify
-        run: mvn --show-version --no-transfer-progress --update-snapshots --fail-at-end --batch-mode -Dstyle.color=always verify
+        run: ./mvnw verify
       - name: Publish Test Report
         if: always()
         uses: mikepenz/action-junit-report@v4 #https://github.com/marketplace/actions/junit-report-action

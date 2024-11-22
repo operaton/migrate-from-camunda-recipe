@@ -20,7 +20,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Maven Build
-        run: mvn clean verify
+        run: ./mvnw clean verify
 
       - name: Release with JReleaser
         env:
@@ -34,6 +34,6 @@ jobs:
 
       - name: Set next development version
         run: |
-          mvn versions:set -DnewVersion=${{ github.event.inputs.next_version }}
+          ./mvnw versions:set -DnewVersion=${{ github.event.inputs.next_version }}
           git commit -am "[releng] Prepare for next development iteration ${{ github.event.inputs.next_version }}"
           git push origin main
