@@ -21,7 +21,7 @@ jobs:
     name: Precheck
     runs-on: ubuntu-latest
     outputs:
-      version: ${{steps.vars.outputs.VERSION}}
+      version: ${{steps.vars.outputs.RELEASE_VERSION}}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -34,7 +34,7 @@ jobs:
         shell: bash
         run: |
           RELEASE_VERSION=$(./mvnw help:evaluate -Dexpression=project.version -q -DforceStdout |tail -n 1 | sed -e 's/-SNAPSHOT//')
-          echo "$RELEASE_VERSION" >> $GITHUB_OUTPUT
+          echo "$RELEASE_VERSION" >> $GITHUB_ENV
           echo "⚙ Releasing version $RELEASE_VERSION"
           ./mvnw versions:set -DnewVersion=$RELEASE_VERSION
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
