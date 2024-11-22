@@ -1,16 +1,32 @@
 project:
   name: Operaton - Migrate from Camunda Recipe
   description: An Open Rewrite Recipe to migrate a Camunda 7 Instance to Operaton
-  version: @release.version@
+  links:
+    homepage: https://operaton.org
+    forum: https://forum.operaton.org/
+    issues: https://{{repoHost}}/{{repoOwner}}/{{repoName}}/issues
+    license: https://github.com/operaton/operaton/blob/main/LICENSE
+  inceptionYear: 2024
+  vendor: Operaton
+  java:
+    groupId: org.operaton
+    version: 17
+    multiProject: false
+  tags:
+    - 'operaton'
+    - 'bpmn'
+    - 'process automation'
+    - 'java'
 
 release:
   # https://jreleaser.org/guide/latest/reference/release/github.html
   github:
+    overwrite: true
+    sign: true
     owner: operaton
     repo: {{repoName}}
-    token: {{ secrets.GITHUB_TOKEN }}
+    token: {{secrets.GITHUB_TOKEN}}
     draft: false
-    overwrite: false
     skip_tag: false
     releaseName: Release {{tagName}}
     prerelease:
@@ -74,12 +90,15 @@ changelog:
 
 catalog:
   sbom:
-    active: ALWAYS
+    syft:
+      active: ALWAYS
+      pack:
+        enabled: true
 
 signing:
   active: ALWAYS
   armored: true
   # valid until 2027-10-16
-  passphrase: {{ secrets.GPG_PASSPHRASE }}
-  publicKey: {{ secrets.GPG_PUBLIC_KEY }}
-  secretKey: {{ secrets.GPG_SECRET_KEY }}
+  passphrase: {{secrets.GPG_PASSPHRASE}}
+  publicKey: {{secrets.GPG_PUBLIC_KEY}}
+  secretKey: {{secrets.GPG_SECRET_KEY}}
