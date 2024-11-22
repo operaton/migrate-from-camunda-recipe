@@ -4,8 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       next_version:
-        description: 'The next development version to set (append -SNAPSHOT suffix)'
+        description: 'The next development version to set (without -SNAPSHOT suffix)'
         required: true
+        default: '1.0.0-alpha-2'
       dry_run:
         description: 'Dry-Run: Skips remote operations when true'
         type: boolean
@@ -72,10 +73,10 @@ jobs:
 
       - name: Set next development version
         run: |
-          ./mvnw versions:set -DnewVersion=${{ github.event.inputs.next_version }}
+          ./mvnw versions:set -DnewVersion=${{ github.event.inputs.next_version }}-SNAPSHOT
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git commit -am "[releng] Bump version to ${{ github.event.inputs.next_version }}"
+          git commit -am "[releng] Bump version to ${{ github.event.inputs.next_version }}"-SNAPSHOT
           git push origin main
 
       - name: JReleaser release output
