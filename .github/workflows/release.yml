@@ -6,6 +6,11 @@ on:
       next_version:
         description: 'The next development version to set'
         required: true
+      dry_run:
+        description: 'Skips remote operations when true'
+        type: boolean
+        required: true
+        default: false
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -30,7 +35,7 @@ jobs:
           JRELEASER_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
           JRELEASER_MAVENCENTRAL_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           JRELEASER_MAVENCENTRAL_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
-        run: jreleaser release --distribution recipe
+        run: ./mvnw -Prelease jreleaser:full-release --dryrun=${{ github.event.inputs.dry_run }}
 
       - name: Set next development version
         run: |
