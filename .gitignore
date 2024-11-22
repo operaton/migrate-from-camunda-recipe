@@ -6,3 +6,4 @@ out/
 src/main/generated/
 .vscode/
 *.iml
+/pom.xml.versionsBackup
