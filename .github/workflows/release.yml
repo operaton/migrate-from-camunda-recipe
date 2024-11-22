@@ -29,7 +29,7 @@ jobs:
         shell: bash
         run: |
           RELEASE_VERSION=$(./mvnw help:evaluate -Dexpression=project.version -q -DforceStdout |tail -n 1 | sed -e 's/-SNAPSHOT//')
-          echo "RELEASE_VERSION" >> $GITHUB_OUTPUT
+          echo "$RELEASE_VERSION" >> $GITHUB_OUTPUT
           echo "⚙ Releasing version $RELEASE_VERSION"
           ./mvnw versions:set -DnewVersion=$RELEASE_VERSION
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
