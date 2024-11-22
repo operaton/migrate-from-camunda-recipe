@@ -24,7 +24,7 @@ jobs:
     name: Precheck
     runs-on: ubuntu-latest
     outputs:
-      is_prerelease: fromJSON(${{steps.version.outputs.is_prerelease}})
+      is_prerelease: ${{steps.version.outputs.is_prerelease}}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
