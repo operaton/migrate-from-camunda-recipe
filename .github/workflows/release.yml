@@ -22,7 +22,6 @@ on:
 jobs:
   precheck:
     name: Precheck
-    description: 'Evaluate the release version, set it in the project and commit the change'
     runs-on: ubuntu-latest
     outputs:
       is_prerelease: fromJSON(${{steps.version.outputs.is_prerelease}})
