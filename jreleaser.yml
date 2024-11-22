@@ -26,7 +26,6 @@ release:
     overwrite: true
     sign: true
     owner: operaton
-    token: {{secrets.GITHUB_TOKEN}}
     draft: false
     skip_tag: false
     releaseName: Release {{tagName}}
