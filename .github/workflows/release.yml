@@ -6,7 +6,7 @@ on:
       release_branch:
         description: 'The branch to release from'
         required: true
-        default: 'main'
+        default: 'build/setup-release-process'
       next_version:
         description: 'The next development version to set (without -SNAPSHOT suffix)'
         required: true
