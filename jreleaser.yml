@@ -1,0 +1,68 @@
+project:
+  name: operaton
+  description: Operaton - The open source process engine
+  version: @release.version@
+
+release:
+  github:
+    owner: operaton
+    repo: operaton
+    token: {{ secrets.GITHUB_TOKEN }}
+    draft: false
+    overwrite: false
+    skip_tag: false
+
+distributions:
+  maven:
+    group_id: org.operaton
+    artifact_id: migrate-camunda-recipe
+
+checksum:
+  algorithms: [SHA-256, SHA-512]
+
+# https://jreleaser.org/guide/latest/examples/maven/maven-central.html
+deploy:
+  maven:
+    nexus2:
+      maven-central:
+        active: ALWAYS
+        url: https://s01.oss.sonatype.org/service/local
+        snapshotUrl: https://s01.oss.sonatype.org/content/repositories/snapshots/
+        closeRepository: true
+        releaseRepository: false
+        stagingRepositories:
+          - target/staging-deploy
+
+packagers:
+  maven:
+    active: release
+    deployer:
+      repository: mavenCentral
+      url: https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/
+      username: {{ secrets.OSSRH_USERNAME }}
+      password: {{ secrets.OSSRH_PASSWORD }}
+
+changelog:
+  enabled: true
+  sort: ASC
+  preset: conventional-commits
+  categories:
+    - title: "Features"
+      labels: ["enhancement", "feature"]
+    - title: "Bug Fixes"
+      labels: ["bug"]
+    - title: "Documentation"
+      labels: ["docs", "documentation"]
+
+catalog:
+  sbom:
+    active: ALWAYS
+
+
+signing:
+  active: RELEASE
+  armored: true
+  passphrase: {{ secrets.GPG_PASSPHRASE }}
+  # valid until 2027-10-16
+  publicKey: {{ secrets.GPG_PUBLIC_KEY }}
+  secretKey: {{ secrets.GPG_SECRET_KEY }}
