@@ -9,6 +9,11 @@ project:
     contact: mail (at) operaton.org
     contribute: https://{{repoHost}}/{{repoOwner}}/{{repoName}}/blob/main/CONTRIBUTING.md
   inceptionYear: 2024
+  copyright: ©️2024 Operaton
+  license: Apache-2.0
+  authors:
+    - Tim Zöller
+    - Karsten Thoms
   vendor: Operaton
   java:
     groupId: org.operaton
@@ -19,6 +24,10 @@ project:
     - 'bpmn'
     - 'process automation'
     - 'java'
+
+platform:
+  replacements:
+    aarch_64: aarch64
 
 release:
   # https://jreleaser.org/guide/latest/reference/release/github.html

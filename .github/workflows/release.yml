@@ -24,6 +24,7 @@ jobs:
     name: Precheck
     runs-on: ubuntu-latest
     outputs:
+      version: ${{steps.version.outputs.version}}
       is_prerelease: ${{steps.version.outputs.is_prerelease}}
     steps:
       - name: Checkout
@@ -37,6 +38,7 @@ jobs:
         shell: bash
         run: |
           RELEASE_VERSION=$(./mvnw help:evaluate -Dexpression=project.version -q -DforceStdout | tail -n 1 | sed -e 's/-SNAPSHOT//')
+          echo "version=$RELEASE_VERSION" >> $GITHUB_OUTPUT
           if [[ "$RELEASE_VERSION" == *"alpha"* || "$RELEASE_VERSION" == *"beta"* ]]; then
             echo "⚙ Releasing version $RELEASE_VERSION (Pre-Release)"
             echo "is_prerelease=true" >> $GITHUB_OUTPUT
