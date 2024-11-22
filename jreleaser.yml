@@ -29,7 +29,8 @@ distributions:
       - path: migrate-camunda-recipe-{{projectVersion}}.jar
 
 checksum:
-  algorithms: [ SHA-256, SHA-512 ]
+  active: ALWAYS
+  algorithms: SHA-256
 
 # https://jreleaser.org/guide/latest/examples/maven/maven-central.html
 deploy:
@@ -43,6 +44,7 @@ deploy:
         releaseRepository: false
         stagingRepositories:
           - target/staging-deploy
+        applyMavenCentralRules: true
 
 changelog:
   enabled: true
@@ -53,7 +55,6 @@ changelog:
   preset: conventional-commits
   categories:
     - title: '🚀 Features'
-      # Used for identifying the category
       key: 'features'
       labels:
         - 'feature'
@@ -61,27 +62,24 @@ changelog:
       order: 1
     - title: '🐛 Bug Fixes'
       key: 'fixes'
-      # You may override the format per category.
       labels:
         - 'bug'
         - 'fix'
       order: 2
     - title: '📖 Documentation'
       key: 'documentation'
-      # You may override the format per category.
       labels:
-        - 'documenation'
+        - 'documentation'
       order: 3
 
 catalog:
   sbom:
     active: ALWAYS
 
-
 signing:
-  active: RELEASE
+  active: ALWAYS
   armored: true
-  passphrase: { { secrets.GPG_PASSPHRASE } }
   # valid until 2027-10-16
-  publicKey: { { secrets.GPG_PUBLIC_KEY } }
-  secretKey: { { secrets.GPG_SECRET_KEY } }
+  passphrase: {{ secrets.GPG_PASSPHRASE }}
+  publicKey: {{ secrets.GPG_PUBLIC_KEY }}
+  secretKey: {{ secrets.GPG_SECRET_KEY }}
