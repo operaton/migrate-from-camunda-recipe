@@ -34,10 +34,12 @@ jobs:
           RELEASE_VERSION=$(./mvnw help:evaluate -Dexpression=project.version -q -DforceStdout |tail -n 1 | sed -e 's/-SNAPSHOT//')
           echo "⚙ Releasing version $RELEASE_VERSION"
           ./mvnw versions:set -DnewVersion=$RELEASE_VERSION
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git commit -am "[releng] Releasing version $RELEASE_VERSION" 
-          git push origin ${{github.event.inputs.release_branch}}
+          if ! git diff-index --quiet HEAD --; then
+            git config --local user.email "github-actions[bot]@users.noreply.github.com"
+            git config --local user.name "github-actions[bot]"
+            git commit -am "[releng] Releasing version $RELEASE_VERSION"
+            git push origin ${{github.event.inputs.release_branch}}
+          fi
 
   release:
     name: Release
@@ -77,7 +79,9 @@ jobs:
       - name: Set next development version
         run: |
           ./mvnw versions:set -DnewVersion=${{github.event.inputs.next_version}}-SNAPSHOT
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git commit --allow-empty -am "[releng] Bump version to ${{github.event.inputs.next_version}}"-SNAPSHOT
-          git push origin ${{github.event.inputs.release_branch}}
+          if ! git diff-index --quiet HEAD --; then
+            git config --local user.email "github-actions[bot]@users.noreply.github.com"
+            git config --local user.name "github-actions[bot]"
+            git commit --allow-empty -am "[releng] Bump version to ${{github.event.inputs.next_version}}"-SNAPSHOT
+            git push origin ${{github.event.inputs.release_branch}}
+          fi
