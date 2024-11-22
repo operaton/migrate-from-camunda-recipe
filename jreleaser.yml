@@ -101,7 +101,3 @@ catalog:
 signing:
   active: ALWAYS
   armored: true
-  # valid until 2027-10-16
-  passphrase: {{secrets.GPG_PASSPHRASE}}
-  publicKey: {{secrets.GPG_PUBLIC_KEY}}
-  secretKey: {{secrets.GPG_SECRET_KEY}}
