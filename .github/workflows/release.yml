@@ -77,9 +77,7 @@ jobs:
       - name: Maven Build
         env:
           JRELEASER_PRERELEASE_ENABLED: ${{needs.precheck.outputs.is_prerelease}}
-        run: |
-          echo "JRELEASER_PRERELEASE_ENABLE: $JRELEASER_PRERELEASE_ENABLED"
-          ./mvnw clean verify
+        run: ./mvnw clean verify
 
       - name: Release with JReleaser
         uses: jreleaser/release-action@v2
@@ -87,8 +85,8 @@ jobs:
           JRELEASER_PROJECT_VERSION: ${{needs.precheck.outputs.version}}
           JRELEASER_GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           JRELEASER_GPG_PUBLIC_KEY: ${{secrets.GPG_PUBLIC_KEY}}
-          JRELEASER_GPG_SECRET_KEY: ${{secrets.GPG_SECRET_KEY}}
-          JRELEASER_GPG_PASSPHRASE: ${{secrets.GPG_PASSPHRASE}}
+          JRELEASER_GPG_SECRET_KEY: ${{secrets.GPG_PRIVATE_KEY}}
+          JRELEASER_GPG_PASSPHRASE: ""
           JRELEASER_MAVENCENTRAL_USERNAME: ${{secrets.OSSRH_USERNAME}}
           JRELEASER_MAVENCENTRAL_PASSWORD: ${{secrets.OSSRH_PASSWORD}}
           JRELEASER_DRY_RUN: ${{github.event.inputs.dry_run}}
