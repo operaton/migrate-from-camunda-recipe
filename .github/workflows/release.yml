@@ -36,7 +36,7 @@ jobs:
           ./mvnw versions:set -DnewVersion=$RELEASE_VERSION
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git commit -am "[releng] Releasing version $RELEASE_VERSION"
+          git commit -am "[releng] Releasing version $RELEASE_VERSION" 
           git push origin ${{github.event.inputs.release_branch}}
 
   release:
