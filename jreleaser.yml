@@ -46,8 +46,9 @@ distributions:
       - path: migrate-camunda-recipe-{{projectVersion}}.jar
 
 checksum:
-  active: ALWAYS
-  algorithms: SHA-256
+  algorithms:
+    - MD5
+    - SHA-256
 
 # https://jreleaser.org/guide/latest/examples/maven/maven-central.html
 deploy:
