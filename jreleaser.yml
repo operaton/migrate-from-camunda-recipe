@@ -6,19 +6,19 @@ project:
 release:
   github:
     owner: operaton
-    repo: operaton
-    token: {{ secrets.GITHUB_TOKEN }}
+    repo: migrate-from-camunda-recipe
+    token: { { secrets.GITHUB_TOKEN } }
     draft: false
     overwrite: false
     skip_tag: false
 
 distributions:
-  maven:
-    group_id: org.operaton
-    artifact_id: migrate-camunda-recipe
+  recipe:
+    artifacts:
+      - path: migrate-camunda-recipe-{{projectVersion}}.jar
 
 checksum:
-  algorithms: [SHA-256, SHA-512]
+  algorithms: [ SHA-256, SHA-512 ]
 
 # https://jreleaser.org/guide/latest/examples/maven/maven-central.html
 deploy:
@@ -33,26 +33,34 @@ deploy:
         stagingRepositories:
           - target/staging-deploy
 
-packagers:
-  maven:
-    active: release
-    deployer:
-      repository: mavenCentral
-      url: https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/
-      username: {{ secrets.OSSRH_USERNAME }}
-      password: {{ secrets.OSSRH_PASSWORD }}
-
 changelog:
   enabled: true
   sort: ASC
+  links: true
+  skipMergeCommits: true
+  formatted: ALWAYS
   preset: conventional-commits
   categories:
-    - title: "Features"
-      labels: ["enhancement", "feature"]
-    - title: "Bug Fixes"
-      labels: ["bug"]
-    - title: "Documentation"
-      labels: ["docs", "documentation"]
+    - title: '🚀 Features'
+      # Used for identifying the category
+      key: 'features'
+      labels:
+        - 'feature'
+        - 'enhancement'
+      order: 1
+    - title: '🐛 Bug Fixes'
+      key: 'fixes'
+      # You may override the format per category.
+      labels:
+        - 'bug'
+        - 'fix'
+      order: 2
+    - title: '📖 Documentation'
+      key: 'documentation'
+      # You may override the format per category.
+      labels:
+        - 'documenation'
+      order: 3
 
 catalog:
   sbom:
@@ -62,7 +70,7 @@ catalog:
 signing:
   active: RELEASE
   armored: true
-  passphrase: {{ secrets.GPG_PASSPHRASE }}
+  passphrase: { { secrets.GPG_PASSPHRASE } }
   # valid until 2027-10-16
-  publicKey: {{ secrets.GPG_PUBLIC_KEY }}
-  secretKey: {{ secrets.GPG_SECRET_KEY }}
+  publicKey: { { secrets.GPG_PUBLIC_KEY } }
+  secretKey: { { secrets.GPG_SECRET_KEY } }
