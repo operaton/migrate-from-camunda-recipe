@@ -27,8 +27,8 @@ release:
     sign: true
     owner: operaton
     draft: false
-    skip_tag: false
-    releaseName: Release {{tagName}}
+    skipTag: false
+    releaseName: Operaton {{tagName}}
     prerelease:
       enabled: true
     commitAuthor:
