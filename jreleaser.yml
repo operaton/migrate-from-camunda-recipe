@@ -1,16 +1,27 @@
 project:
-  name: operaton
-  description: Operaton - The open source process engine
+  name: Operaton - Migrate from Camunda Recipe
+  description: An Open Rewrite Recipe to migrate a Camunda 7 Instance to Operaton
   version: @release.version@
 
 release:
+  # https://jreleaser.org/guide/latest/reference/release/github.html
   github:
     owner: operaton
-    repo: migrate-from-camunda-recipe
-    token: { { secrets.GITHUB_TOKEN } }
+    repo: {{repoName}}
+    token: {{ secrets.GITHUB_TOKEN }}
     draft: false
     overwrite: false
     skip_tag: false
+    releaseName: Release {{tagName}}
+    prerelease:
+      enabled: true
+    commitAuthor:
+      name: github-actions[bot]
+      email: github-actions[bot]@users.noreply.github.com
+    issues:
+      enabled: true
+      comment: '🎉 This issue has been resolved in `{{tagName}}` ([Release Notes]({{releaseNotesUrl}}))'
+      applyMilestone: ALWAYS
 
 distributions:
   recipe:
