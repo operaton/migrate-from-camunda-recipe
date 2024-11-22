@@ -20,6 +20,8 @@ jobs:
   precheck:
     name: Precheck
     runs-on: ubuntu-latest
+    outputs:
+      is_prerelease: ${{ steps.version.outputs.is_prerelease }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -28,16 +30,16 @@ jobs:
           ref: ${{github.event.inputs.release_branch}}
 
       - name: Version
-        id: vars
+        id: version
         shell: bash
         run: |
-          RELEASE_VERSION=$(./mvnw help:evaluate -Dexpression=project.version -q -DforceStdout |tail -n 1 | sed -e 's/-SNAPSHOT//')
+          RELEASE_VERSION=$(./mvnw help:evaluate -Dexpression=project.version -q -DforceStdout | tail -n 1 | sed -e 's/-SNAPSHOT//')
           if [[ "$RELEASE_VERSION" == *"alpha"* || "$RELEASE_VERSION" == *"beta"* ]]; then
             echo "⚙ Releasing version $RELEASE_VERSION (Pre-Release)"
-            echo "IS_PRERELEASE=true" >> $GITHUB_ENV
+            echo "::set-output name=is_prerelease::true"
           else
             echo "⚙ Releasing version $RELEASE_VERSION"
-            echo "IS_PRERELEASE=false" >> $GITHUB_ENV
+            echo "::set-output name=is_prerelease::false"
           fi
           ./mvnw versions:set -DnewVersion=$RELEASE_VERSION
           if ! git diff-index --quiet HEAD --; then
@@ -81,6 +83,7 @@ jobs:
           JRELEASER_MAVENCENTRAL_USERNAME: ${{secrets.OSSRH_USERNAME}}
           JRELEASER_MAVENCENTRAL_PASSWORD: ${{secrets.OSSRH_PASSWORD}}
           JRELEASER_DRY_RUN: ${{github.event.inputs.dry_run}}
+          JRELEASER_PRERELEASE_ENABLED: ${{needs.precheck.outputs.is_prerelease}}
 
       - name: Set next development version
         run: |
@@ -88,6 +91,5 @@ jobs:
           if ! git diff-index --quiet HEAD --; then
             git config --local user.email "github-actions[bot]@users.noreply.github.com"
             git config --local user.name "github-actions[bot]"
-            git commit --allow-empty -am "[releng] Bump version to ${{github.event.inputs.next_version}}"-SNAPSHOT
+            git commit --allow-empty -am "[releng] Bump version to ${{github.event.inputs.next_version}}-SNAPSHOT"
             git push origin ${{github.event.inputs.release_branch}}
-          fi

@@ -30,7 +30,7 @@ release:
     skipTag: false
     releaseName: Operaton {{tagName}}
     prerelease:
-      enabled: ${{env.IS_PRERELEASE}}
+      enabled: {{JRELEASER_PRERELEASE_ENABLED}}
     commitAuthor:
       name: github-actions[bot]
       email: github-actions[bot]@users.noreply.github.com
