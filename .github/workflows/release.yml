@@ -1,6 +1,9 @@
 name: Release
 
 on:
+  push:
+    branches:
+      - build/setup-release-process
   workflow_dispatch:
     inputs:
       release_branch:
@@ -36,10 +39,10 @@ jobs:
           RELEASE_VERSION=$(./mvnw help:evaluate -Dexpression=project.version -q -DforceStdout | tail -n 1 | sed -e 's/-SNAPSHOT//')
           if [[ "$RELEASE_VERSION" == *"alpha"* || "$RELEASE_VERSION" == *"beta"* ]]; then
             echo "⚙ Releasing version $RELEASE_VERSION (Pre-Release)"
-            echo "::set-output name=is_prerelease::true"
+            echo "is_prerelease=true" >> $GITHUB_OUTPUT
           else
             echo "⚙ Releasing version $RELEASE_VERSION"
-            echo "::set-output name=is_prerelease::false"
+            echo "is_prerelease=false" >> $GITHUB_OUTPUT
           fi
           ./mvnw versions:set -DnewVersion=$RELEASE_VERSION
           if ! git diff-index --quiet HEAD --; then
