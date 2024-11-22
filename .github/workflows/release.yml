@@ -4,10 +4,10 @@ on:
   workflow_dispatch:
     inputs:
       next_version:
-        description: 'The next development version to set'
+        description: 'The next development version to set (append -SNAPSHOT suffix)'
         required: true
       dry_run:
-        description: 'Skips remote operations when true'
+        description: 'Dry-Run: Skips remote operations when true'
         type: boolean
         required: true
         default: false
@@ -35,7 +35,7 @@ jobs:
           JRELEASER_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
           JRELEASER_MAVENCENTRAL_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           JRELEASER_MAVENCENTRAL_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
-        run: ./mvnw -Prelease jreleaser:full-release --dryrun=${{ github.event.inputs.dry_run }}
+        run: ./mvnw -Prelease -Djreleaser.dry.run=${{ github.event.inputs.dry_run }} jreleaser:full-release
 
       - name: Set next development version
         run: |
