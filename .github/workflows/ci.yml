@@ -7,9 +7,15 @@ on:
       - main
     tags-ignore:
       - "*"
+    paths-ignore:
+      - '.github/workflows/**'
+      - '!.github/workflows/ci.yml'
   pull_request:
     branches:
       - main
+    paths-ignore:
+      - '.github/workflows/**'
+      - '!.github/workflows/ci.yml'
 
 jobs:
   build:
