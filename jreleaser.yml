@@ -87,6 +87,7 @@ checksum:
     - MD5
     - SHA-256
 
+
 # https://jreleaser.org/guide/latest/examples/maven/maven-central.html
 #deploy:
 #  maven:
@@ -106,6 +107,6 @@ catalog:
       pack:
         enabled: true
 
-signing:
-  active: ALWAYS
-  armored: true
+#signing:
+#  active: ALWAYS
+#  armored: true
