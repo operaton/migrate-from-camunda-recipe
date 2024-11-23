@@ -5,8 +5,10 @@ import org.openrewrite.test.RecipeSpec;
 import org.openrewrite.test.RewriteTest;
 
 import static org.openrewrite.gradle.Assertions.buildGradle;
+import static org.openrewrite.gradle.toolingapi.Assertions.withToolingApi;
 import static org.openrewrite.java.Assertions.mavenProject;
 import static org.openrewrite.maven.Assertions.pomXml;
+
 
 public class MigrateDependenciesTest implements RewriteTest {
 
@@ -110,8 +112,13 @@ public class MigrateDependenciesTest implements RewriteTest {
     @Test
     void migrateCamundaEngineGradle() {
         rewriteRun(
+          spec -> spec.beforeRecipe(withToolingApi()),
           //language=groovy
           buildGradle("""
+              plugins {
+                id('java')
+              }
+
               dependencies {
                   implementation 'org.camunda.bpm:camunda-engine:7.22.0'
               }
@@ -122,9 +129,9 @@ public class MigrateDependenciesTest implements RewriteTest {
               }
               repositories {
                   mavenCentral()
-              }
+    
               dependencies {
-                  implementation 'org.operaton.bpm:operaton-engine:1.0.0-beta-1'
+                  implementation "org.operaton.bpm:operaton-engine:1.0.0-beta-1"
               }
               """));
     }
