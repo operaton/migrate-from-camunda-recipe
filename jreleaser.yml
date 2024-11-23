@@ -38,7 +38,7 @@ release:
     owner: operaton
     draft: false
     skipTag: false
-    releaseName: Operaton {{tagName}}
+    releaseName: Release {{tagName}}
     prerelease:
       # TODO Evaluate JRELEASER_PRERELEASE_ENABLED
       enabled: true
@@ -103,10 +103,8 @@ checksum:
 
 catalog:
   sbom:
-    syft:
-      active: ALWAYS
-      pack:
-        enabled: true
+    cyclonedx:
+      app:
 
 #signing:
 #  active: ALWAYS
