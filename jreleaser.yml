@@ -104,7 +104,7 @@ checksum:
 catalog:
   sbom:
     cyclonedx:
-      app:
+      active: ALWAYS
 
 #signing:
 #  active: ALWAYS
