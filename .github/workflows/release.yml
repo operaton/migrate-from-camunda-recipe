@@ -101,9 +101,6 @@ jobs:
         with:
           name: release-artifacts
 
-      - name: Dummy
-        run: find .
-
       - name: Release with JReleaser
         uses: jreleaser/release-action@v2
         env:
@@ -122,6 +119,18 @@ jobs:
     needs: release
     runs-on: ubuntu-latest
     steps:
+      - name: Check out the code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{github.event.inputs.release_branch}}
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
       - name: Set next development version
         run: |
           ./mvnw versions:set -DnewVersion=${{github.event.inputs.next_version}}-SNAPSHOT
@@ -130,6 +139,7 @@ jobs:
             git config --local user.name "github-actions[bot]"
             git commit --allow-empty -am "[releng] Bump version to ${{github.event.inputs.next_version}}-SNAPSHOT"
             git push origin ${{github.event.inputs.release_branch}}
+          fi
 
       - name: JReleaser release output
         if: always()
