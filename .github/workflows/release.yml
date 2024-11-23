@@ -140,12 +140,3 @@ jobs:
             git commit --allow-empty -am "[releng] Bump version to ${{github.event.inputs.next_version}}-SNAPSHOT"
             git push origin ${{github.event.inputs.release_branch}}
           fi
-
-      - name: JReleaser release output
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: jreleaser-release
-          path: |
-            out/jreleaser/trace.log
-            out/jreleaser/output.properties

@@ -59,6 +59,37 @@ release:
       contributors:
         format: '- {{contributorName}}{{#contributorUsernameAsLink}} ({{.}}){{/contributorUsernameAsLink}}'
       contentTemplate: '.github/jreleaser/changelog.tpl'
+      labelers:
+        - label: 'i18n'
+          title: 'regex:^(?:i18n(?:\(.*\))?!?):\s.*'
+          order: 120
+        - label: 'dependencies1'
+          title: 'regex:^(?:deps(?:\(.*\))?!?):\s.*'
+          order: 130
+        - label: 'dependencies2'
+          contributor: 'regex:^dependabot.*'
+          order: 131
+        - label: 'dependencies3'
+          title: 'regex:^(?:Bump):\s.*'
+          order: 132
+        - label: 'allcontributors1'
+          title: 'regex:^docs: update .all-contributorsrc.*'
+          order: -1
+        - label: 'allcontributors2'
+          title: 'regex:^docs: update CONTRIBUTORS.md.*'
+          order: -2
+        - label: 'WIP'
+          title: 'regex:.*(?:WIP).*'
+          order: -3
+        - label: 'WIP'
+          title: 'regex:.*(?:WIP).*'
+          order: -3
+        - label: 'build1'
+          contributor: 'GitHub'
+          order: -4
+        - label: 'release'
+          title: 'regex:\[releng\].*'
+          order: -5
       categories:
         - title: '🚀 Features'
           key: 'features'
@@ -77,6 +108,26 @@ release:
           labels:
             - 'documentation'
           order: 3
+        - title: '⚙️ Dependencies'
+          key: 'dependencies'
+          labels:
+            - 'dependencies1'
+            - 'dependencies2'
+            - 'dependencies3'
+          order: 3
+        - title: '🛠 Build'
+          key: 'build'
+          labels:
+            - 'build1'
+          order: 3
+      hide:
+        contributors:
+          - '[bot]'
+          - 'GitHub'
+        categories:
+          - 'merge'
+          - 'WIP'
+          - 'release'
 
 distributions:
   recipe:
