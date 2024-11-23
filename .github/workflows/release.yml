@@ -82,7 +82,9 @@ jobs:
 
   release:
     name: Release
-    needs: release_build
+    needs:
+      - precheck
+      - release_build
     runs-on: ubuntu-latest
     steps:
       - name: Check out the code
