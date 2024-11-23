@@ -81,7 +81,7 @@ release:
 distributions:
   recipe:
     artifacts:
-      - path: migrate-camunda-recipe-{{projectVersion}}.jar
+      - path: target/migrate-camunda-recipe-{{projectVersion}}.jar
 
 checksum:
   algorithms:
