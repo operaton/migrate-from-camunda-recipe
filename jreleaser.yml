@@ -33,7 +33,8 @@ release:
   # https://jreleaser.org/guide/latest/reference/release/github.html
   github:
     overwrite: true
-    sign: true
+    # TODO Enable
+    sign: false
     owner: operaton
     draft: false
     skipTag: false
