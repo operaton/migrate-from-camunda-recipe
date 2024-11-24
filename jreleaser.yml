@@ -29,8 +29,7 @@ platform:
   replacements:
     aarch_64: aarch64
 
-release:
-  # https://jreleaser.org/guide/latest/reference/release/github.html
+release: # https://jreleaser.org/guide/latest/reference/release/github.html
   github:
     overwrite: true
     sign: true
@@ -38,8 +37,7 @@ release:
     draft: false
     skipTag: false
     releaseName: Release {{tagName}}
-    prerelease:
-      # TODO Evaluate JRELEASER_PRERELEASE_ENABLED
+    prerelease: # TODO Evaluate JRELEASER_PRERELEASE_ENABLED
       enabled: true
     commitAuthor:
       name: github-actions[bot]
@@ -172,7 +170,7 @@ deploy:
         closeRepository: true
         releaseRepository: true
         stagingRepositories:
-           - build/repos/local/release
+          - build/repos/local/release
 
 catalog:
   sbom:
