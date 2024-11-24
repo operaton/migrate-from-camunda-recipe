@@ -15,6 +15,10 @@ project:
     - Tim Zöller
     - Karsten Thoms
   vendor: Operaton
+  icons:
+      - url: https://avatars.githubusercontent.com/u/185116948?s=200&v=4
+        width: 200
+        height: 200
   java:
     groupId: org.operaton
     version: 17
@@ -39,9 +43,6 @@ release: # https://jreleaser.org/guide/latest/reference/release/github.html
     releaseName: Release {{tagName}}
     prerelease: # TODO Evaluate JRELEASER_PRERELEASE_ENABLED
       enabled: true
-    commitAuthor:
-      name: github-actions[bot]
-      email: github-actions[bot]@users.noreply.github.com
     issues:
       enabled: true
       comment: '🎉 This issue has been resolved in `{{tagName}}` ([Release Notes]({{releaseNotesUrl}}))'
@@ -149,10 +150,6 @@ release: # https://jreleaser.org/guide/latest/reference/release/github.html
           replace: ''
         - search: '/CVE-(\d{4})-(\d+)/g'
           replace: 'https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-$1-$2'
-distributions:
-  recipe:
-    artifacts:
-      - path: target/migrate-camunda-recipe-{{projectVersion}}.jar
 
 checksum:
   algorithms:
@@ -171,6 +168,9 @@ deploy:
 catalog:
   sbom:
     cyclonedx:
+      active: ALWAYS
+  swid:
+    swid-tag:
       active: ALWAYS
 
 signing:
