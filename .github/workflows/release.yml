@@ -71,7 +71,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Maven Build
-        run: ./mvnw clean verify
+        run: ./mvnw clean deploy -DaltDeploymentRepository=local::file:./target/staging-deploy
 
       - name: Upload Artifacts
         id: upload-release-artifacts

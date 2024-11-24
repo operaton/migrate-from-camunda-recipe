@@ -170,7 +170,7 @@ deploy:
         closeRepository: true
         releaseRepository: true
         stagingRepositories:
-          - build/repos/local/release
+          - target/staging-deploy
 
 catalog:
   sbom:
