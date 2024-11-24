@@ -161,14 +161,22 @@ checksum:
 
 
 # https://jreleaser.org/guide/latest/examples/maven/maven-central.html
+#deploy:
+#  maven:
+#    nexus2:
+#      maven-central:
+#        active: RELEASE
+#        url: https://s01.oss.sonatype.org/service/local
+#        closeRepository: true
+#        releaseRepository: true
+#        stagingRepositories:
+#          - target/staging-deploy
 deploy:
   maven:
-    nexus2:
-      maven-central:
-        active: RELEASE
-        url: https://s01.oss.sonatype.org/service/local
-        closeRepository: true
-        releaseRepository: true
+    mavenCentral:
+      app:
+        active: ALWAYS
+        url: https://central.sonatype.com/api/v1/publisher
         stagingRepositories:
           - target/staging-deploy
 
