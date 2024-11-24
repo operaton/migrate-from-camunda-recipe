@@ -33,8 +33,7 @@ release:
   # https://jreleaser.org/guide/latest/reference/release/github.html
   github:
     overwrite: true
-    # TODO Enable
-    sign: false
+    sign: true
     owner: operaton
     draft: false
     skipTag: false
@@ -60,6 +59,9 @@ release:
         format: '- {{contributorName}}{{#contributorUsernameAsLink}} ({{.}}){{/contributorUsernameAsLink}}'
       contentTemplate: '.github/jreleaser/changelog.tpl'
       labelers:
+        - label: 'closes'
+          title: 'closes #.*'
+          order: 100
         - label: 'i18n'
           title: 'regex:^(?:i18n(?:\(.*\))?!?):\s.*'
           order: 120
@@ -81,21 +83,25 @@ release:
         - label: 'WIP'
           title: 'regex:.*(?:WIP).*'
           order: -3
-        - label: 'WIP'
-          title: 'regex:.*(?:WIP).*'
-          order: -3
+        - label: 'WIP2'
+          title: 'regex:.*(?:Set up).*'
+          order: -4
         - label: 'build1'
           contributor: 'GitHub'
-          order: -4
+          order: -5
         - label: 'release'
           title: 'regex:\[releng\].*'
-          order: -5
+          order: -6
+        - label: 'release2'
+          title: 'regex:.*(?:Set up release).*'
+          order: -7
       categories:
         - title: '🚀 Features'
           key: 'features'
           labels:
             - 'feature'
             - 'enhancement'
+            - 'closes'
           order: 1
         - title: '🐛 Bug Fixes'
           key: 'fixes'
@@ -114,19 +120,31 @@ release:
             - 'dependencies1'
             - 'dependencies2'
             - 'dependencies3'
-          order: 3
+          order: 4
         - title: '🛠 Build'
           key: 'build'
           labels:
             - 'build1'
-          order: 3
+          order: 5
+        - title: '🚧 WIP'
+          key: 'wip'
+          labels:
+            - 'WIP'
+            - 'WIP2'
+          order: 7
+        - title: '🚀 Release'
+          key: 'release'
+          labels:
+            - 'release'
+            - 'release2'
+          order: 8
       hide:
         contributors:
           - '[bot]'
           - 'GitHub'
         categories:
           - 'merge'
-          - 'WIP'
+          - 'wip'
           - 'release'
       replacers:
         - search: '^chore[:]?'
@@ -145,22 +163,22 @@ checksum:
 
 
 # https://jreleaser.org/guide/latest/examples/maven/maven-central.html
-#deploy:
-#  maven:
-#    nexus2:
-#      maven-central:
-#        active: RELEASE
-#        url: https://s01.oss.sonatype.org/service/local
-#        closeRepository: true
-#        releaseRepository: true
-#        stagingRepositories:
-#          - build/repos/local/release
+deploy:
+  maven:
+    nexus2:
+      maven-central:
+        active: RELEASE
+        url: https://s01.oss.sonatype.org/service/local
+        closeRepository: true
+        releaseRepository: true
+        stagingRepositories:
+           - build/repos/local/release
 
 catalog:
   sbom:
     cyclonedx:
       active: ALWAYS
 
-#signing:
-#  active: ALWAYS
-#  armored: true
+signing:
+  active: ALWAYS
+  armored: true
