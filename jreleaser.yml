@@ -159,18 +159,6 @@ checksum:
     - MD5
     - SHA-256
 
-
-# https://jreleaser.org/guide/latest/examples/maven/maven-central.html
-#deploy:
-#  maven:
-#    nexus2:
-#      maven-central:
-#        active: RELEASE
-#        url: https://s01.oss.sonatype.org/service/local
-#        closeRepository: true
-#        releaseRepository: true
-#        stagingRepositories:
-#          - target/staging-deploy
 deploy:
   maven:
     mavenCentral:
