@@ -72,7 +72,7 @@ jobs:
 
       - name: Maven Build
         run: |
-          ./mvnw clean deploy -DaltDeploymentRepository=local::file:./target/staging-deploy
+          ./mvnw clean deploy -Prelease -DaltDeploymentRepository=local::file:./target/staging-deploy
           # https://slack-chats.kotlinlang.org/t/16407246/anyone-tried-the-https-central-sonatype-org-publish-publish-
           find target -name maven-metadata.* -delete
       - name: Upload Artifacts
