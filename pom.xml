@@ -7,6 +7,8 @@
     <artifactId>migrate-camunda-recipe</artifactId>
     <version>1.0.0-alpha-1</version>
 
+    <name>Operaton - Migrate Camunda Recipe</name>
+    <description>Open Rewrite recipes for the migration from Camunda 7 to Operaton</description>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
