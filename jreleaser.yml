@@ -156,12 +156,6 @@ checksum:
     - MD5
     - SHA-256
 
-distributions:
-  recipe:
-    type: SINGLE_JAR
-    artifacts:
-      - path: target/migrate-camunda-recipe-{{projectVersion}}.jar
-
 deploy:
   maven:
     mavenCentral:
