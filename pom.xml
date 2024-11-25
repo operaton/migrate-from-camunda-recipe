@@ -5,7 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.operaton</groupId>
     <artifactId>migrate-camunda-recipe</artifactId>
-    <version>1.0.0-alpha-1</version>
+    <version>1.0.0-alpha-2-SNAPSHOT</version>
+
+    <name>Operaton - Migrate Camunda Recipe</name>
+    <description>Open Rewrite recipes for the migration from Camunda 7 to Operaton</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -196,5 +199,79 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>3.3.1</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>3.10.1</version>
+                        <configuration>
+                            <failOnError>false</failOnError>
+                            <additionalJOptions>
+                                <additionalJOption>-Xdoclint:none</additionalJOption>
+                                <additionalJOption>--ignore-source-errors</additionalJOption>
+                            </additionalJOptions>
+                            <doctitle>Operaton Javadocs ${project.version}</doctitle>
+                            <windowtitle>Operaton Javadocs ${project.version}</windowtitle>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.jreleaser</groupId>
+                        <artifactId>jreleaser-maven-plugin</artifactId>
+                        <version>1.15.0</version>
+                        <inherited>false</inherited>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <url>http://www.operaton.org</url>
+
+    <developers>
+        <developer>
+            <id>operaton.org</id>
+            <name>OPERATON Community</name>
+            <organization>operaton.org</organization>
+            <organizationUrl>http://operaton.org</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <url>https://github.com/operaton/migrate-from-camunda-recipe</url>
+        <connection>scm:git:git://github.com/operaton/migrate-from-camunda-recipe.git</connection>
+        <developerConnection>${project.scm.connection}</developerConnection>
+    </scm>
 
 </project>
