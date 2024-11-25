@@ -130,7 +130,7 @@
                         <path>
                             <groupId>org.openrewrite</groupId>
                             <artifactId>rewrite-templating</artifactId>
-                            <version>1.17.1</version>
+                            <version>1.18.0</version>
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
