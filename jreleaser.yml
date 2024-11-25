@@ -164,7 +164,7 @@ deploy:
         applyMavenCentralRules: true
         url: https://central.sonatype.com/api/v1/publisher
         stagingRepositories:
-          - target/staging-deploy
+          - staging-deploy
 
 catalog:
   sbom:
