@@ -114,6 +114,13 @@ jobs:
           JRELEASER_NEXUS2_PASSWORD: ${{secrets.OSSRH_PASSWORD}}
           JRELEASER_DRY_RUN: ${{github.event.inputs.dry_run}}
           JRELEASER_PRERELEASE_ENABLED: ${{needs.precheck.outputs.is_prerelease}}
+      - name: Upload Build Reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: ${{ github.workspace }}/**/**
+          retention-days: 1
 
   post_release:
     name: Post-Release
