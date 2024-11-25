@@ -9,6 +9,7 @@
 
     <name>Operaton - Migrate Camunda Recipe</name>
     <description>Open Rewrite recipes for the migration from Camunda 7 to Operaton</description>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -233,7 +234,7 @@
                             <execution>
                                 <id>attach-javadocs</id>
                                 <goals>
-                                    <goal>javadoc-no-fork</goal>
+                                    <goal>jar</goal>
                                 </goals>
                             </execution>
                         </executions>
@@ -248,5 +249,29 @@
             </build>
         </profile>
     </profiles>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <url>http://www.operaton.org</url>
+
+    <developers>
+        <developer>
+            <id>operaton.org</id>
+            <name>OPERATON Community</name>
+            <organization>operaton.org</organization>
+            <organizationUrl>http://operaton.org</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <url>https://github.com/operaton/migrate-from-camunda-recipe</url>
+        <connection>scm:git:git://github.com/operaton/migrate-from-camunda-recipe.git</connection>
+        <developerConnection>${project.scm.connection}</developerConnection>
+    </scm>
 
 </project>
