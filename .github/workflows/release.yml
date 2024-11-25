@@ -80,7 +80,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: release-artifacts
-          path: ${{github.workspace}}/**/*.jar
+          path: ./target/staging-deploy/**
 
   release:
     name: Release
