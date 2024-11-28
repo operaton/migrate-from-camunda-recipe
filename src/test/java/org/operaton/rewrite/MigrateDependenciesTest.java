@@ -118,20 +118,26 @@ public class MigrateDependenciesTest implements RewriteTest {
               plugins {
                 id('java')
               }
-
+              
+              repositories {
+                  mavenCentral()
+              }
+              
               dependencies {
                   implementation 'org.camunda.bpm:camunda-engine:7.22.0'
               }
               """,
             """
               plugins {
-                  id "java-library"
+                id('java')
               }
+              
               repositories {
                   mavenCentral()
-    
+              }
+              
               dependencies {
-                  implementation "org.operaton.bpm:operaton-engine:1.0.0-beta-1"
+                  implementation 'org.operaton.bpm:operaton-engine:1.0.0-beta-1'
               }
               """));
     }
