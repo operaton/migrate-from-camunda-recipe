@@ -39,21 +39,6 @@
         </dependency>
 
         <dependency>
-            <groupId>org.openrewrite.gradle.tooling</groupId>
-            <artifactId>model</artifactId>
-            <version>2.7.0</version>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.gradle/gradle-tooling-api -->
-        <dependency>
-            <groupId>org.gradle</groupId>
-            <artifactId>gradle-tooling-api</artifactId>
-            <version>7.3-20210825160000+0000</version>
-            <scope>runtime</scope>
-        </dependency>
-
-        <dependency>
             <groupId>com.google.errorprone</groupId>
             <artifactId>error_prone_core</artifactId>
             <version>2.35.1</version>
@@ -70,6 +55,12 @@
         <dependency>
             <groupId>org.openrewrite</groupId>
             <artifactId>rewrite-java</artifactId>
+        </dependency>
+
+        <dependency> <!-- needed for the correct before spec operations -->
+            <groupId>org.openrewrite.gradle.tooling</groupId>
+            <artifactId>model</artifactId>
+            <version>2.8.0</version>
         </dependency>
 
         <dependency>
@@ -101,6 +92,19 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency> <!-- needed by OpenRewrite to hook into the groovy interpreter to parse gradle files -->
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy</artifactId>
+            <scope>test</scope>
+            <version>3.0.23</version>
+        </dependency>
+        <dependency> <!-- needed by OpenRewrite to utilize Gradle correctly-->
+            <groupId>org.gradle</groupId>
+            <artifactId>gradle-tooling-api</artifactId>
+            <version>7.3-20210825160000+0000</version>
+            <scope>test</scope>
+        </dependency>
+
         <dependency>
             <groupId>org.operaton.bpm</groupId>
             <artifactId>operaton-engine</artifactId>
@@ -122,7 +126,7 @@
             <dependency>
                 <groupId>org.openrewrite.recipe</groupId>
                 <artifactId>rewrite-recipe-bom</artifactId>
-                <version>2.22.0</version>
+                <version>2.23.1</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
