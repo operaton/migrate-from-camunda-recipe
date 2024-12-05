@@ -13,19 +13,23 @@ import java.util.*;
 @EqualsAndHashCode(callSuper = false)
 public class ResolveDependencyVersionProperty extends ScanningRecipe<Map<String, Set<String>>> {
 
-    @Option
+    @Option(
+            description = "Maven GroupID to resolve version properties, if '*' is set all GroupIDs are handled.",
+            example = "org.openrewrite")
     String groupId;
 
-    @Option
+    @Option(
+            description = "Maven GroupID to resolve version properties, if '*' is set all GroupIDs are handled.",
+            example = "rewrite-java")
     String artifactId;
 
     @Override
-    public @NlsRewrite.DisplayName String getDisplayName() {
+    public String getDisplayName() {
         return "Resolve dependency version property for dependency";
     }
 
     @Override
-    public @NlsRewrite.Description String getDescription() {
+    public String getDescription() {
         return "Resolve the dependency version property for a specific dependency.";
     }
 
@@ -41,8 +45,8 @@ public class ResolveDependencyVersionProperty extends ScanningRecipe<Map<String,
             private final XPathMatcher propertyDefiningTag = new XPathMatcher("properties/*");
 
             @Override
-            public Xml.Tag visitTag(Xml.Tag tag, ExecutionContext executionContext) {
-                tag = super.visitTag(tag, executionContext);
+            public Xml.Tag visitTag(Xml.Tag tag, ExecutionContext ctx) {
+                tag = super.visitTag(tag, ctx);
                 if (propertyDefiningTag.matches(getCursor())) {
                     String propertyName = tag.getName();
                     tag.getValue().ifPresent(
@@ -60,8 +64,8 @@ public class ResolveDependencyVersionProperty extends ScanningRecipe<Map<String,
             private final XPathMatcher dependencyVersionTag = new XPathMatcher("dependency/version");
 
             @Override
-            public Xml.Tag visitTag(Xml.Tag tag, ExecutionContext executionContext) {
-                tag = super.visitTag(tag, executionContext);
+            public Xml.Tag visitTag(Xml.Tag tag, ExecutionContext ctx) {
+                tag = super.visitTag(tag, ctx);
 
                 if (isDependencyVersionTag() && isDefinedInDesiredDependencyTag()) {
                     Set<String> propertyValues = tag.getValue()
@@ -90,14 +94,14 @@ public class ResolveDependencyVersionProperty extends ScanningRecipe<Map<String,
                 }
                 Xml.Tag parentTag = parent.getValue();
 
-                boolean groupIdMatched = parentTag.getChildren("groupId")
+                boolean groupIdMatched = "*".equals(groupId) || parentTag.getChildren("groupId")
                         .stream()
                         .map(Xml.Tag::getValue)
                         .filter(Optional::isPresent)
                         .map(Optional::get)
                         .anyMatch(groupId::equals);
 
-                boolean artifactIdMatched = parentTag.getChildren("artifactId")
+                boolean artifactIdMatched = "*".equals(artifactId) || parentTag.getChildren("artifactId")
                         .stream()
                         .map(Xml.Tag::getValue)
                         .filter(Optional::isPresent)
