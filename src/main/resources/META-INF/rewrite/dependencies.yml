@@ -4,174 +4,261 @@ name: org.operaton.rewrite.ReplaceCamundaDependencies
 displayName: Rewrite the dependencies in `pom.xml` or `build.gradle`
 description: Replaces the `org.camunda.*` occurrences with `org.operaton.*` dependencies.
 recipeList:
+  - org.operaton.rewrite.ResolveDependencyVersionProperty:
+      groupId: org.camunda.bpm
+      artifactId: camunda-engine
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
       newVersion: 1.0.0-beta-1
       oldArtifactId: camunda-engine
       newArtifactId: operaton-engine
+  - org.operaton.rewrite.ResolveDependencyVersionProperty:
+      groupId: org.camunda.bpm
+      artifactId: camunda-engine-spring
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
       newVersion: 1.0.0-beta-1
       oldArtifactId: camunda-engine-spring
       newArtifactId: operaton-engine-spring
+  - org.operaton.rewrite.ResolveDependencyVersionProperty:
+        groupId: org.camunda.bpm
+        artifactId: camunda-bpm-junit5
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
       newVersion: 1.0.0-beta-1
       oldArtifactId: camunda-bpm-junit5
       newArtifactId: operaton-bpm-junit5
+  - org.operaton.rewrite.ResolveDependencyVersionProperty:
+        groupId: org.camunda.bpm
+        artifactId: camunda-camunda-bom
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
       newVersion: 1.0.0-beta-1
       oldArtifactId: camunda-bom
       newArtifactId: operaton-bom
+  - org.operaton.rewrite.ResolveDependencyVersionProperty:
+        groupId: org.camunda.bpm
+        artifactId: camunda-bom-root
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
       newVersion: 1.0.0-beta-1
       oldArtifactId: camunda-bom-root
       newArtifactId: operaton-bom-root
+  - org.operaton.rewrite.ResolveDependencyVersionProperty:
+        groupId: org.camunda.bpm
+        artifactId: camunda-external-task-client-spring
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
       newVersion: 1.0.0-beta-1
       oldArtifactId: camunda-external-task-client-spring
       newArtifactId: operaton-external-task-client-spring
+  - org.operaton.rewrite.ResolveDependencyVersionProperty:
+        groupId: org.camunda.bpm
+        artifactId: camunda-external-task-client
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
       newVersion: 1.0.0-beta-1
       oldArtifactId: camunda-external-task-client
       newArtifactId: operaton-external-task-client
+  - org.operaton.rewrite.ResolveDependencyVersionProperty:
+        groupId: org.camunda.bpm
+        artifactId: camunda-engine-spring-6
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
       newVersion: 1.0.0-beta-1
       oldArtifactId: camunda-engine-spring-6
       newArtifactId: operaton-engine-spring-6
+  - org.operaton.rewrite.ResolveDependencyVersionProperty:
+        groupId: org.camunda.bpm
+        artifactId: camunda-core-internal-dependencies
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
       newVersion: 1.0.0-beta-1
       oldArtifactId: camunda-core-internal-dependencies
       newArtifactId: operaton-core-internal-dependencies
+  - org.operaton.rewrite.ResolveDependencyVersionProperty:
+        groupId: org.camunda.bpm
+        artifactId: camunda-parent
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
       newVersion: 1.0.0-beta-1
       oldArtifactId: camunda-parent
       newArtifactId: operaton-parent
+  - org.operaton.rewrite.ResolveDependencyVersionProperty:
+      groupId: org.camunda.bpm
+      artifactId: camunda-engine-rest-root
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
       newVersion: 1.0.0-beta-1
       oldArtifactId: camunda-engine-rest-root
       newArtifactId: operaton-engine-rest-root
+  - org.operaton.rewrite.ResolveDependencyVersionProperty:
+      groupId: org.camunda.bpm
+      artifactId: camunda-bpm-assert-root
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
       newVersion: 1.0.0-beta-1
       oldArtifactId: camunda-bpm-assert-root
       newArtifactId: operaton-bpm-assert-root
+  - org.operaton.rewrite.ResolveDependencyVersionProperty:
+      groupId: org.camunda.bpm
+      artifactId: camunda-engine-rest-jakarta
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
       newVersion: 1.0.0-beta-1
       oldArtifactId: camunda-engine-rest-jakarta
       newArtifactId: operaton-engine-rest-jakarta
+  - org.operaton.rewrite.ResolveDependencyVersionProperty:
+      groupId: org.camunda.bpm
+      artifactId: camunda-cdi-compatibility-root
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
       newVersion: 1.0.0-beta-1
       oldArtifactId: camunda-cdi-compatibility-root
       newArtifactId: operaton-cdi-compatibility-root
+  - org.operaton.rewrite.ResolveDependencyVersionProperty:
+      groupId: org.camunda.bpm
+      artifactId: camunda-engine-plugins
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
       newVersion: 1.0.0-beta-1
       oldArtifactId: camunda-engine-plugins
       newArtifactId: operaton-engine-plugins
+  - org.operaton.rewrite.ResolveDependencyVersionProperty:
+      groupId: org.camunda.bpm
+      artifactId: camunda-bpm-assert
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
       newVersion: 1.0.0-beta-1
       oldArtifactId: camunda-bpm-assert
       newArtifactId: operaton-bpm-assert
+  - org.operaton.rewrite.ResolveDependencyVersionProperty:
+      groupId: org.camunda.bpm
+      artifactId: camunda-engine-rest-openapi-generator
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
       newVersion: 1.0.0-beta-1
       oldArtifactId: camunda-engine-rest-openapi-generator
       newArtifactId: operaton-engine-rest-openapi-generator
+  - org.operaton.rewrite.ResolveDependencyVersionProperty:
+      groupId: org.camunda.bpm
+      artifactId: camunda-engine-rest
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
       newVersion: 1.0.0-beta-1
       oldArtifactId: camunda-engine-rest
       newArtifactId: operaton-engine-rest
+  - org.operaton.rewrite.ResolveDependencyVersionProperty:
+      groupId: org.camunda.bpm
+      artifactId: docs
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
       newVersion: 1.0.0-beta-1
       oldArtifactId: docs
       newArtifactId: docs
+  - org.operaton.rewrite.ResolveDependencyVersionProperty:
+      groupId: org.camunda.bpm
+      artifactId: cacamunda-engine-cdi
   - org.openrewrite.java.dependencies.ChangeDependency:
         oldGroupId: org.camunda.bpm
         newGroupId: org.operaton.bpm
         newVersion: 1.0.0-beta-1
         oldArtifactId: camunda-engine-cdi
         newArtifactId: operaton-engine-cdi
+  - org.operaton.rewrite.ResolveDependencyVersionProperty:
+      groupId: org.camunda.bpm
+      artifactId: camunda-database-settings
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
       newVersion: 1.0.0-beta-1
       oldArtifactId: camunda-database-settings
       newArtifactId: operaton-database-settings
+  - org.operaton.rewrite.ResolveDependencyVersionProperty:
+      groupId: org.camunda.bpm
+      artifactId: camunda-root
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
       newVersion: 1.0.0-beta-1
       oldArtifactId: camunda-root
       newArtifactId: operaton-root
+  - org.operaton.rewrite.ResolveDependencyVersionProperty:
+      groupId: org.camunda.bpm
+      artifactId: camunda-engine-plugin-connect
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
       newVersion: 1.0.0-beta-1
       oldArtifactId: camunda-engine-plugin-connect
       newArtifactId: operaton-engine-plugin-connect
+  - org.operaton.rewrite.ResolveDependencyVersionProperty:
+      groupId: org.camunda.bpm
+      artifactId: camunda-external-task-client-root
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
       newVersion: 1.0.0-beta-1
       oldArtifactId: camunda-external-task-client-root
       newArtifactId: operaton-external-task-client-root
+  - org.operaton.rewrite.ResolveDependencyVersionProperty:
+      groupId: org.camunda.bpm
+      artifactId: camunda-engine-rest-core
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
       newVersion: 1.0.0-beta-1
       oldArtifactId: camunda-engine-rest-core
       newArtifactId: operaton-engine-rest-core
+  - org.operaton.rewrite.ResolveDependencyVersionProperty:
+      groupId: org.camunda.bpm
+      artifactId: camunda-only-bom
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
       newVersion: 1.0.0-beta-1
       oldArtifactId: camunda-only-bom
       newArtifactId: operaton-only-bom
+  - org.operaton.rewrite.ResolveDependencyVersionProperty:
+      groupId: org.camunda.bpm
+      artifactId: camunda-engine-cdi-jakarta
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
       newVersion: 1.0.0-beta-1
       oldArtifactId: camunda-engine-cdi-jakarta
       newArtifactId: operaton-engine-cdi-jakarta
+  - org.operaton.rewrite.ResolveDependencyVersionProperty:
+      groupId: org.camunda.bpm
+      artifactId: camunda-engine-plugin-spin
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
       newVersion: 1.0.0-beta-1
       oldArtifactId: camunda-engine-plugin-spin
       newArtifactId: operaton-engine-plugin-spin
+  - org.operaton.rewrite.ResolveDependencyVersionProperty:
+      groupId: org.camunda.bpm
+      artifactId: camunda-spring-compatibility-root
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
