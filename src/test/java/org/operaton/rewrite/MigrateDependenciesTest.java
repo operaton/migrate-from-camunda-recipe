@@ -10,7 +10,7 @@ import static org.openrewrite.java.Assertions.mavenProject;
 import static org.openrewrite.maven.Assertions.pomXml;
 
 
-public class MigrateDependenciesTest implements RewriteTest {
+class MigrateDependenciesTest implements RewriteTest {
 
     @Override
     public void defaults(RecipeSpec spec) {
@@ -41,6 +41,46 @@ public class MigrateDependenciesTest implements RewriteTest {
                 <groupId>org.operaton.test</groupId>
                 <artifactId>test-app</artifactId>
                 <version>1</version>
+                <dependencies>
+                  <dependency>
+                    <groupId>org.operaton.bpm</groupId>
+                    <artifactId>operaton-engine</artifactId>
+                    <version>1.0.0-beta-1</version>
+                  </dependency>
+                </dependencies>
+            </project>
+            """)));
+    }
+
+    @Test
+    void migrateCamundaEngineMavenWithProperty() {
+        rewriteRun(
+          mavenProject("project", pomXml(
+            """
+            <project>
+                <groupId>org.operaton.test</groupId>
+                <artifactId>test-app</artifactId>
+                <version>1</version>
+                <properties>
+                    <camunda-engine.version>7.22.0</camunda-engine.version>
+                </properties>
+                <dependencies>
+                  <dependency>
+                    <groupId>org.camunda.bpm</groupId>
+                    <artifactId>camunda-engine</artifactId>
+                    <version>${camunda-engine.version}</version>
+                  </dependency>
+                </dependencies>
+            </project>
+            """,
+            """
+            <project>
+                <groupId>org.operaton.test</groupId>
+                <artifactId>test-app</artifactId>
+                <version>1</version>
+                <properties>
+                    <camunda-engine.version>7.22.0</camunda-engine.version>
+                </properties>
                 <dependencies>
                   <dependency>
                     <groupId>org.operaton.bpm</groupId>
@@ -114,7 +154,8 @@ public class MigrateDependenciesTest implements RewriteTest {
         rewriteRun(
           spec -> spec.beforeRecipe(withToolingApi()),
           //language=groovy
-          buildGradle("""
+          buildGradle(
+                """
               plugins {
                 id('java')
               }
