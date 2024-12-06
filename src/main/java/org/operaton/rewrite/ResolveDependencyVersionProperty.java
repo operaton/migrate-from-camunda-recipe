@@ -19,7 +19,7 @@ public class ResolveDependencyVersionProperty extends ScanningRecipe<Map<String,
     String groupId;
 
     @Option(
-            description = "Maven GroupID to resolve version properties, if '*' is set all GroupIDs are handled.",
+            description = "Maven ArtifactID to resolve version properties, if '*' is set all ArtifactIDs are handled.",
             example = "rewrite-java")
     String artifactId;
 
