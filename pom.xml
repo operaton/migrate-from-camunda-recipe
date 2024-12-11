@@ -13,6 +13,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <version.camunda>7.22.0</version.camunda>
     </properties>
 
     <dependencies>
@@ -69,6 +70,16 @@
             <groupId>org.openrewrite.recipe</groupId>
             <artifactId>rewrite-java-dependencies</artifactId>
         </dependency>
+
+        <!-- Camunda dependencies -->
+        <dependency>
+            <groupId>org.camunda.bpm</groupId>
+            <artifactId>camunda-engine</artifactId>
+            <version>${version.camunda}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- test dependencies -->
 
         <dependency>
             <groupId>org.openrewrite</groupId>
