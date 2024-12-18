@@ -1,0 +1,10 @@
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.operaton.rewrite.deprecation.ReplaceGetExecutionContext
+
+displayName: Replace usage of Context#getExecutionContext with Context#getBpmnExecutionContext
+description: Replace usage of `org.operaton.bpm.engine.impl.context.Context#getExecutionContext` with `org.operaton.bpm.engine.impl.context.Context#getBpmnExecutionContext`.
+recipeList:
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.camunda.bpm.engine.impl.context.Context getExecutionContext()'
+      newMethodName: 'getBpmnExecutionContext'
