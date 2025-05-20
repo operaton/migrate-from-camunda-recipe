@@ -1,0 +1,16 @@
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.operaton.rewrite.MigrateSpringBootApplication
+description: Migrate a spring boot application from camunda to operaton.
+displayName: Migrate a spring boot application from camunda to operaton
+recipeList:
+  - org.openrewrite.java.spring.DeleteSpringProperty:
+      propertyKey: camunda.bpm.license-file
+  - org.openrewrite.java.spring.ChangeSpringPropertyKey:
+      oldPropertyKey: camunda.bpm
+      newPropertyKey: operaton.bpm
+  - org.openrewrite.xml.ChangeNamespaceValue:
+      elementName: process-application
+      oldValue: http://www.camunda.org/schema/1.0/ProcessApplication
+      newValue: http://www.operaton.org/schema/1.0/ProcessApplication
+      newVersion: 1.1
