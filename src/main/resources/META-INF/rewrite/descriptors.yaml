@@ -1,0 +1,11 @@
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.operaton.rewrite.MigrateDeploymentDescriptors
+description: Migrate deployment descriptors from camunda to operaton.
+displayName: Migrate deployment descriptors from camunda to operaton
+recipeList:
+  - org.openrewrite.xml.ChangeNamespaceValue:
+      elementName: process-application
+      oldValue: http://www.camunda.org/schema/1.0/ProcessApplication
+      newValue: http://www.operaton.org/schema/1.0/ProcessApplication
+      newVersion: 1.1

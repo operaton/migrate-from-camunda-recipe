@@ -9,8 +9,3 @@ recipeList:
   - org.openrewrite.java.spring.ChangeSpringPropertyKey:
       oldPropertyKey: camunda.bpm
       newPropertyKey: operaton.bpm
-  - org.openrewrite.xml.ChangeNamespaceValue:
-      elementName: process-application
-      oldValue: http://www.camunda.org/schema/1.0/ProcessApplication
-      newValue: http://www.operaton.org/schema/1.0/ProcessApplication
-      newVersion: 1.1
