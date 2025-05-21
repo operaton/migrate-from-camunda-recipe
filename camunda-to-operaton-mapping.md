@@ -50,6 +50,11 @@ This page documents the mapping between Camunda and Operaton artifacts based on 
 | org.camunda.bpm | camunda-bpm-junit5 | org.operaton.bpm | operaton-bpm-junit5 | 1.0.0-beta-4 |
 | org.camunda.bpm | camunda-bpm-assert | org.operaton.bpm | operaton-bpm-assert | 1.0.0-beta-4 |
 | org.camunda.spin | camunda-spin-bom | org.operaton.spin | operaton-spin-bom | 1.0.0-beta-4 |
+| org.camunda.spin | camunda-spin-core | org.operaton.spin | operaton-spin-core | 1.0.0-beta-4 |
+| org.camunda.spin | camunda-spin-dataformat-all | org.operaton.spin | operaton-spin-dataformat-all | 1.0.0-beta-4 |
+| org.camunda.spin | camunda-spin-dataformat-json-jackson | org.operaton.spin | operaton-spin-dataformat-json-jackson | 1.0.0-beta-4 |
+| org.camunda.spin | camunda-spin-dataformat-xml-dom | org.operaton.spin | operaton-spin-dataformat-xml-dom | 1.0.0-beta-4 |
+| org.camunda.spin | camunda-spin-dataformat-xml-dom-jakarta | org.operaton.spin | operaton-spin-dataformat-xml-dom | 1.0.0-beta-4 |
 | org.camunda.commons | camunda-commons-bom | org.operaton.commons | operaton-commons-bom | 1.0.0-beta-4 |
 | org.camunda.commons | camunda-commons-logging | org.operaton.commons | operaton-commons-logging | 1.0.0-beta-4 |
 | org.camunda.commons | camunda-commons-utils | org.operaton.commons | operaton-commons-utils | 1.0.0-beta-4 |

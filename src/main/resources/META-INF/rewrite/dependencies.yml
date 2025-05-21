@@ -220,6 +220,36 @@ recipeList:
       oldArtifactId: camunda-spin-bom
       newArtifactId: operaton-spin-bom
   - org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId:
+      oldGroupId: org.camunda.spin
+      newGroupId: org.operaton.spin
+      newVersion: 1.0.0-beta-4
+      oldArtifactId: camunda-spin-core
+      newArtifactId: operaton-spin-core
+  - org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId:
+      oldGroupId: org.camunda.spin
+      newGroupId: org.operaton.spin
+      newVersion: 1.0.0-beta-4
+      oldArtifactId: camunda-spin-dataformat-all
+      newArtifactId: operaton-spin-dataformat-all
+  - org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId:
+      oldGroupId: org.camunda.spin
+      newGroupId: org.operaton.spin
+      newVersion: 1.0.0-beta-4
+      oldArtifactId: camunda-spin-dataformat-json-jackson
+      newArtifactId: operaton-spin-dataformat-json-jackson
+  - org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId:
+      oldGroupId: org.camunda.spin
+      newGroupId: org.operaton.spin
+      newVersion: 1.0.0-beta-4
+      oldArtifactId: camunda-spin-dataformat-xml-dom
+      newArtifactId: operaton-spin-dataformat-xml-dom
+  - org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId:
+      oldGroupId: org.camunda.spin
+      newGroupId: org.operaton.spin
+      newVersion: 1.0.0-beta-4
+      oldArtifactId: camunda-spin-dataformat-xml-dom-jakarta
+      newArtifactId: operaton-spin-dataformat-xml-dom
+  - org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId:
       oldGroupId: org.camunda.commons
       newGroupId: org.operaton.commons
       newVersion: 1.0.0-beta-4
