@@ -227,6 +227,30 @@ recipeList:
       oldArtifactId: camunda-commons-bom
       newArtifactId: operaton-commons-bom
   - org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId:
+      oldGroupId: org.camunda.commons
+      newGroupId: org.operaton.commons
+      newVersion: 1.0.0-beta-4
+      oldArtifactId: camunda-commons-logging
+      newArtifactId: operaton-commons-logging
+  - org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId:
+      oldGroupId: org.camunda.commons
+      newGroupId: org.operaton.commons
+      newVersion: 1.0.0-beta-4
+      oldArtifactId: camunda-commons-utils
+      newArtifactId: operaton-commons-utils
+  - org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId:
+      oldGroupId: org.camunda.commons
+      newGroupId: org.operaton.commons
+      newVersion: 1.0.0-beta-4
+      oldArtifactId: camunda-commons-testing
+      newArtifactId: operaton-commons-testing
+  - org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId:
+      oldGroupId: org.camunda.commons
+      newGroupId: org.operaton.commons
+      newVersion: 1.0.0-beta-4
+      oldArtifactId: camunda-commons-typed-values
+      newArtifactId: operaton-commons-typed-values
+  - org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId:
       oldGroupId: org.camunda.template-engines
       newGroupId: org.operaton.template-engines
       newVersion: 1.0.0-beta-4

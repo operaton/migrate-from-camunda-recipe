@@ -51,6 +51,10 @@ This page documents the mapping between Camunda and Operaton artifacts based on 
 | org.camunda.bpm | camunda-bpm-assert | org.operaton.bpm | operaton-bpm-assert | 1.0.0-beta-4 |
 | org.camunda.spin | camunda-spin-bom | org.operaton.spin | operaton-spin-bom | 1.0.0-beta-4 |
 | org.camunda.commons | camunda-commons-bom | org.operaton.commons | operaton-commons-bom | 1.0.0-beta-4 |
+| org.camunda.commons | camunda-commons-logging | org.operaton.commons | operaton-commons-logging | 1.0.0-beta-4 |
+| org.camunda.commons | camunda-commons-utils | org.operaton.commons | operaton-commons-utils | 1.0.0-beta-4 |
+| org.camunda.commons | camunda-commons-testing | org.operaton.commons | operaton-commons-testing | 1.0.0-beta-4 |
+| org.camunda.commons | camunda-commons-typed-values | org.operaton.commons | operaton-commons-typed-values | 1.0.0-beta-4 |
 | org.camunda.template-engines | camunda-template-engines-freemarker | org.operaton.template-engines | operaton-template-engines-freemarker | 1.0.0-beta-4 |
 | org.camunda.connect | camunda-connect-bom | org.operaton.connect | operaton-connect-bom | 1.0.0-beta-4 |
 | org.camunda.bpm.dmn | camunda-engine-dmn | org.operaton.bpm.dmn | operaton-engine-dmn | 1.0.0-beta-4 |
@@ -60,4 +64,3 @@ This page documents the mapping between Camunda and Operaton artifacts based on 
 | org.camunda.bpm | camunda-external-task-client | org.operaton.bpm | operaton-external-task-client | 1.0.0-beta-4 |
 | org.camunda.bpm | camunda-external-task-client-spring | org.operaton.bpm | operaton-external-task-client-spring | 1.0.0-beta-4 |
 | org.camunda.bpm.springboot | camunda-bpm-spring-boot-starter-external-task-client | org.operaton.bpm.springboot | operaton-bpm-spring-boot-starter-external-task-client | 1.0.0-beta-4 |
-
