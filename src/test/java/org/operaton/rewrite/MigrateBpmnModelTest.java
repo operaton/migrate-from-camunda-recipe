@@ -1,10 +1,10 @@
 package org.operaton.rewrite;
 
+import static org.openrewrite.java.Assertions.java;
+
 import org.junit.jupiter.api.Test;
 import org.openrewrite.test.RecipeSpec;
 import org.openrewrite.test.RewriteTest;
-
-import static org.openrewrite.java.Assertions.java;
 
 class MigrateBpmnModelTest implements RewriteTest {
     @Override

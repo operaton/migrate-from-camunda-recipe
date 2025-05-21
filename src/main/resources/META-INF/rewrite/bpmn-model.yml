@@ -24,9 +24,29 @@ recipeList:
       methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaHistoryTimeToLive(String)'
       newMethodName: 'operatonHistoryTimeToLive'
 
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaHistoryTimeToLive(Integer)'
+      newMethodName: 'operatonHistoryTimeToLive'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaHistoryTimeToLiveString(String)'
+      newMethodName: 'operatonHistoryTimeToLiveString'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaStartableInTasklist(Boolean)'
+      newMethodName: 'operatonStartableInTasklist'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaTaskPriority(String)'
+      newMethodName: 'operatonTaskPriority'
+
   # Async execution
   - org.openrewrite.java.ChangeMethodName:
       methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaAsyncBefore()'
+      newMethodName: 'operatonAsyncBefore'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaAsyncBefore(boolean)'
       newMethodName: 'operatonAsyncBefore'
 
   - org.openrewrite.java.ChangeMethodName:
@@ -34,8 +54,24 @@ recipeList:
       newMethodName: 'operatonAsyncAfter'
 
   - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaAsyncAfter(boolean)'
+      newMethodName: 'operatonAsyncAfter'
+
+  - org.openrewrite.java.ChangeMethodName:
       methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaExclusive(boolean)'
       newMethodName: 'operatonExclusive'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaAsync()'
+      newMethodName: 'operatonAsync'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaAsync(boolean)'
+      newMethodName: 'operatonAsync'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaFailedJobRetryTimeCycle(String)'
+      newMethodName: 'operatonFailedJobRetryTimeCycle'
 
   # Task implementation
   - org.openrewrite.java.ChangeMethodName:
@@ -47,8 +83,32 @@ recipeList:
       newMethodName: 'operatonClass'
 
   - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaClass(Class)'
+      newMethodName: 'operatonClass'
+
+  - org.openrewrite.java.ChangeMethodName:
       methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaExpression(String)'
       newMethodName: 'operatonExpression'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaResultVariable(String)'
+      newMethodName: 'operatonResultVariable'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaExternalTask(String)'
+      newMethodName: 'operatonExternalTask'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaType(String)'
+      newMethodName: 'operatonType'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaTopic(String)'
+      newMethodName: 'operatonTopic'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaErrorEventDefinition()'
+      newMethodName: 'operatonErrorEventDefinition'
 
   # Form handling
   - org.openrewrite.java.ChangeMethodName:
@@ -58,6 +118,26 @@ recipeList:
   - org.openrewrite.java.ChangeMethodName:
       methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaFormField()'
       newMethodName: 'operatonFormField'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaFormRef(String)'
+      newMethodName: 'operatonFormRef'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaFormRefBinding(String)'
+      newMethodName: 'operatonFormRefBinding'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaFormRefVersion(String)'
+      newMethodName: 'operatonFormRefVersion'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaFormHandlerClass(String)'
+      newMethodName: 'operatonFormHandlerClass'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaInitiator(String)'
+      newMethodName: 'operatonInitiator'
 
   # Input/Output parameters
   - org.openrewrite.java.ChangeMethodName:
@@ -71,6 +151,10 @@ recipeList:
   # Execution and task listeners
   - org.openrewrite.java.ChangeMethodName:
       methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaExecutionListenerClass(String, String)'
+      newMethodName: 'operatonExecutionListenerClass'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaExecutionListenerClass(String, Class)'
       newMethodName: 'operatonExecutionListenerClass'
 
   - org.openrewrite.java.ChangeMethodName:
