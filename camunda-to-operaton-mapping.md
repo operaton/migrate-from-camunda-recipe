@@ -62,6 +62,10 @@ This page documents the mapping between Camunda and Operaton artifacts based on 
 | org.camunda.commons | camunda-commons-typed-values | org.operaton.commons | operaton-commons-typed-values | 1.0.0-beta-4 |
 | org.camunda.template-engines | camunda-template-engines-freemarker | org.operaton.template-engines | operaton-template-engines-freemarker | 1.0.0-beta-4 |
 | org.camunda.connect | camunda-connect-bom | org.operaton.connect | operaton-connect-bom | 1.0.0-beta-4 |
+| org.camunda.connect | camunda-connect-core | org.operaton.connect | operaton-connect-core | 1.0.0-beta-4 |
+| org.camunda.connect | camunda-connect-http-client | org.operaton.connect | operaton-connect-http-client | 1.0.0-beta-4 |
+| org.camunda.connect | camunda-connect-soap-http-client | org.operaton.connect | operaton-connect-soap-http-client | 1.0.0-beta-4 |
+| org.camunda.connect | camunda-connect-connectors-all | org.operaton.connect | operaton-connect-connectors-all | 1.0.0-beta-4 |
 | org.camunda.bpm.dmn | camunda-engine-dmn | org.operaton.bpm.dmn | operaton-engine-dmn | 1.0.0-beta-4 |
 | org.camunda.bpm.dmn | camunda-engine-feel-api | org.operaton.bpm.dmn | operaton-engine-feel-api | 1.0.0-beta-4 |
 | org.camunda.bpm.dmn | camunda-engine-feel-juel | org.operaton.bpm.dmn | operaton-engine-feel-juel | 1.0.0-beta-4 |

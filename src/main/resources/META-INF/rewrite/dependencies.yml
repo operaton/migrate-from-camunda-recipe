@@ -294,6 +294,30 @@ recipeList:
       oldArtifactId: camunda-connect-bom
       newArtifactId: operaton-connect-bom
   - org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId:
+      oldGroupId: org.camunda.connect
+      newGroupId: org.operaton.connect
+      newVersion: 1.0.0-beta-4
+      oldArtifactId: camunda-connect-core
+      newArtifactId: operaton-connect-core
+  - org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId:
+      oldGroupId: org.camunda.connect
+      newGroupId: org.operaton.connect
+      newVersion: 1.0.0-beta-4
+      oldArtifactId: camunda-connect-http-client
+      newArtifactId: operaton-connect-http-client
+  - org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId:
+      oldGroupId: org.camunda.connect
+      newGroupId: org.operaton.connect
+      newVersion: 1.0.0-beta-4
+      oldArtifactId: camunda-connect-soap-http-client
+      newArtifactId: operaton-connect-soap-http-client
+  - org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId:
+      oldGroupId: org.camunda.connect
+      newGroupId: org.operaton.connect
+      newVersion: 1.0.0-beta-4
+      oldArtifactId: camunda-connect-connectors-all
+      newArtifactId: operaton-connect-connectors-all
+  - org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId:
       oldGroupId: org.camunda.bpm.dmn
       newGroupId: org.operaton.bpm.dmn
       newVersion: 1.0.0-beta-4
