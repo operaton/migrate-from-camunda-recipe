@@ -30,7 +30,7 @@ class MigrateDeploymentDescriptorsTest implements RewriteTest {
     }
 
     @Test
-    void migrateDeploymentDescriptors() {
+    void migrateProcessApplicationDescriptors() {
         rewriteRun(spec -> spec.recipeFromResources("org.operaton.rewrite.MigrateDeploymentDescriptors"),
           mavenProject("",
             //language=properties
@@ -59,6 +59,47 @@ class MigrateDeploymentDescriptorsTest implements RewriteTest {
                   <process-archive>
                   </process-archive>
                 </process-application>
+                """))));
+    }
+
+    @Test
+    void migrateBpmPlatformDescriptors() {
+        rewriteRun(spec -> spec.recipeFromResources("org.operaton.rewrite.MigrateDeploymentDescriptors"),
+          mavenProject("",
+            //language=properties
+            srcMainResources(
+              //META-INF/bpm-platform.xml
+              xml("""
+                <bpm-platform xmlns="http://www.camunda.org/schema/1.0/BpmPlatform"
+                              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <job-executor>
+                    <job-acquisition name="default">
+                    </job-acquisition>
+                  </job-executor>
+                </bpm-platform>""", """
+                <bpm-platform xmlns="http://www.operaton.org/schema/1.0/BpmPlatform"
+                              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <job-executor>
+                    <job-acquisition name="default">
+                    </job-acquisition>
+                  </job-executor>
+                </bpm-platform>
+                """),
+              //META-INF/bpm-platform.xml
+              xml("""
+                <bpm-platform xmlns="http://www.camunda.org/schema/1.0/BpmPlatform">
+                  <job-executor>
+                    <job-acquisition name="default">
+                    </job-acquisition>
+                  </job-executor>
+                </bpm-platform>
+                """, """
+                <bpm-platform xmlns="http://www.operaton.org/schema/1.0/BpmPlatform">
+                  <job-executor>
+                    <job-acquisition name="default">
+                    </job-acquisition>
+                  </job-executor>
+                </bpm-platform>
                 """))));
     }
 

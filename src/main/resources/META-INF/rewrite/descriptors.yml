@@ -24,3 +24,8 @@ recipeList:
       oldValue: http://www.camunda.org/schema/1.0/ProcessApplication
       newValue: http://www.operaton.org/schema/1.0/ProcessApplication
       newVersion: 1.1
+  - org.openrewrite.xml.ChangeNamespaceValue:
+      elementName: bpm-platform
+      oldValue: http://www.camunda.org/schema/1.0/BpmPlatform
+      newValue: http://www.operaton.org/schema/1.0/BpmPlatform
+      newVersion: 1.1

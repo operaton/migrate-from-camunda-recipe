@@ -73,3 +73,13 @@ This page documents the mapping between Camunda and Operaton artifacts based on 
 | org.camunda.spin | camunda-spin-dataformat-xml-dom | org.operaton.spin | operaton-spin-dataformat-xml-dom | 1.0.0-beta-4 |
 | org.camunda.spin | camunda-spin-dataformat-xml-dom-jakarta | org.operaton.spin | operaton-spin-dataformat-xml-dom | 1.0.0-beta-4 |
 | org.camunda.template-engines | camunda-template-engines-freemarker | org.operaton.template-engines | operaton-template-engines-freemarker | 1.0.0-beta-4 |
+
+## XML Namespace Changes
+
+The following XML namespaces have been changed:
+
+| Camunda Namespace | Operaton Namespace |
+|------------------|-------------------|
+| http://www.camunda.org/schema/1.0/BpmPlatform | http://www.operaton.org/schema/1.0/BpmPlatform |
+| http://www.camunda.org/schema/1.0/ProcessApplication | http://www.operaton.org/schema/1.0/ProcessApplication |
+
