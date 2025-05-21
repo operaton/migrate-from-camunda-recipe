@@ -43,7 +43,7 @@ class MigrateDependenciesTest implements RewriteTest {
                   <dependency>
                     <groupId>org.operaton.bpm</groupId>
                     <artifactId>operaton-engine</artifactId>
-                    <version>1.0.0-beta-1</version>
+                    <version>1.0.0-beta-4</version>
                   </dependency>
                 </dependencies>
             </project>
@@ -79,7 +79,7 @@ class MigrateDependenciesTest implements RewriteTest {
                 <artifactId>test-app</artifactId>
                 <version>1</version>
                <properties>
-                 <camunda.version>1.0.0-beta-1</camunda.version>
+                 <camunda.version>1.0.0-beta-4</camunda.version>
                </properties>
                 <dependencies>
                   <dependency>
@@ -131,7 +131,7 @@ class MigrateDependenciesTest implements RewriteTest {
                    <dependency>
                      <groupId>org.operaton.bpm</groupId>
                      <artifactId>operaton-bom</artifactId>
-                     <version>1.0.0-beta-1</version>
+                     <version>1.0.0-beta-4</version>
                      <scope>import</scope>
                      <type>pom</type>
                    </dependency>

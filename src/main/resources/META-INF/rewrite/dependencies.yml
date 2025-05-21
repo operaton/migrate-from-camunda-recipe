@@ -23,13 +23,68 @@ recipeList:
   - org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
-      newVersion: 1.0.0-beta-1
+      newVersion: 1.0.0-beta4
+      oldArtifactId: camunda-engine-cdi-jakarta
+      newArtifactId: operaton-engine-cdi
+  - org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId:
+      oldGroupId: org.camunda.bpm
+      newGroupId: org.operaton.bpm
+      newVersion: 1.0.0-beta4
+      oldArtifactId: camunda-engine-spring-6
+      newArtifactId: operaton-engine-spring
+  - org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId:
+      oldGroupId: org.camunda.bpm
+      newGroupId: org.operaton.bpm
+      newVersion: 1.0.0-beta4
+      oldArtifactId: camunda-engine-rest-core-jakarta
+      newArtifactId: operaton-engine-rest-core
+  - org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId:
+      oldGroupId: org.camunda.bpm
+      newGroupId: org.operaton.bpm
+      newVersion: 1.0.0-beta4
+      oldArtifactId: camunda-ejb-client-jakarta
+      newArtifactId: operaton-ejb-client
+  - org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId:
+      oldGroupId: org.camunda.bpm
+      newGroupId: org.operaton.bpm
+      newVersion: 1.0.0-beta4
+      oldArtifactId: camunda-engine-rest-jakarta
+      newArtifactId: operaton-engine-rest
+  - org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId:
+      oldGroupId: org.camunda.bpm
+      newGroupId: org.operaton.bpm
+      newVersion: 1.0.0-beta4
+      oldArtifactId: camunda-webapp-jakarta
+      newArtifactId: operaton-webapp
+  - org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId:
+      oldGroupId: org.camunda.bpm
+      newGroupId: org.operaton.bpm
+      newVersion: 1.0.0-beta4
+      oldArtifactId: camunda-webapp-webjar-ee
+      newArtifactId: operaton-webapp-webjar
+  - org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId:
+      oldGroupId: org.camunda.bpm
+      newGroupId: org.operaton.bpm
+      newVersion: 1.0.0-beta4
+      oldArtifactId: camunda-bpm-spring-boot-starter-webapp-ee
+      newArtifactId: operaton-bpm-spring-boot-starter-webapp
+  - org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId:
+      oldGroupId: org.camunda.bpm
+      newGroupId: org.operaton.bpm
+      newVersion: 1.0.0-beta-4
       oldArtifactId: camunda-engine
       newArtifactId: operaton-engine
   - org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId:
-        oldGroupId: org.camunda.bpm
-        newGroupId: org.operaton.bpm
-        newVersion: 1.0.0-beta-1
-        changeManagedDependency: true
-        oldArtifactId: camunda-bom
-        newArtifactId: operaton-bom
+      oldGroupId: org.camunda.bpm
+      newGroupId: org.operaton.bpm
+      newVersion: 1.0.0-beta-4
+      changeManagedDependency: true
+      oldArtifactId: camunda-only-bom
+      newArtifactId: operaton-only-bom
+  - org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId:
+      oldGroupId: org.camunda.bpm
+      newGroupId: org.operaton.bpm
+      newVersion: 1.0.0-beta-4
+      changeManagedDependency: true
+      oldArtifactId: camunda-bom
+      newArtifactId: operaton-bom
