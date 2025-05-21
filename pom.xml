@@ -14,6 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <version.camunda>7.23.0</version.camunda>
+        <version.operaton>1.0.0-beta-4</version.operaton>
     </properties>
 
     <dependencies>
@@ -80,6 +81,13 @@
             <groupId>org.camunda.bpm</groupId>
             <artifactId>camunda-engine</artifactId>
             <version>${version.camunda}</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- Operaton dependencies -->
+        <dependency>
+            <groupId>org.operaton.bpm</groupId>
+            <artifactId>operaton-engine</artifactId>
+            <version>${version.operaton}</version>
             <scope>test</scope>
         </dependency>
 

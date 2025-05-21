@@ -22,6 +22,7 @@ recipeList:
   - org.operaton.rewrite.ReplaceCamundaDependencies
   - org.operaton.rewrite.ChangePackage
   - org.operaton.rewrite.MigrateDeploymentDescriptors
+  - org.operaton.rewrite.MigrateBpmnModel
   - org.openrewrite.java.spring.DeleteSpringProperty:
       propertyKey: camunda.bpm.license-file
   - org.openrewrite.java.spring.ChangeSpringPropertyKey:

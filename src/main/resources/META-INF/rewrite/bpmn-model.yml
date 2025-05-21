@@ -1,0 +1,94 @@
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.operaton.rewrite.MigrateBpmnModel
+displayName: Migrate from Camunda BpmnModelInstance to Operaton BpmnModelInstance
+description: Replaces usage of `org.camunda.bpm.model.bpmn.BpmnModelInstance` with `org.operaton.bpm.model.bpmn.BpmnModelInstance` and related method calls.
+recipeList:
+  # Change package names
+  - org.openrewrite.java.ChangePackage:
+      oldPackageName: org.camunda.bpm.model.bpmn
+      newPackageName: org.operaton.bpm.model.bpmn
+      recursive: true
+
+  # Change method names from camundaXXX to operatonXXX
+  # Process and general attributes
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaVersionTag(String)'
+      newMethodName: 'operatonVersionTag'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaJobPriority(String)'
+      newMethodName: 'operatonJobPriority'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaHistoryTimeToLive(String)'
+      newMethodName: 'operatonHistoryTimeToLive'
+
+  # Async execution
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaAsyncBefore()'
+      newMethodName: 'operatonAsyncBefore'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaAsyncAfter()'
+      newMethodName: 'operatonAsyncAfter'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaExclusive(boolean)'
+      newMethodName: 'operatonExclusive'
+
+  # Task implementation
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaDelegateExpression(String)'
+      newMethodName: 'operatonDelegateExpression'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaClass(String)'
+      newMethodName: 'operatonClass'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaExpression(String)'
+      newMethodName: 'operatonExpression'
+
+  # Form handling
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaFormKey(String)'
+      newMethodName: 'operatonFormKey'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaFormField()'
+      newMethodName: 'operatonFormField'
+
+  # Input/Output parameters
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaInputParameter(String, String)'
+      newMethodName: 'operatonInputParameter'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaOutputParameter(String, String)'
+      newMethodName: 'operatonOutputParameter'
+
+  # Execution and task listeners
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaExecutionListenerClass(String, String)'
+      newMethodName: 'operatonExecutionListenerClass'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaExecutionListenerExpression(String, String)'
+      newMethodName: 'operatonExecutionListenerExpression'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaExecutionListenerDelegateExpression(String, String)'
+      newMethodName: 'operatonExecutionListenerDelegateExpression'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaTaskListenerClass(String, String)'
+      newMethodName: 'operatonTaskListenerClass'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaTaskListenerExpression(String, String)'
+      newMethodName: 'operatonTaskListenerExpression'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaTaskListenerDelegateExpression(String, String)'
+      newMethodName: 'operatonTaskListenerDelegateExpression'

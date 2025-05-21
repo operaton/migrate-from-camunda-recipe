@@ -10,7 +10,8 @@ The following recipes are available to assist with migration:
 2. **ChangePackage** - Changes Java package names from `org.camunda.*` to `org.operaton.*`.
 3. **ReplaceCamundaDependencies** - Replaces Camunda Maven dependencies with their Operaton equivalents.
 4. **MigrateDeploymentDescriptors** - Updates XML namespace declarations in deployment descriptor files.
-5. **ResolveDeprecations** - Resolves deprecated API usages.
+5. **MigrateBpmnModel** - Migrates from Camunda BpmnModelInstance to Operaton BpmnModelInstance and related method calls.
+6. **ResolveDeprecations** - Resolves deprecated API usages.
 
 ## How to Use in a Maven Project
 
@@ -83,6 +84,7 @@ If you want to apply only specific recipes, you can specify them individually:
 <activeRecipes>
     <recipe>org.operaton.rewrite.ChangePackage</recipe>
     <recipe>org.operaton.rewrite.ReplaceCamundaDependencies</recipe>
+    <recipe>org.operaton.rewrite.MigrateBpmnModel</recipe>
 </activeRecipes>
 ```
 
@@ -92,6 +94,7 @@ Or in Gradle:
 rewrite {
     activeRecipe("org.operaton.rewrite.ChangePackage")
     activeRecipe("org.operaton.rewrite.ReplaceCamundaDependencies")
+    activeRecipe("org.operaton.rewrite.MigrateBpmnModel")
 }
 ```
 
@@ -130,7 +133,7 @@ For more details on the specific changes made by these recipes, see the [Camunda
 
 
 
- 
+
 
 ## Getting started
 
