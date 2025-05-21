@@ -1,4 +1,3 @@
-package org.operaton.rewrite;
 /*
  * Copyright 2025 the Operaton contributors.
  *
@@ -14,6 +13,7 @@ package org.operaton.rewrite;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package org.operaton.rewrite;
 
 import org.junit.jupiter.api.Test;
 import org.openrewrite.test.RecipeSpec;
