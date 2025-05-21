@@ -176,3 +176,96 @@ recipeList:
   - org.openrewrite.java.ChangeMethodName:
       methodPattern: 'org.operaton.bpm.model.bpmn.builder.* camundaTaskListenerDelegateExpression(String, String)'
       newMethodName: 'operatonTaskListenerDelegateExpression'
+
+  # Instance methods (getCamundaXXX methods)
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.instance.* getCamundaVersionTag()'
+      newMethodName: 'getOperatonVersionTag'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.instance.* getCamundaJobPriority()'
+      newMethodName: 'getOperatonJobPriority'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.instance.* getCamundaHistoryTimeToLive()'
+      newMethodName: 'getOperatonHistoryTimeToLive'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.instance.* getCamundaStartableInTasklist()'
+      newMethodName: 'getOperatonStartableInTasklist'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.instance.* getCamundaTaskPriority()'
+      newMethodName: 'getOperatonTaskPriority'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.instance.* getCamundaAsyncBefore()'
+      newMethodName: 'getOperatonAsyncBefore'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.instance.* getCamundaAsyncAfter()'
+      newMethodName: 'getOperatonAsyncAfter'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.instance.* getCamundaExclusive()'
+      newMethodName: 'getOperatonExclusive'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.instance.* getCamundaAsync()'
+      newMethodName: 'getOperatonAsync'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.instance.* getCamundaFailedJobRetryTimeCycle()'
+      newMethodName: 'getOperatonFailedJobRetryTimeCycle'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.instance.* getCamundaDelegateExpression()'
+      newMethodName: 'getOperatonDelegateExpression'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.instance.* getCamundaClass()'
+      newMethodName: 'getOperatonClass'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.instance.* getCamundaExpression()'
+      newMethodName: 'getOperatonExpression'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.instance.* getCamundaResultVariable()'
+      newMethodName: 'getOperatonResultVariable'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.instance.* getCamundaExternalTask()'
+      newMethodName: 'getOperatonExternalTask'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.instance.* getCamundaType()'
+      newMethodName: 'getOperatonType'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.instance.* getCamundaTopic()'
+      newMethodName: 'getOperatonTopic'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.instance.* getCamundaFormKey()'
+      newMethodName: 'getOperatonFormKey'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.instance.* getCamundaFormRef()'
+      newMethodName: 'getOperatonFormRef'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.instance.* getCamundaFormRefBinding()'
+      newMethodName: 'getOperatonFormRefBinding'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.instance.* getCamundaFormRefVersion()'
+      newMethodName: 'getOperatonFormRefVersion'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.instance.* getCamundaFormHandlerClass()'
+      newMethodName: 'getOperatonFormHandlerClass'
+
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: 'org.operaton.bpm.model.bpmn.instance.* getCamundaInitiator()'
+      newMethodName: 'getOperatonInitiator'

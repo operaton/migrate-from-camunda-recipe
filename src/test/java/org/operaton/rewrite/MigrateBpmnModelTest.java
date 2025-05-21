@@ -20,7 +20,7 @@ class MigrateBpmnModelTest implements RewriteTest {
               package com.example.rewrite.test;
               import org.camunda.bpm.model.bpmn.Bpmn;
               import org.camunda.bpm.model.bpmn.BpmnModelInstance;
-              
+
               class TestBpmnModelBuilder {
                   void testCamundaBpmnModelBuilder() {
                       BpmnModelInstance orderProcess = Bpmn.createProcess()
@@ -66,5 +66,50 @@ class MigrateBpmnModelTest implements RewriteTest {
               """
           )
         );
+    }
+
+    @Test
+    void migrateBpmnProcessInstance() {
+        rewriteRun(java("""
+            package org.operaton.rewrite;
+            
+            import org.camunda.bpm.model.bpmn.BpmnModelInstance;
+            import org.camunda.bpm.model.bpmn.instance.Process;
+            
+            public class TestProcessApi {
+            
+                private final BpmnModelInstance processDefinitionModel;
+            
+                public TestProcessApi(BpmnModelInstance processDefinitionModel) {
+                    this.processDefinitionModel = processDefinitionModel;
+                }
+            
+                void printVersionTag() {
+                    Process process = processDefinitionModel.getModelElementById("order-process");
+                    System.out.println(process.getCamundaVersionTag());
+                    System.out.println(process.getCamundaJobPriority());
+                }
+            }
+            """, """
+            package org.operaton.rewrite;
+            
+            import org.operaton.bpm.model.bpmn.BpmnModelInstance;
+            import org.operaton.bpm.model.bpmn.instance.Process;
+            
+            public class TestProcessApi {
+            
+                private final BpmnModelInstance processDefinitionModel;
+            
+                public TestProcessApi(BpmnModelInstance processDefinitionModel) {
+                    this.processDefinitionModel = processDefinitionModel;
+                }
+            
+                void printVersionTag() {
+                    Process process = processDefinitionModel.getModelElementById("order-process");
+                    System.out.println(process.getOperatonVersionTag());
+                    System.out.println(process.getOperatonJobPriority());
+                }
+            }
+            """));
     }
 }
