@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.operaton.rewrite;
+package org.operaton.rewrite.spring;
 
 import static org.openrewrite.java.Assertions.mavenProject;
 import static org.openrewrite.java.Assertions.srcMainResources;
@@ -28,13 +28,12 @@ class MigrateSpringBootApplicationTest implements RewriteTest {
 
     @Override
     public void defaults(RecipeSpec spec) {
-        spec.recipeFromResources("org.operaton.rewrite.MigrateSpringBootApplication");
+        spec.recipeFromResources("org.operaton.rewrite.spring.MigrateSpringBootApplication");
     }
 
     @Test
     void migrateSpringBootApplication() {
-        rewriteRun(spec -> spec.recipeFromResources("org.operaton.rewrite.MigrateSpringBootApplication"),
-          mavenProject("",
+        rewriteRun(mavenProject("",
             //language=properties
             srcMainResources(
               properties("""
