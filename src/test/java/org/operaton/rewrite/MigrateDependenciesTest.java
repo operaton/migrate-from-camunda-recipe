@@ -36,8 +36,6 @@ class MigrateDependenciesTest implements RewriteTest {
            </project>
            """,
             spec -> spec.after(actual -> {
-                System.out.println(actual);
-
                 assertThat(Pattern.compile("<version>1\\.0\\.(.*)</version>").matcher(actual).results().toList()).hasSize(1);
                 return actual;
             })));
@@ -102,7 +100,6 @@ class MigrateDependenciesTest implements RewriteTest {
            </project>
            """,
             spec -> spec.after(actual -> {
-                System.out.println(actual);
                 assertThat(Pattern.compile("<version>1\\.0\\.(.*)</version>").matcher(actual).results().toList()).hasSize(1);
                 return actual;
             })));
