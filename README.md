@@ -26,7 +26,7 @@ To use these recipes in your Maven-based Spring Boot project, add the following 
             <version>6.9.0</version>
             <configuration>
                 <activeRecipes>
-                    <recipe>org.operaton.rewrite.MigrateSpringBootApplication</recipe>
+                    <recipe>org.operaton.rewrite.spring.MigrateSpringBootApplication</recipe>
                 </activeRecipes>
             </configuration>
             <dependencies>
@@ -66,7 +66,7 @@ dependencies {
 }
 
 rewrite {
-    activeRecipe("org.operaton.rewrite.MigrateSpringBootApplication")
+    activeRecipe("org.operaton.rewrite.spring.MigrateSpringBootApplication")
 }
 ```
 
@@ -107,7 +107,7 @@ You can also run the MigrateSpringBootApplication recipe without modifying your 
 ```bash
 mvn org.openrewrite.maven:rewrite-maven-plugin:6.9.0:run \
   -Drewrite.recipeArtifactCoordinates=org.operaton:migrate-camunda-recipe:1.0.0-alpha-2-SNAPSHOT \
-  -Drewrite.activeRecipes=org.operaton.rewrite.MigrateSpringBootApplication
+  -Drewrite.activeRecipes=org.operaton.rewrite.spring.MigrateSpringBootApplication
 ```
 
 ### Gradle
@@ -117,7 +117,7 @@ mvn org.openrewrite.maven:rewrite-maven-plugin:6.9.0:run \
 ```bash
 ./gradlew rewriteRun \
   --rewrite.recipeArtifactCoordinates=org.operaton:migrate-camunda-recipe:1.0.0-alpha-2-SNAPSHOT \
-  --rewrite.activeRecipes=org.operaton.rewrite.MigrateSpringBootApplication
+  --rewrite.activeRecipes=org.operaton.rewrite.spring.MigrateSpringBootApplication
 ```
 
 This approach allows you to apply the migration without adding the plugin to your build configuration.

@@ -15,7 +15,7 @@
 #
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.operaton.rewrite.MigrateSpringBootApplication
+name: org.operaton.rewrite.spring.MigrateSpringBootApplication
 description: Migrate a spring boot application from camunda to operaton.
 displayName: Migrate a spring boot application from camunda to operaton
 recipeList:
