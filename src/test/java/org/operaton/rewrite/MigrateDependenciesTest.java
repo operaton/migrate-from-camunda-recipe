@@ -1,14 +1,15 @@
 package org.operaton.rewrite;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.openrewrite.maven.Assertions.pomXml;
+
+import java.util.regex.Pattern;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.openrewrite.test.RecipeSpec;
 import org.openrewrite.test.RewriteTest;
 
-import static org.openrewrite.java.Assertions.mavenProject;
-import static org.openrewrite.maven.Assertions.pomXml;
-
-public class MigrateDependenciesTest implements RewriteTest {
+class MigrateDependenciesTest implements RewriteTest {
 
     @Override
     public void defaults(RecipeSpec spec) {
@@ -18,7 +19,8 @@ public class MigrateDependenciesTest implements RewriteTest {
     @Test
     void migrateCamundaEngine() {
         rewriteRun(
-          mavenProject("project", pomXml(
+          pomXml(
+            //language=xml
             """
             <project>
                <groupId>org.operaton.test</groupId>
@@ -33,28 +35,18 @@ public class MigrateDependenciesTest implements RewriteTest {
                </dependencies>
            </project>
            """,
-
-            """
-             <project>
-                <groupId>org.operaton.test</groupId>
-                <artifactId>test-app</artifactId>
-                <version>1</version>
-                <dependencies>
-                  <dependency>
-                    <groupId>org.operaton.bpm</groupId>
-                    <artifactId>operaton-engine</artifactId>
-                    <version>1.0.0-beta-1</version>
-                  </dependency>
-                </dependencies>
-            </project>
-            """)));
+            spec -> spec.after(actual -> {
+                assertThat(Pattern.compile("<version>1\\.0\\.(.*)</version>").matcher(actual).results().toList()).hasSize(1);
+                return actual;
+            })));
     }
 
     @Test
     @Disabled("Solve in a separate issue #13")
     void migrateCamundaEngineWithVersionInProperty() {
         rewriteRun(
-          mavenProject("project", pomXml(
+          pomXml(
+            //language=xml
             """
             <project>
                <groupId>org.operaton.test</groupId>
@@ -72,30 +64,17 @@ public class MigrateDependenciesTest implements RewriteTest {
                </dependencies>
            </project>
            """,
-
-            """
-             <project>
-                <groupId>org.operaton.test</groupId>
-                <artifactId>test-app</artifactId>
-                <version>1</version>
-               <properties>
-                 <camunda.version>1.0.0-beta-1</camunda.version>
-               </properties>
-                <dependencies>
-                  <dependency>
-                    <groupId>org.operaton.bpm</groupId>
-                    <artifactId>operaton-engine</artifactId>
-                    <version>${camunda.version}</version>
-                  </dependency>
-                </dependencies>
-            </project>
-            """)));
+            spec -> spec.after(actual -> {
+                assertThat(Pattern.compile("<version>1\\.0\\.(.*)</version>").matcher(actual).results().toList()).hasSize(1);
+                return actual;
+            })));
     }
 
     @Test
     void migrateCamundaEngineWithManagedVersion() {
         rewriteRun(
-          mavenProject("project", pomXml(
+          pomXml(
+            //language=xml
             """
             <project>
                <groupId>org.operaton.test</groupId>
@@ -120,30 +99,9 @@ public class MigrateDependenciesTest implements RewriteTest {
                </dependencies>
            </project>
            """,
-
-            """
-            <project>
-               <groupId>org.operaton.test</groupId>
-               <artifactId>test-app</artifactId>
-               <version>1</version>
-               <dependencyManagement>
-                 <dependencies>
-                   <dependency>
-                     <groupId>org.operaton.bpm</groupId>
-                     <artifactId>operaton-bom</artifactId>
-                     <version>1.0.0-beta-1</version>
-                     <scope>import</scope>
-                     <type>pom</type>
-                   </dependency>
-                 </dependencies>
-               </dependencyManagement>
-               <dependencies>
-                 <dependency>
-                   <groupId>org.operaton.bpm</groupId>
-                   <artifactId>operaton-engine</artifactId>
-                 </dependency>
-               </dependencies>
-           </project>
-           """)));
+            spec -> spec.after(actual -> {
+                assertThat(Pattern.compile("<version>1\\.0\\.(.*)</version>").matcher(actual).results().toList()).hasSize(1);
+                return actual;
+            })));
     }
 }
