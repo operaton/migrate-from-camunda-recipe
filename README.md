@@ -22,7 +22,7 @@ To use these recipes in your Maven-based Spring Boot project, add the following 
         <plugin>
             <groupId>org.openrewrite.maven</groupId>
             <artifactId>rewrite-maven-plugin</artifactId>
-            <version>6.9.0</version>
+            <version>7.0.4</version>
             <configuration>
                 <activeRecipes>
                     <recipe>org.operaton.rewrite.spring.MigrateSpringBootApplication</recipe>
@@ -53,7 +53,7 @@ For Gradle projects, add the following to your `build.gradle`:
 ```groovy
 plugins {
     id("java")
-    id("org.openrewrite.rewrite") version("6.9.0")
+    id("org.openrewrite.rewrite") version("7.0.4")
 }
 
 repositories {
