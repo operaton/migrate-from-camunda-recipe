@@ -15,11 +15,12 @@
  */
 package org.operaton.rewrite;
 
+import static org.openrewrite.java.Assertions.java;
+
 import org.junit.jupiter.api.Test;
+import org.openrewrite.DocumentExample;
 import org.openrewrite.test.RecipeSpec;
 import org.openrewrite.test.RewriteTest;
-
-import static org.openrewrite.java.Assertions.java;
 
 class ChangePackageTest implements RewriteTest {
     @Override
@@ -27,6 +28,7 @@ class ChangePackageTest implements RewriteTest {
         spec.recipeFromResources("org.operaton.rewrite.ChangePackage");
     }
 
+    @DocumentExample
     @Test
     void changePackageInImports() {
         rewriteRun(

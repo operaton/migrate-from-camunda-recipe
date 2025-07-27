@@ -41,8 +41,8 @@ class MigrateDependenciesTest implements RewriteTest {
             })));
     }
 
-    @Test
     @Disabled("Solve in a separate issue #13")
+    @Test
     void migrateCamundaEngineWithVersionInProperty() {
         rewriteRun(
           pomXml(

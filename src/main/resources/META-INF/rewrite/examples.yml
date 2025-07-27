@@ -1,0 +1,124 @@
+# Copyright 2025 the original author or authors.
+# <p>
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# <p>
+# https://www.apache.org/licenses/LICENSE-2.0
+# <p>
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+---
+type: specs.openrewrite.org/v1beta/example
+recipeName: org.operaton.rewrite.ChangePackage
+examples:
+- description: ''
+  sources:
+  - before: |
+      package foo;
+
+      import org.camunda.bpm.engine.ProcessEngine;
+      import org.camunda.bpm.engine.RuntimeService;
+      import java.util.List;
+
+      class Test {
+          void test(ProcessEngine engine) {
+              RuntimeService runtimeService = engine.getRuntimeService();
+          }
+      }
+    after: |
+      package foo;
+
+      import org.operaton.bpm.engine.ProcessEngine;
+      import org.operaton.bpm.engine.RuntimeService;
+      import java.util.List;
+
+      class Test {
+          void test(ProcessEngine engine) {
+              RuntimeService runtimeService = engine.getRuntimeService();
+          }
+      }
+    language: java
+---
+type: specs.openrewrite.org/v1beta/example
+recipeName: org.operaton.rewrite.MigrateBpmnModel
+examples:
+- description: ''
+  sources:
+  - before: |
+      package com.example.rewrite.test;
+      import org.camunda.bpm.model.bpmn.Bpmn;
+      import org.camunda.bpm.model.bpmn.BpmnModelInstance;
+
+      class TestBpmnModelBuilder {
+          void testCamundaBpmnModelBuilder() {
+              BpmnModelInstance orderProcess = Bpmn.createProcess()
+                .camundaVersionTag("1")
+                .id("order-process")
+                .name("Order Process")
+                .executable()
+                .startEvent("order-process-start-event")
+                .name("order-process-start-event")
+                .camundaAsyncBefore()
+                .serviceTask("store-order-task")
+                .name("store-order-task")
+                .camundaDelegateExpression("${storeOrderTask}")
+                .camundaAsyncBefore()
+                .endEvent("process-order-end-event")
+                .done();
+          }
+      }
+    after: |
+      package com.example.rewrite.test;
+      import org.operaton.bpm.model.bpmn.Bpmn;
+      import org.operaton.bpm.model.bpmn.BpmnModelInstance;
+
+      class TestBpmnModelBuilder {
+          void testCamundaBpmnModelBuilder() {
+              BpmnModelInstance orderProcess = Bpmn.createProcess()
+                .operatonVersionTag("1")
+                .id("order-process")
+                .name("Order Process")
+                .executable()
+                .startEvent("order-process-start-event")
+                .name("order-process-start-event")
+                .operatonAsyncBefore()
+                .serviceTask("store-order-task")
+                .name("store-order-task")
+                .operatonDelegateExpression("${storeOrderTask}")
+                .operatonAsyncBefore()
+                .endEvent("process-order-end-event")
+                .done();
+          }
+      }
+    language: java
+---
+type: specs.openrewrite.org/v1beta/example
+recipeName: org.operaton.rewrite.deprecation.ReplaceGetExecutionContext
+examples:
+- description: ''
+  sources:
+  - before: |
+      package foo;
+
+      import org.camunda.bpm.engine.impl.context.Context;
+
+      class Test {
+          void test() {
+              var ctx = Context.getExecutionContext();
+          }
+      }
+    after: |
+      package foo;
+
+      import org.camunda.bpm.engine.impl.context.Context;
+
+      class Test {
+          void test() {
+              var ctx = Context.getBpmnExecutionContext();
+          }
+      }
+    language: java
