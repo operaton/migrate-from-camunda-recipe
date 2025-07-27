@@ -20,8 +20,6 @@ class ResolveDeprecationsTest implements RewriteTest {
           spec -> spec.recipeFromResources("org.operaton.rewrite.deprecation.ReplaceGetExecutionContext"),
           java(
             """
-              package foo;
-              
               import org.camunda.bpm.engine.impl.context.Context;
               
               class Test {
@@ -31,8 +29,6 @@ class ResolveDeprecationsTest implements RewriteTest {
               }
               """,
               """
-              package foo;
-              
               import org.camunda.bpm.engine.impl.context.Context;
               
               class Test {

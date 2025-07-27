@@ -34,8 +34,6 @@ class ChangePackageTest implements RewriteTest {
         rewriteRun(
           java(
             """
-              package foo;
-              
               import org.camunda.bpm.engine.ProcessEngine;
               import org.camunda.bpm.engine.RuntimeService;
               import java.util.List;
@@ -47,8 +45,6 @@ class ChangePackageTest implements RewriteTest {
               }
               """,
               """
-              package foo;
-              
               import org.operaton.bpm.engine.ProcessEngine;
               import org.operaton.bpm.engine.RuntimeService;
               import java.util.List;
@@ -68,8 +64,6 @@ class ChangePackageTest implements RewriteTest {
         rewriteRun(
           java(
             """
-              package foo;
-              
               class Test {
                   void test() {
                       org.camunda.bpm.engine.ProcessEngine engine = 
@@ -78,8 +72,6 @@ class ChangePackageTest implements RewriteTest {
               }
               """,
               """
-              package foo;
-              
               class Test {
                   void test() {
                       org.operaton.bpm.engine.ProcessEngine engine = 

@@ -19,7 +19,6 @@ class MigrateBpmnModelTest implements RewriteTest {
         rewriteRun(
           java(
             """
-              package com.example.rewrite.test;
               import org.camunda.bpm.model.bpmn.Bpmn;
               import org.camunda.bpm.model.bpmn.BpmnModelInstance;
 
@@ -43,7 +42,6 @@ class MigrateBpmnModelTest implements RewriteTest {
               }
               """,
               """
-              package com.example.rewrite.test;
               import org.operaton.bpm.model.bpmn.Bpmn;
               import org.operaton.bpm.model.bpmn.BpmnModelInstance;
 
