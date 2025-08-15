@@ -20,6 +20,7 @@ description: Migrate a spring boot application from camunda to operaton.
 displayName: Migrate a spring boot application from camunda to operaton
 recipeList:
   - org.operaton.rewrite.ReplaceCamundaDependencies
+  - org.operaton.rewrite.ChangeType
   - org.operaton.rewrite.ChangePackage
   - org.operaton.rewrite.MigrateBpmnModel
   - org.operaton.rewrite.MigrateDeploymentDescriptors
