@@ -15,11 +15,12 @@
  */
 package org.operaton.rewrite;
 
+import static org.openrewrite.java.Assertions.java;
+
 import org.junit.jupiter.api.Test;
+import org.openrewrite.DocumentExample;
 import org.openrewrite.test.RecipeSpec;
 import org.openrewrite.test.RewriteTest;
-
-import static org.openrewrite.java.Assertions.java;
 
 class ChangePackageTest implements RewriteTest {
     @Override
@@ -27,13 +28,12 @@ class ChangePackageTest implements RewriteTest {
         spec.recipeFromResources("org.operaton.rewrite.ChangePackage");
     }
 
+    @DocumentExample
     @Test
     void changePackageInImports() {
         rewriteRun(
           java(
             """
-              package foo;
-              
               import org.camunda.bpm.engine.ProcessEngine;
               import org.camunda.bpm.engine.RuntimeService;
               import java.util.List;
@@ -45,8 +45,6 @@ class ChangePackageTest implements RewriteTest {
               }
               """,
               """
-              package foo;
-              
               import org.operaton.bpm.engine.ProcessEngine;
               import org.operaton.bpm.engine.RuntimeService;
               import java.util.List;
@@ -66,8 +64,6 @@ class ChangePackageTest implements RewriteTest {
         rewriteRun(
           java(
             """
-              package foo;
-              
               class Test {
                   void test() {
                       org.camunda.bpm.engine.ProcessEngine engine = 
@@ -76,8 +72,6 @@ class ChangePackageTest implements RewriteTest {
               }
               """,
               """
-              package foo;
-              
               class Test {
                   void test() {
                       org.operaton.bpm.engine.ProcessEngine engine = 

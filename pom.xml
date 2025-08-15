@@ -210,20 +210,23 @@
             </plugin>
             <!--
                 Only needed when you want to apply the OpenRewriteBestPractices recipe to your recipes through
-                ./mvnw rewrite:run -Drewrite.activeRecipes=org.openrewrite.recipes.OpenRewriteBestPractices
+                ./mvnw rewrite:run
             -->
             <plugin>
                 <groupId>org.openrewrite.maven</groupId>
                 <artifactId>rewrite-maven-plugin</artifactId>
                 <version>6.15.0</version>
                 <configuration>
+                    <activeRecipes>
+                        <activeRecipe>org.openrewrite.recipes.rewrite.OpenRewriteRecipeBestPractices</activeRecipe>
+                    </activeRecipes>
                     <failOnDryRunResults>true</failOnDryRunResults>
                 </configuration>
                 <dependencies>
                     <dependency>
                         <groupId>org.openrewrite.recipe</groupId>
-                        <artifactId>rewrite-recommendations</artifactId>
-                        <version>1.15.0</version>
+                        <artifactId>rewrite-rewrite</artifactId>
+                        <version>0.10.1</version>
                     </dependency>
                 </dependencies>
             </plugin>

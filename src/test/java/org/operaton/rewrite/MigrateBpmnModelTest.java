@@ -3,6 +3,7 @@ package org.operaton.rewrite;
 import static org.openrewrite.java.Assertions.java;
 
 import org.junit.jupiter.api.Test;
+import org.openrewrite.DocumentExample;
 import org.openrewrite.test.RecipeSpec;
 import org.openrewrite.test.RewriteTest;
 
@@ -12,12 +13,12 @@ class MigrateBpmnModelTest implements RewriteTest {
         spec.recipeFromResources("org.operaton.rewrite.MigrateBpmnModel");
     }
 
+    @DocumentExample
     @Test
     void migrateBpmnModelInstance() {
         rewriteRun(
           java(
             """
-              package com.example.rewrite.test;
               import org.camunda.bpm.model.bpmn.Bpmn;
               import org.camunda.bpm.model.bpmn.BpmnModelInstance;
 
@@ -41,7 +42,6 @@ class MigrateBpmnModelTest implements RewriteTest {
               }
               """,
               """
-              package com.example.rewrite.test;
               import org.operaton.bpm.model.bpmn.Bpmn;
               import org.operaton.bpm.model.bpmn.BpmnModelInstance;
 
@@ -70,7 +70,8 @@ class MigrateBpmnModelTest implements RewriteTest {
 
     @Test
     void migrateBpmnProcessInstance() {
-        rewriteRun(java("""
+        rewriteRun(java(
+                """
             package org.operaton.rewrite;
             
             import org.camunda.bpm.model.bpmn.BpmnModelInstance;
@@ -90,7 +91,8 @@ class MigrateBpmnModelTest implements RewriteTest {
                     System.out.println(process.getCamundaJobPriority());
                 }
             }
-            """, """
+            """,
+                """
             package org.operaton.rewrite;
             
             import org.operaton.bpm.model.bpmn.BpmnModelInstance;
