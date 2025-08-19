@@ -7,7 +7,7 @@ This repository contains OpenRewrite recipes to help migrate your applications f
 The following recipes are available to assist with migration:
 
 1. **MigrateSpringBootApplication** - A comprehensive recipe that applies all the recipes below to migrate a Spring Boot application from Camunda to Operaton.
-2. **ChangePackage** - Changes Java package names from `org.camunda.*` to `org.operaton.*`.
+2. **ChangePackage** - Renames selected Camunda Java packages to their Operaton counterparts.
 3. **ReplaceCamundaDependencies** - Replaces Camunda Maven dependencies with their Operaton equivalents.
 4. **MigrateDeploymentDescriptors** - Updates XML namespace declarations in deployment descriptor files.
 5. **ResolveDeprecations** - Resolves deprecated API usages.
