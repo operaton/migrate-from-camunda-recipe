@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.openrewrite.test.RecipeSpec;
 import org.openrewrite.test.RewriteTest;
 
-public class ChangeTypeTest implements RewriteTest {
+class ChangeTypeTest implements RewriteTest {
 
     @Override
     public void defaults(RecipeSpec spec) {
