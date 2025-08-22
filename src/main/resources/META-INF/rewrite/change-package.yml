@@ -16,10 +16,22 @@
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.operaton.rewrite.ChangePackage
-displayName: Rename the org.camunda package name
-description: Replaces `org.camunda.*` packages with `org.operaton` in package statements, imports, and fully-qualified types.
+displayName: Rename selected org.camunda packages to org.operaton
+description: "Replaces only specific `org.camunda` sub-packages used by Camunda Platform with `org.operaton` in package statements, imports, and fully-qualified types: org.camunda.bpm, org.camunda.spin, org.camunda.commons, org.camunda.connect. This leaves other packages like `org.camunda.community` untouched."
 recipeList:
   - org.openrewrite.java.ChangePackage:
-      oldPackageName: org.camunda
-      newPackageName: org.operaton
+      oldPackageName: org.camunda.bpm
+      newPackageName: org.operaton.bpm
+      recursive: true
+  - org.openrewrite.java.ChangePackage:
+      oldPackageName: org.camunda.spin
+      newPackageName: org.operaton.spin
+      recursive: true
+  - org.openrewrite.java.ChangePackage:
+      oldPackageName: org.camunda.commons
+      newPackageName: org.operaton.commons
+      recursive: true
+  - org.openrewrite.java.ChangePackage:
+      oldPackageName: org.camunda.connect
+      newPackageName: org.operaton.connect
       recursive: true

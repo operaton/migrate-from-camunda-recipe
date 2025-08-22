@@ -88,7 +88,7 @@ class ChangePackageTest implements RewriteTest {
         rewriteRun(
           java(
             """
-              package org.camunda.example;
+              package org.camunda.bpm.example;
               
               class Test {
                   void test() {
@@ -97,12 +97,27 @@ class ChangePackageTest implements RewriteTest {
               }
               """,
               """
-              package org.operaton.example;
+              package org.operaton.bpm.example;
               
               class Test {
                   void test() {
                       System.out.println("Hello, world!");
                   }
+              }
+              """
+          )
+        );
+    }
+
+    @Test
+    void doNotChangeFeelPackage() {
+        rewriteRun(
+          java(
+            """
+              import org.camunda.feel.FeelEngine;
+              
+              class Test {
+                  FeelEngine engine;
               }
               """
           )
