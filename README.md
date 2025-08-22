@@ -8,9 +8,10 @@ The following recipes are available to assist with migration:
 
 1. **MigrateSpringBootApplication** - A comprehensive recipe that applies all the recipes below to migrate a Spring Boot application from Camunda to Operaton.
 2. **ChangePackage** - Renames selected Camunda Java packages to their Operaton counterparts.
-3. **ReplaceCamundaDependencies** - Replaces Camunda Maven dependencies with their Operaton equivalents.
-4. **MigrateDeploymentDescriptors** - Updates XML namespace declarations in deployment descriptor files.
-5. **ResolveDeprecations** - Resolves deprecated API usages.
+3. **ChangeType** - Replaces usages of Camunda types with their Operaton equivalents when simple class names changed (e.g., `CamundaX` -> `OperatonX`). Complements ChangePackage.
+4. **ReplaceCamundaDependencies** - Replaces Camunda Maven dependencies with their Operaton equivalents.
+5. **MigrateDeploymentDescriptors** - Updates XML namespace declarations in deployment descriptor files.
+6. **ResolveDeprecations** - Resolves deprecated API usages.
 
 ## How to Use in a Maven Project
 
@@ -82,6 +83,7 @@ If you want to apply only specific recipes, you can specify them individually:
 ```xml
 <activeRecipes>
     <recipe>org.operaton.rewrite.ChangePackage</recipe>
+    <recipe>org.operaton.rewrite.ChangeType</recipe>
     <recipe>org.operaton.rewrite.ReplaceCamundaDependencies</recipe>
 </activeRecipes>
 ```
@@ -91,6 +93,7 @@ Or in Gradle:
 ```groovy
 rewrite {
     activeRecipe("org.operaton.rewrite.ChangePackage")
+    activeRecipe("org.operaton.rewrite.ChangeType")
     activeRecipe("org.operaton.rewrite.ReplaceCamundaDependencies")
 }
 ```
@@ -122,6 +125,17 @@ This approach allows you to apply the migration without adding the plugin to you
 ## Mapping Documentation
 
 For more details on the specific changes made by these recipes, see the [Camunda to Operaton Artifact Mapping](camunda-to-operaton-mapping.md) document.
+
+## ChangeType recipe
+
+The ChangeType recipe updates references to Camunda types whose simple names changed to Operaton equivalents (for example, classes named `Camunda*` becoming `Operaton*`).
+
+- Recipe ID: `org.operaton.rewrite.ChangeType`
+- Source: [src/main/resources/META-INF/rewrite/change-type.yml](./src/main/resources/META-INF/rewrite/change-type.yml)
+- Scope: Focused on publicly accessible classes and interfaces whose names included "Camunda" in the original APIs.
+- Typical usage: Run together with `ChangePackage` when migrating code that imports or references concrete Camunda types.
+
+You can activate it individually via Maven/Gradle as shown above under "Using Individual Recipes".
 
 
 
