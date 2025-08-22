@@ -83,3 +83,14 @@ The following XML namespaces have been changed:
 | http://www.camunda.org/schema/1.0/BpmPlatform | http://www.operaton.org/schema/1.0/BpmPlatform |
 | http://www.camunda.org/schema/1.0/ProcessApplication | http://www.operaton.org/schema/1.0/ProcessApplication |
 
+## Java Package Changes
+
+The ChangePackage recipe renames specific Java packages from Camunda to Operaton. Only the following packages are changed recursively in package declarations, imports, and fully qualified type references:
+
+- org.camunda.bpm → org.operaton.bpm
+- org.camunda.spin → org.operaton.spin
+- org.camunda.commons → org.operaton.commons
+- org.camunda.connect → org.operaton.connect
+
+Notes:
+- Packages not listed above are intentionally not changed. For example, `org.camunda.feel` and `org.camunda.community` remain as-is.
