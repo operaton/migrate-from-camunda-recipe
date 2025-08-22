@@ -33,7 +33,7 @@ To use these recipes in your Maven-based Spring Boot project, add the following 
                 <dependency>
                     <groupId>org.operaton</groupId>
                     <artifactId>migrate-camunda-recipe</artifactId>
-                    <version>1.0.0-alpha-2-SNAPSHOT</version>
+                    <version>1.0.0-beta-1</version>
                 </dependency>
             </dependencies>
         </plugin>
