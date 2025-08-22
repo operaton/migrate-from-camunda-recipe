@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.operaton</groupId>
     <artifactId>migrate-camunda-recipe</artifactId>
-    <version>1.0.0-beta-1-SNAPSHOT</version>
+    <version>1.0.0-beta-1</version>
 
     <name>Operaton - Migrate Camunda Recipe</name>
     <description>Open Rewrite recipes for the migration from Camunda 7 to Operaton</description>
