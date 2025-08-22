@@ -83,7 +83,6 @@ If you want to apply only specific recipes, you can specify them individually:
 ```xml
 <activeRecipes>
     <recipe>org.operaton.rewrite.ChangePackage</recipe>
-    <recipe>org.operaton.rewrite.ChangeType</recipe>
     <recipe>org.operaton.rewrite.ReplaceCamundaDependencies</recipe>
 </activeRecipes>
 ```
@@ -93,7 +92,6 @@ Or in Gradle:
 ```groovy
 rewrite {
     activeRecipe("org.operaton.rewrite.ChangePackage")
-    activeRecipe("org.operaton.rewrite.ChangeType")
     activeRecipe("org.operaton.rewrite.ReplaceCamundaDependencies")
 }
 ```
@@ -125,17 +123,6 @@ This approach allows you to apply the migration without adding the plugin to you
 ## Mapping Documentation
 
 For more details on the specific changes made by these recipes, see the [Camunda to Operaton Artifact Mapping](camunda-to-operaton-mapping.md) document.
-
-## ChangeType recipe
-
-The ChangeType recipe updates references to Camunda types whose simple names changed to Operaton equivalents (for example, classes named `Camunda*` becoming `Operaton*`).
-
-- Recipe ID: `org.operaton.rewrite.ChangeType`
-- Source: [src/main/resources/META-INF/rewrite/change-type.yml](./src/main/resources/META-INF/rewrite/change-type.yml)
-- Scope: Focused on publicly accessible classes and interfaces whose names included "Camunda" in the original APIs.
-- Typical usage: Run together with `ChangePackage` when migrating code that imports or references concrete Camunda types.
-
-You can activate it individually via Maven/Gradle as shown above under "Using Individual Recipes".
 
 
 
