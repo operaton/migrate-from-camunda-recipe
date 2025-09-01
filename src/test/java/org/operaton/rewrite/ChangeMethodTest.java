@@ -22,10 +22,10 @@ class ChangeMethodTest implements RewriteTest {
     void migrateBpmnModelInstance() {
         rewriteRun(
           java(
-            """
+              """
               import org.camunda.bpm.model.bpmn.Bpmn;
               import org.camunda.bpm.model.bpmn.BpmnModelInstance;
-              
+
               class TestBpmnModelBuilder {
                   void testCamundaBpmnModelBuilder() {
                       BpmnModelInstance orderProcess = Bpmn.createProcess()
@@ -45,7 +45,7 @@ class ChangeMethodTest implements RewriteTest {
                   }
               }
               """,
-            """
+              """
               import org.operaton.bpm.model.bpmn.Bpmn;
               import org.operaton.bpm.model.bpmn.BpmnModelInstance;
               
@@ -75,7 +75,7 @@ class ChangeMethodTest implements RewriteTest {
     @Test
     void migrateBpmnProcessInstance() {
         rewriteRun(java(
-          """
+            """
             package org.operaton.rewrite;
             
             import org.camunda.bpm.model.bpmn.BpmnModelInstance;
@@ -96,7 +96,7 @@ class ChangeMethodTest implements RewriteTest {
                 }
             }
             """,
-          """
+            """
             package org.operaton.rewrite;
             
             import org.operaton.bpm.model.bpmn.BpmnModelInstance;
@@ -122,7 +122,7 @@ class ChangeMethodTest implements RewriteTest {
     @Test
     void migrateOverridenMethod() {
         rewriteRun(java(
-          """
+            """
             package org.operaton.rewrite;
             
             import org.camunda.bpm.model.xml.impl.instance.ModelTypeInstanceContext;
@@ -143,7 +143,7 @@ class ChangeMethodTest implements RewriteTest {
               }
             }
             """,
-          """
+            """
             package org.operaton.rewrite;
             
             import org.operaton.bpm.model.xml.impl.instance.ModelTypeInstanceContext;
