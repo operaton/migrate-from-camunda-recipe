@@ -23,7 +23,7 @@ To use these recipes in your Maven-based Spring Boot project, add the following 
         <plugin>
             <groupId>org.openrewrite.maven</groupId>
             <artifactId>rewrite-maven-plugin</artifactId>
-            <version>7.0.4</version>
+            <version>6.17.0</version>
             <configuration>
                 <activeRecipes>
                     <recipe>org.operaton.rewrite.spring.MigrateSpringBootApplication</recipe>
