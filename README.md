@@ -23,7 +23,7 @@ To use these recipes in your Maven-based Spring Boot project, add the following 
         <plugin>
             <groupId>org.openrewrite.maven</groupId>
             <artifactId>rewrite-maven-plugin</artifactId>
-            <version>7.0.4</version>
+            <version>6.17.0</version>
             <configuration>
                 <activeRecipes>
                     <recipe>org.operaton.rewrite.spring.MigrateSpringBootApplication</recipe>
@@ -54,7 +54,7 @@ For Gradle projects, add the following to your `build.gradle`:
 ```groovy
 plugins {
     id("java")
-    id("org.openrewrite.rewrite") version("7.0.4")
+    id("org.openrewrite.rewrite") version("7.14.1")
 }
 
 repositories {
@@ -103,7 +103,7 @@ You can also run the MigrateSpringBootApplication recipe without modifying your 
 ### Maven
 
 ```bash
-mvn org.openrewrite.maven:rewrite-maven-plugin:7.0.4:run \
+mvn org.openrewrite.maven:rewrite-maven-plugin:6.17.0:run \
   -Drewrite.recipeArtifactCoordinates=org.operaton:migrate-camunda-recipe:1.0.0-beta-2 \
   -Drewrite.activeRecipes=org.operaton.rewrite.spring.MigrateSpringBootApplication
 ```
