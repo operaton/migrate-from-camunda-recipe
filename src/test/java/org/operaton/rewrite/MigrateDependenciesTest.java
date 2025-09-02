@@ -104,4 +104,30 @@ class MigrateDependenciesTest implements RewriteTest {
                 return actual;
             })));
     }
+
+    @Test
+    void migrateCamundaKeycloakExtension() {
+        rewriteRun(
+          pomXml(
+            //language=xml
+            """
+            <project>
+               <groupId>org.operaton.test</groupId>
+               <artifactId>test-app</artifactId>
+               <version>1</version>
+               <dependencies>
+                 <dependency>
+                   <groupId>org.camunda.bpm.extension</groupId>
+                   <artifactId>camunda-platform-7-keycloak</artifactId>
+                   <version>7.23.0</version>
+                 </dependency>
+               </dependencies>
+           </project>
+           """,
+            spec -> spec.after(actual -> {
+                assertThat(Pattern.compile("<version>1\\.0\\.(.*)</version>").matcher(actual).results().toList()).hasSize(1);
+                return actual;
+            })));
+    }
+
 }

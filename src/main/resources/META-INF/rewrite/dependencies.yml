@@ -372,3 +372,10 @@ recipeList:
       changeManagedDependency: true
       oldArtifactId: camunda-bom
       newArtifactId: operaton-bom
+  - org.openrewrite.java.dependencies.ChangeDependency:
+      oldGroupId: org.camunda.bpm.extension
+      newGroupId: org.operaton.bpm.extension
+      newVersion: 1.0.0-beta-1
+      changeManagedDependency: true
+      oldArtifactId: camunda-platform-7-keycloak
+      newArtifactId: operaton-keycloak
