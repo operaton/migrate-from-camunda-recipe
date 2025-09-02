@@ -9,6 +9,9 @@ The following recipes are available to assist with migration:
 1. **MigrateSpringBootApplication** - A comprehensive recipe that applies all the recipes below to migrate a Spring Boot application from Camunda to Operaton.
 2. **ChangePackage** - Renames selected Camunda Java packages to their Operaton counterparts.
 3. **ChangeType** - Replaces usages of Camunda types with their Operaton equivalents when simple class names changed (e.g., `CamundaX` -> `OperatonX`). Complements ChangePackage.
+4. **ChangeMethod** - Replaces calls/overrides of Camunda methods with their Operaton equivalents when method names are containing substring `Camunda`.<br />(e.g., `getCamundaExpression()` -> `getOperatonExpression()`)
+5. **ChangeConstant** - Replaces usage of Camunda constants with their Operaton equivalents when constant names
+are containing substring `Camunda`.<br />(e.g., `org.camunda.bpm.engine.authorization.Groups.CAMUNDA_ADMIN` -> `org.operaton.bpm.engine.authorization.Groups.OPERATON_ADMIN`)    
 4. **ReplaceCamundaDependencies** - Replaces Camunda Maven dependencies with their Operaton equivalents.
 5. **MigrateDeploymentDescriptors** - Updates XML namespace declarations in deployment descriptor files.
 6. **ResolveDeprecations** - Resolves deprecated API usages.
