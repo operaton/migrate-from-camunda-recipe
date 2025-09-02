@@ -76,8 +76,6 @@ class ChangeMethodTest implements RewriteTest {
     void migrateBpmnProcessInstance() {
         rewriteRun(java(
             """
-            package org.operaton.rewrite;
-            
             import org.camunda.bpm.model.bpmn.BpmnModelInstance;
             import org.camunda.bpm.model.bpmn.instance.Process;
             
@@ -97,8 +95,6 @@ class ChangeMethodTest implements RewriteTest {
             }
             """,
             """
-            package org.operaton.rewrite;
-            
             import org.operaton.bpm.model.bpmn.BpmnModelInstance;
             import org.operaton.bpm.model.bpmn.instance.Process;
             
@@ -123,8 +119,6 @@ class ChangeMethodTest implements RewriteTest {
     void migrateOverridenMethod() {
         rewriteRun(java(
             """
-            package org.operaton.rewrite;
-            
             import org.camunda.bpm.model.xml.impl.instance.ModelTypeInstanceContext;
             import org.camunda.bpm.model.cmmn.impl.instance.camunda.CamundaVariableListenerImpl;
             import org.camunda.bpm.model.cmmn.instance.camunda.CamundaScript;
@@ -144,8 +138,6 @@ class ChangeMethodTest implements RewriteTest {
             }
             """,
             """
-            package org.operaton.rewrite;
-            
             import org.operaton.bpm.model.xml.impl.instance.ModelTypeInstanceContext;
             import org.operaton.bpm.model.cmmn.impl.instance.operaton.OperatonVariableListenerImpl;
             import org.operaton.bpm.model.cmmn.instance.operaton.OperatonScript;

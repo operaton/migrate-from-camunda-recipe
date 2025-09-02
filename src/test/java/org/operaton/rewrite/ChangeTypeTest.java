@@ -17,8 +17,6 @@ class ChangeTypeTest implements RewriteTest {
     void testChangeInterface() {
         rewriteRun(
           java("""
-            package org.foo.example;
-            
             import org.camunda.bpm.engine.impl.cfg.ProcessEngineConfigurationImpl;
             import org.camunda.bpm.spring.boot.starter.configuration.CamundaProcessEngineConfiguration;
             
@@ -29,8 +27,6 @@ class ChangeTypeTest implements RewriteTest {
                     System.out.println("test pre-init");
                 }
             }""", """
-            package org.foo.example;
-            
             import org.operaton.bpm.engine.impl.cfg.ProcessEngineConfigurationImpl;
             import org.operaton.bpm.spring.boot.starter.configuration.OperatonProcessEngineConfiguration;
             

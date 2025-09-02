@@ -20,8 +20,6 @@ class ChangeConstantTest implements RewriteTest {
         rewriteRun(
           java(
             """
-              package org.operaton.rewrite;
-              
               import static org.camunda.bpm.engine.impl.bpmn.parser.BpmnParse.CAMUNDA_BPMN_EXTENSIONS_NS;
               
               public class Example {
@@ -32,8 +30,6 @@ class ChangeConstantTest implements RewriteTest {
               }
               """,
             """
-              package org.operaton.rewrite;
-              
               import static org.operaton.bpm.engine.impl.bpmn.parser.BpmnParse.OPERATON_BPMN_EXTENSIONS_NS;
               
               public class Example {
