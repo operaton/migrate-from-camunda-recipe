@@ -58,6 +58,8 @@ plugins {
 }
 
 repositories {
+    // Include mavenLocal so recipe SNAPSHOTs published locally can be resolved
+    mavenLocal()
     mavenCentral()
 }
 
@@ -110,12 +112,42 @@ mvn org.openrewrite.maven:rewrite-maven-plugin:6.17.0:run \
 
 ### Gradle
 
-[Create a `init.gradle` file](https://docs.openrewrite.org/running-recipes/running-rewrite-on-a-gradle-project-without-modifying-the-build).
+[Create a init.gradle file](https://docs.openrewrite.org/running-recipes/running-rewrite-on-a-gradle-project-without-modifying-the-build). It does not need to be in the project directory itself (although it will make it easier for this guide). Copy the below init script to your file:
+
+```groovy
+initscript {
+  repositories {
+    maven { url "https://plugins.gradle.org/m2" }
+  }
+  dependencies {
+    classpath("org.openrewrite:plugin:7.14.1")
+  }
+}
+
+rootProject {
+  plugins.apply(org.openrewrite.gradle.RewritePlugin)
+  dependencies {
+    rewrite("org.operaton:migrate-camunda-recipe:1.0.0-beta-2")
+  }
+
+  afterEvaluate {
+    // Include mavenLocal so recipe SNAPSHOTs published locally can be resolved
+    if (repositories.isEmpty()) {
+      repositories {
+        mavenLocal()
+        mavenCentral()
+      }
+    } else {
+      repositories {
+        mavenLocal()
+      }
+    }
+  }
+}
+```
 
 ```bash
-./gradlew rewriteRun \
-  --rewrite.recipeArtifactCoordinates=org.operaton:migrate-camunda-recipe:1.0.0-beta-2 \
-  --rewrite.activeRecipes=org.operaton.rewrite.spring.MigrateSpringBootApplication
+./gradlew --init-script init.gradle rewriteRun -Drewrite.activeRecipe=org.operaton.rewrite.spring.MigrateSpringBootApplication
 ```
 
 This approach allows you to apply the migration without adding the plugin to your build configuration.
