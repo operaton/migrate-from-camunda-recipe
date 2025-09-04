@@ -90,6 +90,14 @@
             <version>${version.camunda}</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+          <groupId>org.camunda.bpm.springboot</groupId>
+          <artifactId>camunda-bpm-spring-boot-starter-webapp</artifactId>
+          <version>${version.camunda}</version>
+          <scope>test</scope>
+        </dependency>
+
         <!-- Operaton dependencies -->
         <dependency>
             <groupId>org.operaton.bpm</groupId>
