@@ -58,6 +58,8 @@ plugins {
 }
 
 repositories {
+    // Include mavenLocal so recipe SNAPSHOTs published locally can be resolved
+    mavenLocal()
     mavenCentral()
 }
 
@@ -129,9 +131,15 @@ rootProject {
   }
 
   afterEvaluate {
+    // Include mavenLocal so recipe SNAPSHOTs published locally can be resolved
     if (repositories.isEmpty()) {
       repositories {
+        mavenLocal()
         mavenCentral()
+      }
+    } else {
+      repositories {
+        mavenLocal()
       }
     }
   }
