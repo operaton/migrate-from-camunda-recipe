@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.operaton</groupId>
     <artifactId>migrate-camunda-recipe</artifactId>
-    <version>1.0.0-rc-1-SNAPSHOT</version>
+    <version>1.0.0-beta-3-SNAPSHOT</version>
 
     <name>Operaton - Migrate Camunda Recipe</name>
     <description>Open Rewrite recipes for the migration from Camunda 7 to Operaton</description>
@@ -14,7 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <version.camunda>7.23.0</version.camunda>
-        <version.operaton>1.0.0-beta-4</version.operaton>
+        <version.operaton>1.0.0-beta-5</version.operaton>
     </properties>
 
     <dependencies>
