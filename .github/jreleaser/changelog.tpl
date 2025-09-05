@@ -2,14 +2,15 @@ This project provides an Open Rewrite Recipe to migrate a Camunda 7 Instance to 
 
 # About this release
 
-Update to Operaton 1.0.0-beta-5.
+General improvements to the migration process.
 
 ## New Recipes
--
+- org.operaton.rewrite.ChangeType
+- org.operaton.rewrite.ChangeMethod
+- org.operaton.rewrite.ChangeConstant
 
 ## Updated Recipes
-
-This release is updating the `ReplaceCamundaDependencies` recipe to Operaton 1.0.0-beta-5.
+- org.operaton.rewrite.ReplaceCamundaDependencies
 
 ## Changelog
 

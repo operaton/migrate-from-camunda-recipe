@@ -36,7 +36,7 @@ To use these recipes in your Maven-based Spring Boot project, add the following 
                 <dependency>
                     <groupId>org.operaton</groupId>
                     <artifactId>migrate-camunda-recipe</artifactId>
-                    <version>1.0.0-beta-2</version>
+                    <version>1.0.0-beta-3</version>
                 </dependency>
             </dependencies>
         </plugin>
@@ -67,7 +67,7 @@ repositories {
 }
 
 dependencies {
-    rewrite("org.operaton:migrate-camunda-recipe:1.0.0-beta-2")
+    rewrite("org.operaton:migrate-camunda-recipe:1.0.0-beta-3")
 }
 
 rewrite {
@@ -109,7 +109,7 @@ You can also run the MigrateSpringBootApplication recipe without modifying your 
 
 ```bash
 mvn org.openrewrite.maven:rewrite-maven-plugin:6.17.0:run \
-  -Drewrite.recipeArtifactCoordinates=org.operaton:migrate-camunda-recipe:1.0.0-beta-2 \
+  -Drewrite.recipeArtifactCoordinates=org.operaton:migrate-camunda-recipe:1.0.0-beta-3 \
   -Drewrite.activeRecipes=org.operaton.rewrite.spring.MigrateSpringBootApplication
 ```
 
@@ -130,7 +130,7 @@ initscript {
 rootProject {
   plugins.apply(org.openrewrite.gradle.RewritePlugin)
   dependencies {
-    rewrite("org.operaton:migrate-camunda-recipe:1.0.0-beta-2")
+    rewrite("org.operaton:migrate-camunda-recipe:1.0.0-beta-3")
   }
 
   afterEvaluate {
