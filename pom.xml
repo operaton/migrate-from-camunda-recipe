@@ -13,15 +13,32 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <version.rewrite-recipe-bom>3.14.0</version.rewrite-recipe-bom>
+        <rewrite-maven-plugin.version>6.16.1</rewrite-maven-plugin.version>
+        <rewrite-rewrite.version>0.12.1</rewrite-rewrite.version>
+        <rewrite-templating.version>1.34.1</rewrite-templating.version>
         <version.camunda>7.23.0</version.camunda>
         <version.operaton>1.0.0-beta-5</version.operaton>
+        <version.lombok>1.18.40</version.lombok>
+        <version.javax.annotation-api>1.3.2</version.javax.annotation-api>
+        <version.error_prone>2.41.0</version.error_prone>
+        <version.assertj>3.27.4</version.assertj>
+        <version.junit-bom>5.13.4</version.junit-bom>
+        <version.maven-compiler-plugin>3.14.0</version.maven-compiler-plugin>
+        <version.maven-surefire-plugin>3.5.3</version.maven-surefire-plugin>
+        <version.maven-failsafe-plugin>3.5.3</version.maven-failsafe-plugin>
+        <version.maven-resources-plugin>3.3.1</version.maven-resources-plugin>
+        <version.maven-dependency-plugin>3.8.1</version.maven-dependency-plugin>
+        <version.maven-source-plugin>3.3.1</version.maven-source-plugin>
+        <version.maven-javadoc-plugin>3.11.3</version.maven-javadoc-plugin>
+        <version.jreleaser-maven-plugin>1.20.0</version.jreleaser-maven-plugin>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.40</version>
+            <version>${version.lombok}</version>
             <scope>provided</scope>
             <optional>true</optional>
         </dependency>
@@ -34,7 +51,7 @@
         <dependency>
             <groupId>javax.annotation</groupId>
             <artifactId>javax.annotation-api</artifactId>
-            <version>1.3.2</version>
+            <version>${version.javax.annotation-api}</version>
         </dependency>
 
         <!-- Makes Data flow analysis capabilities available to recipes -->
@@ -46,7 +63,7 @@
         <dependency>
             <groupId>com.google.errorprone</groupId>
             <artifactId>error_prone_core</artifactId>
-            <version>2.41.0</version>
+            <version>${version.error_prone}</version>
             <scope>provided</scope>
             <optional>true</optional>
             <exclusions>
@@ -76,33 +93,30 @@
             <groupId>org.openrewrite.recipe</groupId>
             <artifactId>rewrite-spring</artifactId>
         </dependency>
+
         <!-- Camunda dependencies -->
         <dependency>
             <groupId>org.camunda.bpm</groupId>
             <artifactId>camunda-engine</artifactId>
-            <version>${version.camunda}</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>org.camunda.bpm.springboot</groupId>
             <artifactId>camunda-bpm-spring-boot-starter</artifactId>
-            <version>${version.camunda}</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
-          <groupId>org.camunda.bpm.springboot</groupId>
-          <artifactId>camunda-bpm-spring-boot-starter-webapp</artifactId>
-          <version>${version.camunda}</version>
-          <scope>test</scope>
+            <groupId>org.camunda.bpm.springboot</groupId>
+            <artifactId>camunda-bpm-spring-boot-starter-webapp</artifactId>
+            <scope>test</scope>
         </dependency>
 
         <!-- Operaton dependencies -->
         <dependency>
             <groupId>org.operaton.bpm</groupId>
             <artifactId>operaton-engine</artifactId>
-            <version>${version.operaton}</version>
             <scope>test</scope>
         </dependency>
 
@@ -123,7 +137,7 @@
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
-            <version>3.27.4</version>
+            <version>${version.assertj}</version>
             <scope>test</scope>
         </dependency>
 
@@ -134,16 +148,30 @@
             <dependency>
                 <groupId>org.openrewrite.recipe</groupId>
                 <artifactId>rewrite-recipe-bom</artifactId>
-                <version>3.14.0</version>
+                <version>${version.rewrite-recipe-bom}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>org.junit</groupId>
                 <artifactId>junit-bom</artifactId>
-                <version>5.13.4</version>
+                <version>${version.junit-bom}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.camunda.bpm</groupId>
+                <artifactId>camunda-only-bom</artifactId>
+                <type>pom</type>
+                <scope>import</scope>
+                <version>${version.camunda}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.operaton.bpm</groupId>
+                <artifactId>operaton-only-bom</artifactId>
+                <type>pom</type>
+                <scope>import</scope>
+                <version>${version.operaton}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -153,7 +181,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.14.0</version>
+                <version>${version.maven-compiler-plugin}</version>
                 <configuration>
                     <source>8</source>
                     <target>8</target>
@@ -166,12 +194,12 @@
                         <path>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
-                            <version>1.18.40</version>
+                            <version>${version.lombok}</version>
                         </path>
                         <path>
                             <groupId>org.openrewrite</groupId>
                             <artifactId>rewrite-templating</artifactId>
-                            <version>1.34.1</version>
+                            <version>${rewrite-templating.version}</version>
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
@@ -179,17 +207,17 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.5.3</version>
+                <version>${version.maven-surefire-plugin}</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
-                <version>3.5.3</version>
+                <version>${version.maven-failsafe-plugin}</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>3.3.1</version>
+                <version>${version.maven-resources-plugin}</version>
                 <configuration>
                     <nonFilteredFileExtensions>
                         <nonFilteredFileExtension>jar</nonFilteredFileExtension>
@@ -199,7 +227,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>${version.maven-dependency-plugin}</version>
                 <executions>
                     <execution>
                         <id>copy</id>
@@ -208,9 +236,10 @@
                             <goal>copy</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.basedir}/src/main/resources/META-INF/rewrite/classpath</outputDirectory>
+                            <outputDirectory>${project.basedir}/src/main/resources/META-INF/rewrite/classpath
+                            </outputDirectory>
                             <overWriteSnapshots>true</overWriteSnapshots>
-                            <!-- Configure and enable plugin when you use `classpathFromResources` in `JavaTemplate` -->
+                            <!-- Configure and enable the plugin when you use `classpathFromResources` in `JavaTemplate` -->
                             <skip>true</skip>
                         </configuration>
                     </execution>
@@ -223,7 +252,7 @@
             <plugin>
                 <groupId>org.openrewrite.maven</groupId>
                 <artifactId>rewrite-maven-plugin</artifactId>
-                <version>6.16.1</version>
+                <version>${rewrite-maven-plugin.version}</version>
                 <configuration>
                     <activeRecipes>
                         <activeRecipe>org.openrewrite.recipes.rewrite.OpenRewriteRecipeBestPractices</activeRecipe>
@@ -234,7 +263,7 @@
                     <dependency>
                         <groupId>org.openrewrite.recipe</groupId>
                         <artifactId>rewrite-rewrite</artifactId>
-                        <version>0.12.1</version>
+                        <version>${rewrite-rewrite.version}</version>
                     </dependency>
                 </dependencies>
             </plugin>
@@ -249,7 +278,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
-                        <version>3.3.1</version>
+                        <version>${version.maven-source-plugin}</version>
                         <executions>
                             <execution>
                                 <goals>
@@ -261,7 +290,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>3.11.3</version>
+                        <version>${version.maven-javadoc-plugin}</version>
                         <configuration>
                             <failOnError>false</failOnError>
                             <additionalJOptions>
@@ -283,7 +312,7 @@
                     <plugin>
                         <groupId>org.jreleaser</groupId>
                         <artifactId>jreleaser-maven-plugin</artifactId>
-                        <version>1.20.0</version>
+                        <version>${version.jreleaser-maven-plugin}</version>
                         <inherited>false</inherited>
                     </plugin>
                 </plugins>
