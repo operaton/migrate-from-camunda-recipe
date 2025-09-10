@@ -12,9 +12,10 @@ The following recipes are available to assist with migration:
 4. **ChangeMethod** - Replaces calls/overrides of Camunda methods with their Operaton equivalents when method names are containing substring `Camunda`.<br />(e.g., `getCamundaExpression()` -> `getOperatonExpression()`)
 5. **ChangeConstant** - Replaces usage of Camunda constants with their Operaton equivalents when constant names
 are containing substring `Camunda`.<br />(e.g., `org.camunda.bpm.engine.authorization.Groups.CAMUNDA_ADMIN` -> `org.operaton.bpm.engine.authorization.Groups.OPERATON_ADMIN`)    
-4. **ReplaceCamundaDependencies** - Replaces Camunda Maven dependencies with their Operaton equivalents.
-5. **MigrateDeploymentDescriptors** - Updates XML namespace declarations in deployment descriptor files.
-6. **ResolveDeprecations** - Resolves deprecated API usages.
+6. **ReplaceCamundaDependencies** - Replaces Camunda Maven dependencies with their Operaton equivalents.
+7. **MigrateDeploymentDescriptors** - Updates XML namespace declarations in deployment descriptor files.
+8. **RenameServiceLoader**: Rename selected ServiceLoader files in META-INF/services.
+10. **ResolveDeprecations** - Resolves deprecated API usages.
 
 ## How to Use in a Maven Project
 

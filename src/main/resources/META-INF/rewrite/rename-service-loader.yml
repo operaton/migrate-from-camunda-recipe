@@ -16,8 +16,9 @@
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: org.operaton.rewrite.RenameServiceLoader
-displayName: Rename ServiceLoader files in META-INF/services
-description: Rename ServiceLoader files in META-INF/services starting with `org.camunda.**` to `org.operaton.**`.
+displayName: Rename selected ServiceLoader files in META-INF/services
+description: Rename selected ServiceLoader files in META-INF/services starting with `org.camunda.**` to `org.operaton
+  .**`.
 recipeList:
   - org.openrewrite.RenameFile:
       fileMatcher: '**/META-INF/services/org.camunda.spin.spi.DataFormatConfigurator'
