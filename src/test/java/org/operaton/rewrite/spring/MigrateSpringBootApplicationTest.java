@@ -15,14 +15,14 @@
  */
 package org.operaton.rewrite.spring;
 
-import org.junit.jupiter.api.Test;
-import org.openrewrite.test.RecipeSpec;
-import org.openrewrite.test.RewriteTest;
-
 import static org.openrewrite.java.Assertions.mavenProject;
 import static org.openrewrite.java.Assertions.srcMainResources;
 import static org.openrewrite.properties.Assertions.properties;
 import static org.openrewrite.yaml.Assertions.yaml;
+
+import org.junit.jupiter.api.Test;
+import org.openrewrite.test.RecipeSpec;
+import org.openrewrite.test.RewriteTest;
 
 class MigrateSpringBootApplicationTest implements RewriteTest {
 

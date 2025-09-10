@@ -13,13 +13,36 @@
 # limitations under the License.
 ---
 type: specs.openrewrite.org/v1beta/example
+recipeName: org.operaton.rewrite.ChangeConstant
+examples:
+- description: ''
+  sources:
+  - before: |
+      import static org.camunda.bpm.engine.impl.bpmn.parser.BpmnParse.CAMUNDA_BPMN_EXTENSIONS_NS;
+
+      public class Example {
+
+          public void useConstant() {
+              System.out.println(CAMUNDA_BPMN_EXTENSIONS_NS.getNamespaceUri());
+          }
+      }
+    after: |
+      import static org.operaton.bpm.engine.impl.bpmn.parser.BpmnParse.OPERATON_BPMN_EXTENSIONS_NS;
+
+      public class Example {
+
+          public void useConstant() {
+              System.out.println(OPERATON_BPMN_EXTENSIONS_NS.getNamespaceUri());
+          }
+      }
+    language: java
+---
+type: specs.openrewrite.org/v1beta/example
 recipeName: org.operaton.rewrite.ChangePackage
 examples:
 - description: ''
   sources:
   - before: |
-      package foo;
-
       import org.camunda.bpm.engine.ProcessEngine;
       import org.camunda.bpm.engine.RuntimeService;
       import java.util.List;
@@ -30,8 +53,6 @@ examples:
           }
       }
     after: |
-      package foo;
-
       import org.operaton.bpm.engine.ProcessEngine;
       import org.operaton.bpm.engine.RuntimeService;
       import java.util.List;
@@ -42,14 +63,9 @@ examples:
           }
       }
     language: java
----
-type: specs.openrewrite.org/v1beta/example
-recipeName: org.operaton.rewrite.MigrateBpmnModel
-examples:
 - description: ''
   sources:
   - before: |
-      package com.example.rewrite.test;
       import org.camunda.bpm.model.bpmn.Bpmn;
       import org.camunda.bpm.model.bpmn.BpmnModelInstance;
 
@@ -72,7 +88,6 @@ examples:
           }
       }
     after: |
-      package com.example.rewrite.test;
       import org.operaton.bpm.model.bpmn.Bpmn;
       import org.operaton.bpm.model.bpmn.BpmnModelInstance;
 
@@ -102,8 +117,6 @@ examples:
 - description: ''
   sources:
   - before: |
-      package foo;
-
       import org.camunda.bpm.engine.impl.context.Context;
 
       class Test {
@@ -112,8 +125,6 @@ examples:
           }
       }
     after: |
-      package foo;
-
       import org.camunda.bpm.engine.impl.context.Context;
 
       class Test {

@@ -3,6 +3,7 @@ package org.operaton.rewrite;
 import static org.openrewrite.java.Assertions.java;
 
 import org.junit.jupiter.api.Test;
+import org.openrewrite.DocumentExample;
 import org.openrewrite.test.RecipeSpec;
 import org.openrewrite.test.RewriteTest;
 
@@ -13,8 +14,9 @@ class ChangeTypeTest implements RewriteTest {
         spec.recipeFromResources("org.operaton.rewrite.ChangeType", "org.operaton.rewrite.ChangePackage");
     }
 
+    @DocumentExample
     @Test
-    void testChangeInterface() {
+    void changeInterface() {
         rewriteRun(
           java("""
             import org.camunda.bpm.engine.impl.cfg.ProcessEngineConfigurationImpl;
