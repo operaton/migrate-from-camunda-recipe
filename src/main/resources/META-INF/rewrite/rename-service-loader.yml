@@ -21,5 +21,56 @@ description: Rename selected ServiceLoader files in META-INF/services starting w
   .**`.
 recipeList:
   - org.openrewrite.RenameFile:
+      fileMatcher: '**/META-INF/services/org.camunda.bpm.admin.plugin.spi.AdminPlugin'
+      fileName: org.operaton.bpm.admin.plugin.spi.AdminPlugin
+  - org.openrewrite.RenameFile:
+      fileMatcher: '**/META-INF/services/org.camunda.bpm.application.ProcessApplicationElResolver'
+      fileName: org.operaton.bpm.application.ProcessApplicationElResolver
+  - org.openrewrite.RenameFile:
+      fileMatcher: '**/META-INF/services/org.camunda.bpm.cockpit.plugin.spi.CockpitPlugin'
+      fileName: org.operaton.bpm.cockpit.plugin.spi.CockpitPlugin
+  - org.openrewrite.RenameFile:
+      fileMatcher: '**/META-INF/services/org.camunda.bpm.container.impl.plugin.BpmPlatformPlugin'
+      fileName: org.operaton.bpm.container.impl.plugin.BpmPlatformPlugin
+  - org.openrewrite.RenameFile:
+      fileMatcher: '**/META-INF/services/org.camunda.bpm.engine.rest.spi.FetchAndLockHandler'
+      fileName: org.operaton.bpm.engine.rest.spi.FetchAndLockHandler
+  - org.openrewrite.RenameFile:
+      fileMatcher: '**/META-INF/services/org.camunda.bpm.engine.rest.spi.PermissionProvider'
+      fileName: org.operaton.bpm.engine.rest.spi.PermissionProvider
+  - org.openrewrite.RenameFile:
+      fileMatcher: '**/META-INF/services/org.camunda.bpm.engine.rest.spi.ProcessEngineProvider'
+      fileName: org.operaton.bpm.engine.rest.spi.ProcessEngineProvider
+  - org.openrewrite.RenameFile:
+      fileMatcher: '**/META-INF/services/org.camunda.bpm.engine.rest.util.container.ContainerSpecifics'
+      fileName: org.operaton.bpm.engine.rest.util.container.ContainerSpecifics
+  - org.openrewrite.RenameFile:
+      fileMatcher: '**/META-INF/services/org.camunda.bpm.engine.spring.test.SpringTestHelper'
+      fileName: org.operaton.bpm.engine.spring.test.SpringTestHelper
+  - org.openrewrite.RenameFile:
+      fileMatcher: '**/META-INF/services/org.camunda.bpm.tasklist.plugin.spi.TasklistPlugin'
+      fileName: org.operaton.bpm.tasklist.plugin.spi.TasklistPlugin
+  - org.openrewrite.RenameFile:
+      fileMatcher: '**/META-INF/services/org.camunda.bpm.welcome.plugin.spi.WelcomePlugin'
+      fileName: org.operaton.bpm.welcome.plugin.spi.WelcomePlugin
+  # external-task
+  - org.openrewrite.RenameFile:
+      fileMatcher: '**/META-INF/services/org.camunda.bpm.client.spi.DataFormatConfigurator'
+      fileName: org.operaton.bpm.client.spi.DataFormatConfigurator
+  - org.openrewrite.RenameFile:
+      fileMatcher: '**/META-INF/services/org.camunda.bpm.client.spi.DataFormatProvider'
+      fileName: org.operaton.bpm.client.spi.DataFormatProvider
+  # connect
+  - org.openrewrite.RenameFile:
+      fileMatcher: '**/META-INF/services/org.camunda.connect.spi.ConnectorConfigurator'
+      fileName: org.operaton.connect.spi.ConnectorConfigurator
+  - org.openrewrite.RenameFile:
+      fileMatcher: '**/META-INF/services/org.camunda.connect.spi.ConnectorProvider'
+      fileName: org.operaton.connect.spi.ConnectorProvider
+  # spin
+  - org.openrewrite.RenameFile:
       fileMatcher: '**/META-INF/services/org.camunda.spin.spi.DataFormatConfigurator'
       fileName: org.operaton.spin.spi.DataFormatConfigurator
+  - org.openrewrite.RenameFile:
+      fileMatcher: '**/META-INF/services/org.camunda.spin.spi.DataFormatProvider'
+      fileName: org.operaton.spin.spi.DataFormatProvider
