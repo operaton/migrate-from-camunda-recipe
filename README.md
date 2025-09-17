@@ -6,16 +6,28 @@ This repository contains OpenRewrite recipes to help migrate your applications f
 
 The following recipes are available to assist with migration:
 
-1. **MigrateSpringBootApplication** - A comprehensive recipe that applies all the recipes below to migrate a Spring Boot application from Camunda to Operaton.
-2. **ChangePackage** - Renames selected Camunda Java packages to their Operaton counterparts.
-3. **ChangeType** - Replaces usages of Camunda types with their Operaton equivalents when simple class names changed (e.g., `CamundaX` -> `OperatonX`). Complements ChangePackage.
-4. **ChangeMethod** - Replaces calls/overrides of Camunda methods with their Operaton equivalents when method names are containing substring `Camunda`.<br />(e.g., `getCamundaExpression()` -> `getOperatonExpression()`)
-5. **ChangeConstant** - Replaces usage of Camunda constants with their Operaton equivalents when constant names
-are containing substring `Camunda`.<br />(e.g., `org.camunda.bpm.engine.authorization.Groups.CAMUNDA_ADMIN` -> `org.operaton.bpm.engine.authorization.Groups.OPERATON_ADMIN`)    
-6. **ReplaceCamundaDependencies** - Replaces Camunda Maven dependencies with their Operaton equivalents.
-7. **MigrateDeploymentDescriptors** - Updates XML namespace declarations in deployment descriptor files.
-8. **RenameServiceLoader**: Rename selected ServiceLoader files in META-INF/services.
-10. **ResolveDeprecations** - Resolves deprecated API usages.
+### MigrateFromCamunda
+
+**MigrateFromCamunda** - A meta recipe that applies all the necessary migration steps to move a Camunda 7 project to Operaton (aggregates dependency, API, type/package, constants/methods, and descriptor migrations).
+
+1. **ReplaceCamundaDependencies** - Replaces Camunda Maven dependencies with their Operaton equivalents.
+1. **ChangeMethod** - Replaces calls/overrides of Camunda methods with their Operaton equivalents when method names are containing substring `Camunda`.<br />(e.g., `getCamundaExpression()` -> `getOperatonExpression()`)
+1. **ChangeConstant** - Replaces usage of Camunda constants with their Operaton equivalents when constant names
+   are containing substring `Camunda`.<br />(e.g., `org.camunda.bpm.engine.authorization.Groups.CAMUNDA_ADMIN` -> `org.operaton.bpm.engine.authorization.Groups.OPERATON_ADMIN`)
+1. **ChangeType** - Replaces usages of Camunda types with their Operaton equivalents when simple class names changed (e.g., `CamundaX` -> `OperatonX`). Complements ChangePackage.
+1. **ChangePackage** - Renames selected Camunda Java packages to their Operaton counterparts.
+1. **MigrateDeploymentDescriptors** - Updates XML namespace declarations in deployment descriptor files.
+1. **RenameServiceLoader**: Rename selected ServiceLoader files in META-INF/services.
+1. **ResolveDeprecations** - Resolves deprecated API usages.
+
+### MigrateSpringBootApplication
+A meta recipe that applies the generic recipes and all necessary migration steps to migrate a Spring Boot application from Camunda to Operaton.
+
+```xml
+<activeRecipes>
+    <recipe>org.operaton.rewrite.spring.MigrateSpringBootApplication</recipe>
+</activeRecipes>
+```
 
 
 ## Known Issues
@@ -43,7 +55,7 @@ To use these recipes in your Maven-based Spring Boot project, add the following 
             <version>6.18.0</version>
             <configuration>
                 <activeRecipes>
-                    <recipe>org.operaton.rewrite.spring.MigrateSpringBootApplication</recipe>
+                    <recipe>org.operaton.rewrite.MigrateFromCamunda</recipe>
                 </activeRecipes>
             </configuration>
             <dependencies>
@@ -85,7 +97,7 @@ dependencies {
 }
 
 rewrite {
-    activeRecipe("org.operaton.rewrite.spring.MigrateSpringBootApplication")
+    activeRecipe("org.operaton.rewrite.MigrateFromCamunda")
 }
 ```
 
@@ -117,14 +129,14 @@ rewrite {
 
 ## Running Without Modifying the Build
 
-You can also run the MigrateSpringBootApplication recipe without modifying your build files by using the Maven or Gradle command line:
+You can also run the MigrateFromCamunda meta recipe without modifying your build files by using the Maven or Gradle command line:
 
 ### Maven
 
 ```bash
 mvn org.openrewrite.maven:rewrite-maven-plugin:6.18.0:run \
   -Drewrite.recipeArtifactCoordinates=org.operaton:migrate-camunda-recipe:1.0.0-beta-3 \
-  -Drewrite.activeRecipes=org.operaton.rewrite.spring.MigrateSpringBootApplication
+  -Drewrite.activeRecipes=org.operaton.rewrite.MigrateFromCamunda
 ```
 
 ### Gradle
@@ -164,7 +176,7 @@ rootProject {
 ```
 
 ```bash
-./gradlew --init-script init.gradle rewriteRun -Drewrite.activeRecipe=org.operaton.rewrite.spring.MigrateSpringBootApplication
+./gradlew --init-script init.gradle rewriteRun -Drewrite.activeRecipe=org.operaton.rewrite.MigrateFromCamunda
 ```
 
 This approach allows you to apply the migration without adding the plugin to your build configuration.
