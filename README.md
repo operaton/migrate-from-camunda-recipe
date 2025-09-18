@@ -12,9 +12,23 @@ The following recipes are available to assist with migration:
 4. **ChangeMethod** - Replaces calls/overrides of Camunda methods with their Operaton equivalents when method names are containing substring `Camunda`.<br />(e.g., `getCamundaExpression()` -> `getOperatonExpression()`)
 5. **ChangeConstant** - Replaces usage of Camunda constants with their Operaton equivalents when constant names
 are containing substring `Camunda`.<br />(e.g., `org.camunda.bpm.engine.authorization.Groups.CAMUNDA_ADMIN` -> `org.operaton.bpm.engine.authorization.Groups.OPERATON_ADMIN`)    
-4. **ReplaceCamundaDependencies** - Replaces Camunda Maven dependencies with their Operaton equivalents.
-5. **MigrateDeploymentDescriptors** - Updates XML namespace declarations in deployment descriptor files.
-6. **ResolveDeprecations** - Resolves deprecated API usages.
+6. **ReplaceCamundaDependencies** - Replaces Camunda Maven dependencies with their Operaton equivalents.
+7. **MigrateDeploymentDescriptors** - Updates XML namespace declarations in deployment descriptor files.
+8. **RenameServiceLoader**: Rename selected ServiceLoader files in META-INF/services.
+10. **ResolveDeprecations** - Resolves deprecated API usages.
+
+
+## Known Issues
+
+### RenameServiceLoader
+
+When a service loader file which is renamed, contains a class which is relocated (rename-package, or rename-types) from camunda to operaton, the file itself is renamed but the content (the class to be loaded) is not. Please check the output of the rewrite run:
+
+```text
+[WARNING]     org.operaton.rewrite.RenameServiceLoader
+[WARNING]         org.openrewrite.RenameFile: {fileMatcher=**/META-INF/services/org.camunda.spin.spi.DataFormatProvider, fileName=org.operaton.spin.spi.DataFormatProvider}
+```
+If service loader files have been renamed check their contents and make sure the classes loaded are available. 
 
 ## How to Use in a Maven Project
 

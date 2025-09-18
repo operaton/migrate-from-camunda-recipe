@@ -234,6 +234,35 @@ Notes:
 | org.camunda.bpm.spring.boot.starter.webapp.CamundaBpmWebappAutoConfiguration | org.operaton.bpm.spring.boot.starter.webapp.OperatonBpmWebappAutoConfiguration |
 </details>
 
+## ServiceLoader File Renames
+
+The RenameServiceLoader recipe renames specific files under META-INF/services from Camunda to Operaton. These are not Java type renames but service descriptor filenames used by ServiceLoader. The following table lists the mappings:
+
+<details>
+<summary>mapping table</summary>
+
+| Camunda SPI                                                                     | Operaton SPI                                                                     |
+|:--------------------------------------------------------------------------------|:---------------------------------------------------------------------------------|
+| META-INF/services/org.camunda.bpm.admin.plugin.spi.AdminPlugin                  | META-INF/services/org.operaton.bpm.admin.plugin.spi.AdminPlugin                  |
+| META-INF/services/org.camunda.bpm.application.ProcessApplicationElResolver      | META-INF/services/org.operaton.bpm.application.ProcessApplicationElResolver      |
+| META-INF/services/org.camunda.bpm.cockpit.plugin.spi.CockpitPlugin              | META-INF/services/org.operaton.bpm.cockpit.plugin.spi.CockpitPlugin              |
+| META-INF/services/org.camunda.bpm.container.impl.plugin.BpmPlatformPlugin       | META-INF/services/org.operaton.bpm.container.impl.plugin.BpmPlatformPlugin       |
+| META-INF/services/org.camunda.bpm.engine.rest.spi.FetchAndLockHandler           | META-INF/services/org.operaton.bpm.engine.rest.spi.FetchAndLockHandler           |
+| META-INF/services/org.camunda.bpm.engine.rest.spi.PermissionProvider            | META-INF/services/org.operaton.bpm.engine.rest.spi.PermissionProvider            |
+| META-INF/services/org.camunda.bpm.engine.rest.spi.ProcessEngineProvider         | META-INF/services/org.operaton.bpm.engine.rest.spi.ProcessEngineProvider         |
+| META-INF/services/org.camunda.bpm.engine.rest.util.container.ContainerSpecifics | META-INF/services/org.operaton.bpm.engine.rest.util.container.ContainerSpecifics |
+| META-INF/services/org.camunda.bpm.engine.spring.test.SpringTestHelper           | META-INF/services/org.operaton.bpm.engine.spring.test.SpringTestHelper           |
+| META-INF/services/org.camunda.bpm.tasklist.plugin.spi.TasklistPlugin            | META-INF/services/org.operaton.bpm.tasklist.plugin.spi.TasklistPlugin            |
+| META-INF/services/org.camunda.bpm.welcome.plugin.spi.WelcomePlugin              | META-INF/services/org.operaton.bpm.welcome.plugin.spi.WelcomePlugin              |
+| META-INF/services/org.camunda.bpm.client.spi.DataFormatConfigurator             | META-INF/services/org.operaton.bpm.client.spi.DataFormatConfigurator             |
+| META-INF/services/org.camunda.bpm.client.spi.DataFormatProvider                 | META-INF/services/org.operaton.bpm.client.spi.DataFormatProvider                 |
+| META-INF/services/org.camunda.connect.spi.ConnectorConfigurator                 | META-INF/services/org.operaton.connect.spi.ConnectorConfigurator                 |
+| META-INF/services/org.camunda.connect.spi.ConnectorProvider                     | META-INF/services/org.operaton.connect.spi.ConnectorProvider                     |
+| META-INF/services/org.camunda.spin.spi.DataFormatConfigurator                   | META-INF/services/org.operaton.spin.spi.DataFormatConfigurator                   |
+| META-INF/services/org.camunda.spin.spi.DataFormatProvider                       | META-INF/services/org.operaton.spin.spi.DataFormatProvider                       |
+
+</details>
+
 ## Java Constant Changes
 <details>
 <summary>mapping table</summary>
