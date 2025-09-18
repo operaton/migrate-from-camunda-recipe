@@ -1,5 +1,5 @@
 #
-# Copyright 2024 the Operaton contributors.
+# Copyright 2025 the Operaton contributors.
 # <p>
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,13 +15,14 @@
 #
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.operaton.rewrite.spring.MigrateSpringBootApplication
-description: Migrate a spring boot application from camunda to operaton.
-displayName: Migrate a spring boot application from camunda to operaton
+name: org.operaton.rewrite.MigrateFromCamunda
+description: Migrate a Camunda 7 project to Operaton.
+displayName: Migrate a Camunda 7 project to Operaton.
 recipeList:
-  - org.operaton.rewrite.MigrateFromCamunda
-  - org.openrewrite.java.spring.DeleteSpringProperty:
-      propertyKey: camunda.bpm.license-file
-  - org.openrewrite.java.spring.ChangeSpringPropertyKey:
-      oldPropertyKey: camunda.bpm
-      newPropertyKey: operaton.bpm
+  - org.operaton.rewrite.ReplaceCamundaDependencies
+  - org.operaton.rewrite.ChangeMethod
+  - org.operaton.rewrite.ChangeConstant
+  - org.operaton.rewrite.ChangeType
+  - org.operaton.rewrite.ChangePackage
+  - org.operaton.rewrite.MigrateDeploymentDescriptors
+  - org.operaton.rewrite.RenameServiceLoader
