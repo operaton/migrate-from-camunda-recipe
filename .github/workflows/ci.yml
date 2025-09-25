@@ -49,7 +49,11 @@ jobs:
           retention-days: 30
 
   deploy:
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: |
+      github.ref == 'refs/heads/main' &&
+      github.event_name == 'push' &&
+      !contains(github.event.head_commit.message, '[releng]')
+    # '[releng]' is used by JReleaser and a good heuristic to avoid deploying these
     needs: build
     runs-on: ubuntu-latest
     steps:
