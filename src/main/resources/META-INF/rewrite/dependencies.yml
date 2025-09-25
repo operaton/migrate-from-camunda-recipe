@@ -22,353 +22,360 @@ recipeList:
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-engine-cdi-jakarta
       newArtifactId: operaton-engine-cdi
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-engine-spring-6
       newArtifactId: operaton-engine-spring
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-engine-rest-core-jakarta
       newArtifactId: operaton-engine-rest-core
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm.javaee
       newGroupId: org.operaton.bpm.jakartaee
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-ejb-client-jakarta
       newArtifactId: operaton-ejb-client
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm.javaee
       newGroupId: org.operaton.bpm.jakartaee
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-ejb-client
       newArtifactId: operaton-ejb-client
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-engine-rest-jakarta
       newArtifactId: operaton-engine-rest
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm.webapp
       newGroupId: org.operaton.bpm.webapp
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-webapp-jakarta
       newArtifactId: operaton-webapp
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm.webapp
       newGroupId: org.operaton.bpm.webapp
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-webapp-webjar-ee
       newArtifactId: operaton-webapp-webjar
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm.springboot
       newGroupId: org.operaton.bpm.springboot
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-bpm-spring-boot-starter-webapp-ee
       newArtifactId: operaton-bpm-spring-boot-starter-webapp
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-engine
       newArtifactId: operaton-engine
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-engine-cdi
       newArtifactId: operaton-engine-cdi
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-engine-spring
       newArtifactId: operaton-engine-spring
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-engine-rest-core
       newArtifactId: operaton-engine-rest-core
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm.identity
       newGroupId: org.operaton.bpm.identity
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-identity-ldap
       newArtifactId: operaton-identity-ldap
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-engine-plugin-spin
       newArtifactId: operaton-engine-plugin-spin
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-engine-plugin-connect
       newArtifactId: operaton-engine-plugin-connect
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm.juel
       newGroupId: org.operaton.bpm.juel
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-juel
       newArtifactId: operaton-juel
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm.model
       newGroupId: org.operaton.bpm.model
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-xml-model
       newArtifactId: operaton-xml-model
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm.model
       newGroupId: org.operaton.bpm.model
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-bpmn-model
       newArtifactId: operaton-bpmn-model
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm.model
       newGroupId: org.operaton.bpm.model
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-cmmn-model
       newArtifactId: operaton-cmmn-model
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm.model
       newGroupId: org.operaton.bpm.model
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-dmn-model
       newArtifactId: operaton-dmn-model
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-engine-rest
       newArtifactId: operaton-engine-rest
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm.webapp
       newGroupId: org.operaton.bpm.webapp
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-webapp-webjar
       newArtifactId: operaton-webapp-webjar
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm.webapp
       newGroupId: org.operaton.bpm.webapp
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-webapp
       newArtifactId: operaton-webapp
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm.springboot
       newGroupId: org.operaton.bpm.springboot
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-bpm-spring-boot-starter
       newArtifactId: operaton-bpm-spring-boot-starter
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm.springboot
       newGroupId: org.operaton.bpm.springboot
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-bpm-spring-boot-starter-rest
       newArtifactId: operaton-bpm-spring-boot-starter-rest
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm.springboot
       newGroupId: org.operaton.bpm.springboot
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-bpm-spring-boot-starter-webapp
       newArtifactId: operaton-bpm-spring-boot-starter-webapp
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm.springboot
       newGroupId: org.operaton.bpm.springboot
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-bpm-spring-boot-starter-security
       newArtifactId: operaton-bpm-spring-boot-starter-security
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm.springboot
       newGroupId: org.operaton.bpm.springboot
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-bpm-spring-boot-starter-test
       newArtifactId: operaton-bpm-spring-boot-starter-test
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm.quarkus
       newGroupId: org.operaton.bpm.quarkus
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-bpm-quarkus-engine
       newArtifactId: operaton-bpm-quarkus-engine
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-bpm-junit5
       newArtifactId: operaton-bpm-junit5
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-bpm-assert
       newArtifactId: operaton-bpm-assert
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.spin
       newGroupId: org.operaton.spin
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       changeManagedDependency: true
       oldArtifactId: camunda-spin-bom
       newArtifactId: operaton-spin-bom
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.spin
       newGroupId: org.operaton.spin
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-spin-core
       newArtifactId: operaton-spin-core
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.spin
       newGroupId: org.operaton.spin
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-spin-dataformat-all
       newArtifactId: operaton-spin-dataformat-all
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.spin
       newGroupId: org.operaton.spin
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-spin-dataformat-json-jackson
       newArtifactId: operaton-spin-dataformat-json-jackson
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.spin
       newGroupId: org.operaton.spin
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-spin-dataformat-xml-dom
       newArtifactId: operaton-spin-dataformat-xml-dom
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.spin
       newGroupId: org.operaton.spin
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-spin-dataformat-xml-dom-jakarta
       newArtifactId: operaton-spin-dataformat-xml-dom
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.commons
       newGroupId: org.operaton.commons
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       changeManagedDependency: true
       oldArtifactId: camunda-commons-bom
       newArtifactId: operaton-commons-bom
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.commons
       newGroupId: org.operaton.commons
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-commons-logging
       newArtifactId: operaton-commons-logging
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.commons
       newGroupId: org.operaton.commons
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-commons-utils
       newArtifactId: operaton-commons-utils
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.commons
       newGroupId: org.operaton.commons
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-commons-testing
       newArtifactId: operaton-commons-testing
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.commons
       newGroupId: org.operaton.commons
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-commons-typed-values
       newArtifactId: operaton-commons-typed-values
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.template-engines
       newGroupId: org.operaton.template-engines
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-template-engines-freemarker
       newArtifactId: operaton-template-engines-freemarker
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.connect
       newGroupId: org.operaton.connect
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       changeManagedDependency: true
       oldArtifactId: camunda-connect-bom
       newArtifactId: operaton-connect-bom
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.connect
       newGroupId: org.operaton.connect
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-connect-core
       newArtifactId: operaton-connect-core
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.connect
       newGroupId: org.operaton.connect
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-connect-http-client
       newArtifactId: operaton-connect-http-client
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.connect
       newGroupId: org.operaton.connect
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-connect-soap-http-client
       newArtifactId: operaton-connect-soap-http-client
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.connect
       newGroupId: org.operaton.connect
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-connect-connectors-all
       newArtifactId: operaton-connect-connectors-all
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm.dmn
       newGroupId: org.operaton.bpm.dmn
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-engine-dmn
       newArtifactId: operaton-engine-dmn
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm.dmn
       newGroupId: org.operaton.bpm.dmn
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-engine-feel-api
       newArtifactId: operaton-engine-feel-api
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm.dmn
       newGroupId: org.operaton.bpm.dmn
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-engine-feel-juel
       newArtifactId: operaton-engine-feel-juel
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm.dmn
       newGroupId: org.operaton.bpm.dmn
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-engine-feel-scala
       newArtifactId: operaton-engine-feel-scala
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-external-task-client
       newArtifactId: operaton-external-task-client
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-external-task-client-spring
       newArtifactId: operaton-external-task-client-spring
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm.springboot
       newGroupId: org.operaton.bpm.springboot
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-bpm-spring-boot-starter-external-task-client
       newArtifactId: operaton-bpm-spring-boot-starter-external-task-client
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       changeManagedDependency: true
       oldArtifactId: camunda-only-bom
       newArtifactId: operaton-only-bom
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
-      newVersion: 1.0.0-beta-4
+      newVersion: 1.0.0-beta-5
       changeManagedDependency: true
       oldArtifactId: camunda-bom
       newArtifactId: operaton-bom
+  - org.openrewrite.java.dependencies.ChangeDependency:
+      oldGroupId: org.camunda.bpm.extension
+      newGroupId: org.operaton.bpm.extension
+      newVersion: 1.0.0-beta-1
+      changeManagedDependency: true
+      oldArtifactId: camunda-platform-7-keycloak
+      newArtifactId: operaton-keycloak

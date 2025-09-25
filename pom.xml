@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.operaton</groupId>
     <artifactId>migrate-camunda-recipe</artifactId>
-    <version>1.0.0-alpha-2-SNAPSHOT</version>
+    <version>1.0.0-beta-4-SNAPSHOT</version>
 
     <name>Operaton - Migrate Camunda Recipe</name>
     <description>Open Rewrite recipes for the migration from Camunda 7 to Operaton</description>
@@ -14,14 +14,14 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <version.camunda>7.23.0</version.camunda>
-        <version.operaton>1.0.0-beta-4</version.operaton>
+        <version.operaton>1.0.0-beta-5</version.operaton>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.38</version>
+            <version>1.18.40</version>
             <scope>provided</scope>
             <optional>true</optional>
         </dependency>
@@ -83,6 +83,21 @@
             <version>${version.camunda}</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.camunda.bpm.springboot</groupId>
+            <artifactId>camunda-bpm-spring-boot-starter</artifactId>
+            <version>${version.camunda}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+          <groupId>org.camunda.bpm.springboot</groupId>
+          <artifactId>camunda-bpm-spring-boot-starter-webapp</artifactId>
+          <version>${version.camunda}</version>
+          <scope>test</scope>
+        </dependency>
+
         <!-- Operaton dependencies -->
         <dependency>
             <groupId>org.operaton.bpm</groupId>
@@ -119,7 +134,7 @@
             <dependency>
                 <groupId>org.openrewrite.recipe</groupId>
                 <artifactId>rewrite-recipe-bom</artifactId>
-                <version>3.13.0</version>
+                <version>3.14.1</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -151,12 +166,12 @@
                         <path>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
-                            <version>1.18.38</version>
+                            <version>1.18.40</version>
                         </path>
                         <path>
                             <groupId>org.openrewrite</groupId>
                             <artifactId>rewrite-templating</artifactId>
-                            <version>1.33.0</version>
+                            <version>1.35.0</version>
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
@@ -169,7 +184,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
-                <version>3.5.3</version>
+                <version>3.5.4</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -208,7 +223,7 @@
             <plugin>
                 <groupId>org.openrewrite.maven</groupId>
                 <artifactId>rewrite-maven-plugin</artifactId>
-                <version>6.16.0</version>
+                <version>6.18.0</version>
                 <configuration>
                     <activeRecipes>
                         <activeRecipe>org.openrewrite.recipes.rewrite.OpenRewriteRecipeBestPractices</activeRecipe>
@@ -219,7 +234,7 @@
                     <dependency>
                         <groupId>org.openrewrite.recipe</groupId>
                         <artifactId>rewrite-rewrite</artifactId>
-                        <version>0.10.1</version>
+                        <version>0.12.2</version>
                     </dependency>
                 </dependencies>
             </plugin>
@@ -268,7 +283,7 @@
                     <plugin>
                         <groupId>org.jreleaser</groupId>
                         <artifactId>jreleaser-maven-plugin</artifactId>
-                        <version>1.19.0</version>
+                        <version>1.20.0</version>
                         <inherited>false</inherited>
                     </plugin>
                 </plugins>

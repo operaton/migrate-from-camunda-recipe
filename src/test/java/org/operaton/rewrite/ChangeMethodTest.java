@@ -7,10 +7,14 @@ import org.openrewrite.DocumentExample;
 import org.openrewrite.test.RecipeSpec;
 import org.openrewrite.test.RewriteTest;
 
-class MigrateBpmnModelTest implements RewriteTest {
+class ChangeMethodTest implements RewriteTest {
+
     @Override
     public void defaults(RecipeSpec spec) {
-        spec.recipeFromResources("org.operaton.rewrite.MigrateBpmnModel");
+        spec.recipeFromResources(
+          "org.operaton.rewrite.ChangeMethod",
+          "org.operaton.rewrite.ChangeType",
+          "org.operaton.rewrite.ChangePackage");
     }
 
     @DocumentExample
@@ -18,7 +22,7 @@ class MigrateBpmnModelTest implements RewriteTest {
     void migrateBpmnModelInstance() {
         rewriteRun(
           java(
-            """
+              """
               import org.camunda.bpm.model.bpmn.Bpmn;
               import org.camunda.bpm.model.bpmn.BpmnModelInstance;
 
@@ -44,7 +48,7 @@ class MigrateBpmnModelTest implements RewriteTest {
               """
               import org.operaton.bpm.model.bpmn.Bpmn;
               import org.operaton.bpm.model.bpmn.BpmnModelInstance;
-
+              
               class TestBpmnModelBuilder {
                   void testCamundaBpmnModelBuilder() {
                       BpmnModelInstance orderProcess = Bpmn.createProcess()
@@ -71,9 +75,7 @@ class MigrateBpmnModelTest implements RewriteTest {
     @Test
     void migrateBpmnProcessInstance() {
         rewriteRun(java(
-                """
-            package org.operaton.rewrite;
-            
+            """
             import org.camunda.bpm.model.bpmn.BpmnModelInstance;
             import org.camunda.bpm.model.bpmn.instance.Process;
             
@@ -92,9 +94,7 @@ class MigrateBpmnModelTest implements RewriteTest {
                 }
             }
             """,
-                """
-            package org.operaton.rewrite;
-            
+            """
             import org.operaton.bpm.model.bpmn.BpmnModelInstance;
             import org.operaton.bpm.model.bpmn.instance.Process;
             
@@ -111,6 +111,49 @@ class MigrateBpmnModelTest implements RewriteTest {
                     System.out.println(process.getOperatonVersionTag());
                     System.out.println(process.getOperatonJobPriority());
                 }
+            }
+            """));
+    }
+
+    @Test
+    void migrateOverridenMethod() {
+        rewriteRun(java(
+            """
+            import org.camunda.bpm.model.xml.impl.instance.ModelTypeInstanceContext;
+            import org.camunda.bpm.model.cmmn.impl.instance.camunda.CamundaVariableListenerImpl;
+            import org.camunda.bpm.model.cmmn.instance.camunda.CamundaScript;
+            import org.camunda.bpm.model.cmmn.instance.camunda.CamundaVariableListener;
+            
+            public class CustomVariableListener extends CamundaVariableListenerImpl implements CamundaVariableListener {
+            
+              public CustomVariableListener(ModelTypeInstanceContext instanceContext) {
+                super(instanceContext);
+              }
+            
+              @Override
+              public void setCamundaScript(CamundaScript script) {
+                System.out.println("test");
+                super.setCamundaScript(script);
+              }
+            }
+            """,
+            """
+            import org.operaton.bpm.model.xml.impl.instance.ModelTypeInstanceContext;
+            import org.operaton.bpm.model.cmmn.impl.instance.operaton.OperatonVariableListenerImpl;
+            import org.operaton.bpm.model.cmmn.instance.operaton.OperatonScript;
+            import org.operaton.bpm.model.cmmn.instance.operaton.OperatonVariableListener;
+            
+            public class CustomVariableListener extends OperatonVariableListenerImpl implements OperatonVariableListener {
+            
+              public CustomVariableListener(ModelTypeInstanceContext instanceContext) {
+                super(instanceContext);
+              }
+            
+              @Override
+              public void setOperatonScript(OperatonScript script) {
+                System.out.println("test");
+                super.setOperatonScript(script);
+              }
             }
             """));
     }
