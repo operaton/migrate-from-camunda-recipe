@@ -490,3 +490,9 @@ recipeList:
   - org.openrewrite.java.ReplaceConstantWithAnotherConstant:
       existingFullyQualifiedConstantName: org.camunda.bpm.spring.boot.starter.security.oauth2.CamundaSpringSecurityOAuth2AutoConfiguration.CAMUNDA_OAUTH2_ORDER
       fullyQualifiedConstantName: org.operaton.bpm.spring.boot.starter.security.oauth2.OperatonSpringSecurityOAuth2AutoConfiguration.OPERATON_OAUTH2_ORDER
+  - org.openrewrite.java.ReplaceConstantWithAnotherConstant:
+      existingFullyQualifiedConstantName: org.camunda.bpm.engine.impl.diagnostics.CAMUNDA_BPM_RUN
+      fullyQualifiedConstantName: org.operaton.bpm.engine.impl.diagnostics.OPERATON_BPM_RUN
+  - org.openrewrite.java.ReplaceConstantWithAnotherConstant:
+      existingFullyQualifiedConstantName: org.camunda.bpm.engine.impl.diagnostics.CAMUNDA_EJB_SERVICE
+      fullyQualifiedConstantName: org.operaton.bpm.engine.impl.diagnostics.OPERATON_EJB_SERVICE
