@@ -1,0 +1,41 @@
+#
+# Copyright 2025 the Operaton contributors.
+# <p>
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# <p>
+# https://www.apache.org/licenses/LICENSE-2.0
+# <p>
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: org.operaton.rewrite.MoveTestClasses
+displayName: Handle Operaton test classes relocation
+description: Move various classes for test support in new packages and a new artifact.
+recipeList:
+  - org.openrewrite.java.dependencies.AddDependency:
+      groupId: org.operaton.bpm
+      artifactId: operaton-engine
+      version: 1.0.+
+      scope: test
+      classifier: junit4
+      onlyIfUsing: org.junit.Test
+  - org.openrewrite.java.dependencies.AddDependency:
+      groupId: org.operaton.bpm
+      artifactId: operaton-engine
+      version: 1.0.+
+      scope: test
+      classifier: junit5
+      onlyIfUsing: org.junit.jupiter.Test
+  - org.openrewrite.java.ChangeType:
+      oldFullyQualifiedTypeName: org.operaton.bpm.engine.test.mock.Mocks
+      newFullyQualifiedTypeName: org.operaton.bpm.engine.impl.mock.Mocks
+  - org.openrewrite.java.ChangeType:
+      oldFullyQualifiedTypeName: org.operaton.bpm.engine.test.mock.MockExpressionManager;
+      newFullyQualifiedTypeName: org.operaton.bpm.engine.impl.mock.MockExpressionManager
