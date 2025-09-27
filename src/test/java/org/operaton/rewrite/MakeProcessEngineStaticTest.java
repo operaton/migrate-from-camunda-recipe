@@ -45,11 +45,6 @@ class MakeProcessEngineStaticTest implements RewriteTest{
                 private ProcessEngineExtension extension = ProcessEngineExtension.builder()
                     .configurationResource("operaton.local.cfg.xml")
                     .build();
-
-                public void someMethod() {
-                    this.extension = null;
-                    this.extension.toString();
-                }
             }
             """,
             """
@@ -59,11 +54,6 @@ class MakeProcessEngineStaticTest implements RewriteTest{
                 private static ProcessEngineExtension extension = ProcessEngineExtension.builder()
                     .configurationResource("operaton.local.cfg.xml")
                     .build();
-
-                public void someMethod() {
-                    this.extension = null;
-                    this.extension.toString();
-                }
             }
             """
             )
@@ -91,29 +81,11 @@ class MakeProcessEngineStaticTest implements RewriteTest{
         }
 
         @Test
-        void notPrivate() {
-            rewriteRun(
-              java(
-                //language=java
-                """
-                import org.operaton.bpm.engine.ProcessEngineExtension;
-
-                public class Example {
-                    static ProcessEngineExtension extension = ProcessEngineExtension.builder()
-                        .configurationResource("operaton.local.cfg.xml")
-                        .build();
-                }
-                  """
-              )
-            );
-        }
-
-        @Test
         void differentClass() {
             rewriteRun(
                 java(
                     """
-                    public class OtherClass { }        
+                    public class OtherClass { }
                     """
                 ),
                 java(

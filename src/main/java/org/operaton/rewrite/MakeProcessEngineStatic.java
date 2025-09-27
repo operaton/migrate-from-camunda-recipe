@@ -37,7 +37,7 @@ public class MakeProcessEngineStatic extends Recipe {
 
     @Override
     public TreeVisitor<?, ExecutionContext> getVisitor() {
-        return new JavaVisitor<ExecutionContext>() {
+        return new JavaVisitor<>() {
             final TypeMatcher processEngineExtensionType = new TypeMatcher("org.operaton.bpm.engine.ProcessEngineExtension");
             
             @Override
@@ -47,8 +47,8 @@ public class MakeProcessEngineStatic extends Recipe {
                     return multiVariable;
                 }
 
-                // skip if not private or already static
-                if (!multiVariable.hasModifier(J.Modifier.Type.Private) || multiVariable.hasModifier(J.Modifier.Type.Static)) {
+                // skip if already static
+                if (multiVariable.hasModifier(J.Modifier.Type.Static)) {
                     return multiVariable;
                 }
 
