@@ -1,5 +1,5 @@
 #
-# Copyright 2024 the Operaton contributors.
+# Copyright 2025 the Operaton contributors.
 # <p>
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,12 +19,7 @@ name: org.operaton.rewrite.quarkus.MigrateQuarkusApplication
 description: Migrate a Quarkus application from Camunda to Operaton.
 displayName: Migrate a Quarkus application from Camunda to Operaton
 recipeList:
-  - org.operaton.rewrite.ReplaceCamundaDependencies
-  - org.operaton.rewrite.ChangeMethod
-  - org.operaton.rewrite.ChangeConstant
-  - org.operaton.rewrite.ChangeType
-  - org.operaton.rewrite.ChangePackage
-  - org.operaton.rewrite.MigrateDeploymentDescriptors
+  - org.operaton.rewrite.MigrateFromCamunda
   - org.openrewrite.quarkus.DeleteQuarkusProperty:
       propertyKey: camunda.bpm.license-file
   - org.openrewrite.quarkus.ChangeQuarkusPropertyKey:
