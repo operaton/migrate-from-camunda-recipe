@@ -413,3 +413,6 @@ recipeList:
   - org.openrewrite.java.ChangeType:
       oldFullyQualifiedTypeName: org.camunda.bpm.spring.boot.starter.webapp.CamundaBpmWebappAutoConfiguration
       newFullyQualifiedTypeName: org.operaton.bpm.spring.boot.starter.webapp.OperatonBpmWebappAutoConfiguration
+  - org.openrewrite.java.ChangeType:
+      oldFullyQualifiedTypeName: org.camunda.bpm.engine.impl.util.CollectionUtil
+      newFullyQualifiedTypeName: org.operaton.commons.utils.CollectionUtil
