@@ -22,14 +22,14 @@ recipeList:
   - org.openrewrite.java.dependencies.AddDependency:
       groupId: org.operaton.bpm
       artifactId: operaton-engine
-      version: 1.0.+
+      version: 1.0.0-beta-5
       scope: test
       classifier: junit4
       onlyIfUsing: org.junit.Test
   - org.openrewrite.java.dependencies.AddDependency:
       groupId: org.operaton.bpm
       artifactId: operaton-engine
-      version: 1.0.+
+      version: 1.0.0-beta-5
       scope: test
       classifier: junit5
       onlyIfUsing: org.junit.jupiter.Test
@@ -37,5 +37,12 @@ recipeList:
       oldFullyQualifiedTypeName: org.operaton.bpm.engine.test.mock.Mocks
       newFullyQualifiedTypeName: org.operaton.bpm.engine.impl.mock.Mocks
   - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.operaton.bpm.engine.test.mock.MockExpressionManager;
+      oldFullyQualifiedTypeName: org.operaton.bpm.engine.test.mock.MockExpressionManager
       newFullyQualifiedTypeName: org.operaton.bpm.engine.impl.mock.MockExpressionManager
+  - org.openrewrite.java.ChangeType:
+      oldFullyQualifiedTypeName: org.operaton.bpm.engine.test.mock.MockElResolver
+      newFullyQualifiedTypeName: org.operaton.bpm.engine.impl.mock.MockElResolver
+  - org.openrewrite.java.ChangeType:
+      oldFullyQualifiedTypeName: org.operaton.bpm.engine.test.mock.MocksResolverFactory
+      newFullyQualifiedTypeName: org.operaton.bpm.engine.impl.mock.MocksResolverFactory
+
