@@ -127,7 +127,7 @@
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
-            <version>3.27.4</version>
+            <version>3.27.6</version>
             <scope>test</scope>
         </dependency>
 
@@ -175,7 +175,7 @@
                         <path>
                             <groupId>org.openrewrite</groupId>
                             <artifactId>rewrite-templating</artifactId>
-                            <version>1.35.0</version>
+                            <version>1.36.1</version>
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
@@ -203,7 +203,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>3.9.0</version>
                 <executions>
                     <execution>
                         <id>copy</id>
@@ -227,7 +227,7 @@
             <plugin>
                 <groupId>org.openrewrite.maven</groupId>
                 <artifactId>rewrite-maven-plugin</artifactId>
-                <version>6.18.0</version>
+                <version>6.19.0</version>
                 <configuration>
                     <activeRecipes>
                         <activeRecipe>org.openrewrite.recipes.rewrite.OpenRewriteRecipeBestPractices</activeRecipe>
@@ -238,7 +238,7 @@
                     <dependency>
                         <groupId>org.openrewrite.recipe</groupId>
                         <artifactId>rewrite-rewrite</artifactId>
-                        <version>0.12.2</version>
+                        <version>0.13.0</version>
                     </dependency>
                 </dependencies>
             </plugin>
