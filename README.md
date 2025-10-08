@@ -29,6 +29,14 @@ A meta recipe that applies the generic recipes and all necessary migration steps
 </activeRecipes>
 ```
 
+### MigrateQuarkusApplication
+A meta recipe that applies the generic recipes and all necessary migration steps to migrate a Quarkus application from Camunda to Operaton.
+
+```xml
+<activeRecipes>
+    <recipe>org.operaton.rewrite.quarkus.MigrateQuarkusApplication</recipe>
+</activeRecipes>
+```
 
 ## Known Issues
 
