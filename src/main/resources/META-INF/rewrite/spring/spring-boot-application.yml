@@ -28,16 +28,20 @@ recipeList:
       groupId: org.operaton.bpm
       artifactId: operaton-engine
       scope: test
+  - org.openrewrite.java.dependencies.RemoveDependency:
+      groupId: org.operaton.bpm.springboot
+      artifactId: operaton-bpm-spring-boot-starter-test
+      scope: compile
   - org.openrewrite.java.dependencies.AddDependency:
       groupId: org.operaton.bpm.springboot
       artifactId: operaton-bpm-spring-boot-starter-test
-      version: 1.0.0-beta-5
+      version: 1.0.0-rc-1-SNAPSHOT
       scope: test
       onlyIfUsing: org.junit.Test
   - org.openrewrite.java.dependencies.AddDependency:
       groupId: org.operaton.bpm.springboot
       artifactId: operaton-bpm-spring-boot-starter-test-junit5
-      version: 1.0.0-beta-5
+      version: 1.0.0-rc-1-SNAPSHOT
       scope: test
       onlyIfUsing: org.junit.jupiter.Test
   - org.openrewrite.java.spring.DeleteSpringProperty:
