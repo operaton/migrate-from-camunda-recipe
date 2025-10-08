@@ -79,6 +79,20 @@ recipeList:
       newVersion: 1.0.0-beta-5
       oldArtifactId: camunda-engine
       newArtifactId: operaton-engine
+  - org.openrewrite.java.dependencies.AddDependency:
+        groupId: org.operaton.bpm
+        artifactId: operaton-engine
+        version: 1.0.0-beta-5
+        scope: test
+        classifier: junit4
+        onlyIfUsing: org.junit.Test
+  - org.openrewrite.java.dependencies.AddDependency:
+        groupId: org.operaton.bpm
+        artifactId: operaton-engine
+        version: 1.0.0-beta-5
+        scope: test
+        classifier: junit5
+        onlyIfUsing: org.junit.jupiter.Test
   - org.openrewrite.java.dependencies.ChangeDependency:
       oldGroupId: org.camunda.bpm
       newGroupId: org.operaton.bpm
