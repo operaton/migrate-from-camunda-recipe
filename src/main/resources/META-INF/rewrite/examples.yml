@@ -110,6 +110,31 @@ examples:
           }
       }
     language: java
+- description: ''
+  sources:
+  - before: |-
+      import org.camunda.bpm.engine.impl.cfg.ProcessEngineConfigurationImpl;
+      import org.camunda.bpm.spring.boot.starter.configuration.CamundaProcessEngineConfiguration;
+
+      public class Test implements CamundaProcessEngineConfiguration {
+
+          @Override
+          public void preInit(ProcessEngineConfigurationImpl processEngineConfiguration) {
+              System.out.println("test pre-init");
+          }
+      }
+    after: |-
+      import org.operaton.bpm.engine.impl.cfg.ProcessEngineConfigurationImpl;
+      import org.operaton.bpm.spring.boot.starter.configuration.OperatonProcessEngineConfiguration;
+
+      public class Test implements OperatonProcessEngineConfiguration {
+
+          @Override
+          public void preInit(ProcessEngineConfigurationImpl processEngineConfiguration) {
+              System.out.println("test pre-init");
+          }
+      }
+    language: java
 ---
 type: specs.openrewrite.org/v1beta/example
 recipeName: org.operaton.rewrite.deprecation.ReplaceGetExecutionContext

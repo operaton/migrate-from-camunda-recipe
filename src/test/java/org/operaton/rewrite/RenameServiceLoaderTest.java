@@ -20,6 +20,7 @@ import static org.openrewrite.test.SourceSpecs.text;
 
 import java.nio.file.Path;
 import org.junit.jupiter.api.Test;
+import org.openrewrite.DocumentExample;
 import org.openrewrite.test.RecipeSpec;
 import org.openrewrite.test.RewriteTest;
 
@@ -30,6 +31,7 @@ class RenameServiceLoaderTest implements RewriteTest {
         spec.recipeFromResources("org.operaton.rewrite.RenameServiceLoader");
     }
 
+    @DocumentExample
     @Test
     void hasFileMatch() {
         // HEADS-UP: fqdn in a service loader file would not be renamed.
