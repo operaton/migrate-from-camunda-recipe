@@ -35,13 +35,13 @@ recipeList:
   - org.openrewrite.java.dependencies.AddDependency:
       groupId: org.operaton.bpm.springboot
       artifactId: operaton-bpm-spring-boot-starter-test
-      version: 1.0.0-rc-1-SNAPSHOT
+      version: 1.0.0-rc-1
       scope: test
       onlyIfUsing: org.junit.Test
   - org.openrewrite.java.dependencies.AddDependency:
       groupId: org.operaton.bpm.springboot
       artifactId: operaton-bpm-spring-boot-starter-test-junit5
-      version: 1.0.0-rc-1-SNAPSHOT
+      version: 1.0.0-rc-1
       scope: test
       onlyIfUsing: org.junit.jupiter.Test
   - org.openrewrite.java.spring.DeleteSpringProperty:
