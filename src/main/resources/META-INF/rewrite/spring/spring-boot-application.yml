@@ -25,10 +25,6 @@ recipeList:
       artifactId: operaton-engine
       scope: test
   - org.openrewrite.java.dependencies.RemoveDependency:
-      groupId: org.operaton.bpm
-      artifactId: operaton-engine
-      scope: test
-  - org.openrewrite.java.dependencies.RemoveDependency:
       groupId: org.operaton.bpm.springboot
       artifactId: operaton-bpm-spring-boot-starter-test
       scope: compile
