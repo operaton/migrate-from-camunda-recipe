@@ -2,14 +2,13 @@ This project provides an Open Rewrite Recipe to migrate a Camunda 7 Instance to 
 
 # About this release
 
-New Meta Recipes: MigrateFromCamunda and MigrateQuarkusApplication. Introduce RenameServiceLoader recipe.
+Support Junit4/Junit5 test dependencies and relocated packages.
 
 ## New Recipes
-- org.operaton.rewrite.MigrateFromCamunda
-- org.operaton.rewrite.RenameServiceLoader
-- org.operaton.rewrite.quarkus.MigrateQuarkusApplication
 
 ## Updated Recipes
+
+- org.operaton.rewrite.MigrateFromCamunda
 - org.operaton.rewrite.spring.MigrateSpringBootApplication
 
 ## Changelog
