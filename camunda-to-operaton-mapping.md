@@ -1510,3 +1510,16 @@ The RenameServiceLoader recipe renames specific files under META-INF/services fr
 | org.camunda.bpm.spring.boot.starter.rest.CamundaJerseyResourceConfig.registerCamundaRestResources | org.operaton.bpm.spring.boot.starter.rest.OperatonJerseyResourceConfig.registerOperatonRestResources |
 | org.camunda.bpm.spring.boot.starter.webapp.CamundaBpmWebappAutoConfiguration.camundaBpmWebappInitializer | org.operaton.bpm.spring.boot.starter.webapp.OperatonBpmWebappAutoConfiguration.operatonBpmWebappInitializer |
 </details>
+
+
+## Classes moved to different packages
+
+Some classes have been relocated between packages as part of the migration. The following mappings are applied by the recipe.
+
+| original class | new class |
+|:---|:---|
+| org.camunda.bpm.engine.impl.util.CollectionUtil | org.operaton.commons.utils.CollectionUtil |
+| org.operaton.bpm.engine.test.mock.Mocks | org.operaton.bpm.engine.impl.mock.Mocks |
+| org.operaton.bpm.engine.test.mock.MockExpressionManager | org.operaton.bpm.engine.impl.mock.MockExpressionManager |
+| org.operaton.bpm.engine.test.mock.MockElResolver | org.operaton.bpm.engine.impl.mock.MockElResolver |
+| org.operaton.bpm.engine.test.mock.MocksResolverFactory | org.operaton.bpm.engine.impl.mock.MocksResolverFactory |
