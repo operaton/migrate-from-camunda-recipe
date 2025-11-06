@@ -1,6 +1,6 @@
 # Migrate from Camunda to Operaton Recipes
 
-This repository contains OpenRewrite recipes to help migrate your applications from Camunda to Operaton.
+This repository contains [OpenRewrite](https://docs.openrewrite.org/) recipes to help migrate your applications from [Camunda 7](https://docs.camunda.org/manual/7.24) to Operaton.
 
 ## Available Recipes
 
