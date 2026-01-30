@@ -91,7 +91,7 @@ For Gradle projects, add the following to your `build.gradle`:
 ```groovy
 plugins {
     id("java")
-    id("org.openrewrite.rewrite") version("7.20.0")
+    id("org.openrewrite.rewrite") version("7.25.0")
 }
 
 repositories {
@@ -157,7 +157,7 @@ initscript {
     maven { url "https://plugins.gradle.org/m2" }
   }
   dependencies {
-    classpath("org.openrewrite:plugin:7.20.0")
+    classpath("org.openrewrite:plugin:7.25.0")
   }
 }
 
