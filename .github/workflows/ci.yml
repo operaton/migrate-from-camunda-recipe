@@ -36,7 +36,7 @@ jobs:
         run: ./mvnw verify
       - name: Publish Test Report
         if: always()
-        uses: mikepenz/action-junit-report@v4 #https://github.com/marketplace/actions/junit-report-action
+        uses: mikepenz/action-junit-report@v6 #https://github.com/marketplace/actions/junit-report-action
         with:
           report_paths: ${{ github.workspace }}/**/target/surefire-reports/*.xml
           require_passed_tests: true
