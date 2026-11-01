@@ -42,7 +42,7 @@ jobs:
           require_passed_tests: true
       - name: Upload Surefire Reports
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: surefire-reports
           path: ${{ github.workspace }}/**/target/surefire-reports/**
